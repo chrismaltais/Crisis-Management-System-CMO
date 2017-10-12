@@ -2,10 +2,12 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
-    <head>
-        <title>3003 maps v2</title>
+   <head>
+        <title>3003 maps v5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <style>
             #map{
                 height: 800px;
@@ -14,11 +16,25 @@
         </style>
     </head>
     <body>
-        <h1>
-            3003 map version 2
-        </h1>
-        <div id="map"> </div>
-        <script>
+		<button>police </button>
+		<button> ambulance</button>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0" type = "text/javascript"></script>
+        <div id = "json">
+			<p txt="demo.txt"></p> 
+		</div>
+		<div id="map"> </div>
+		<script> //for obtaining coordinates
+			var inputCoord = '{"x1":1.303233, "x2":1.290276, "x3":1.311814, "y1":103.809763, "y2":103.846070, "y3":103.857142}';
+			/*//accept input JSON file
+			var inputCoord = accept();
+			*/
+			var coordinates = JSON.parse(inputCoord);
+			var centerX= (coordinates.x1 + coordinates.x2 + coordinates.x3)/3;
+			var centerY= (coordinates.y1 + coordinates.y2 + coordinates.y3)/3;
+		</script>
+		
+		
+		<script> // for initialization of map
             function initMap(){
                 //map options
                 var options ={
@@ -26,21 +42,24 @@
                     center:{lat:1.3521,lng:103.8198}
                 };
                 var map = new google.maps.Map(document.getElementById('map'),options);
-                //cleaner iteration 3 - array of markers
+				
+				
+               				
+				//cleaner iteration 3 - array of markers
                 var markers = [
                  //this array specify the default markers loaded when map starts
                     {//1
-                        coords: {lat:1.350491,lng:103.682087},
-                        iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                        content: '<h1>NTU</h1>'
+                        coords: {lat:coordinates.x1,lng:coordinates.y1},
+                        //iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                        content: '<h3>Coordinate 1</h3>'
                     },
                     {//2
-                        coords:{lat:1.423868,lng:103.860874},
-                        content:'<h1>Yishun Dam </h1>'    
+                        coords:{lat:coordinates.x2,lng:coordinates.y2},
+						content:'<h3>Coordinate 2</h3>'    
                     },
                     {//3
-                        coords:{lat:1.279076,lng:103.855119},
-                        content: '<h1>MBFC tower 3</h1>'
+                        coords:{lat:coordinates.x3,lng:coordinates.y3},
+                        content: '<h3>Coordinate 3</h3>'
                     }
                     ]; // this array of markers sets the default locations, can be stored in a DB
                     // can create a form to pass in the marker parameters from the database
@@ -82,11 +101,32 @@
                                      });
                     }
                 }
-                
+				
+				var centerMarker = new google.maps.Marker({
+						position:{lat:centerX,lng:centerY},
+						icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+						map:map                   
+                });
+				var AOE = new google.maps.Circle(
+					{
+					map:map,
+					radius: 4500,
+					fillColor: '#0000ff'
+					}
+				);
+				AOE.bindTo('center', centerMarker,'position');
         }
+		 
          </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&callback=initMap"
-        type="text/javascript"></script>
+		 <script> 
+				google.maps.event.addDomListener(window, 'load', initMap);
+				google.maps.event.addDomListener(window, 'resize', initMap);
+		 </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+        
+
 </html>
 <!--
 other functions
