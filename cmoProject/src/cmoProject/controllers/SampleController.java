@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SampleController {
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/sample", method = RequestMethod.GET)
     public String printHello(ModelMap model){
         
         // Add content to replace ${message} with "Hello from the other side"
