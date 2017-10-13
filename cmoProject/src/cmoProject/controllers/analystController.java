@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class analystController {
-	
+
 	// login session
-	private boolean login=false;
+	private boolean login = false;
 
 	public boolean isLogin() {
 		return login;
