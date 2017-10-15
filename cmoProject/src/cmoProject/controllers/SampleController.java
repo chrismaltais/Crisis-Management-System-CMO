@@ -10,6 +10,8 @@ public class SampleController {
     
     @RequestMapping(value = "/sample", method = RequestMethod.GET)
     public String printHello(ModelMap model){
+    	
+    	System.out.println("Hawks");
         
         // Add content to replace ${message} with "Hello from the other side"
         model.addAttribute("message", "Hello from the other side");
