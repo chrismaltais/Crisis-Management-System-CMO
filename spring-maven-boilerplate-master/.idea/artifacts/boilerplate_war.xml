@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="boilerplate:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="boilerplate.war">
+      <element id="artifact" artifact-name="boilerplate:war exploded" />
+    </root>
+  </artifact>
+</component>
