@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<!-- use below 2 beans if you have MySQL -->
+	<!-- SampleEntityDAOImpl class has been coded to drop table SampleEntity if exists and recreate -->
+
+	<bean id="sampleEntityDAO" class="cmoProject.sample.SampleEntityDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/test" />
+		<property name="username" value="cmoUser" />
+		<property name="password" value="cmoPassword" />
+	</bean>
+	
+	
+	<!-- use below if you don't have MySQL -->
+	<!-- SampleEntityDAOImplPseudo class uses List<SampleEntity> as database -->
+	<!-- bean id = "sampleEntityDAO" class = "cmoProject.sample.SampleEntityDAOImplPseudo" / -->
+
+</beans>

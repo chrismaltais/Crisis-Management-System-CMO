@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import cmoProject.entities.Report;
-import nesims.main.config.CustomErrorType;
+import cmoProject.controllers.CustomErrorType;
  
 @RestController
 @RequestMapping("/api")
