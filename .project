@@ -6,9 +6,12 @@
 	</projects>
 	<buildSpec>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	</buildSpec>
 	<natures>
 =======
+=======
+>>>>>>> master
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -17,6 +20,9 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 	</natures>
 </projectDescription>
