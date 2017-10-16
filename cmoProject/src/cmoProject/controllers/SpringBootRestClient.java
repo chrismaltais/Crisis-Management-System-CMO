@@ -1,14 +1,15 @@
 //This is for PMO to call CMO's API
 //Specify their URI
 //Create a method like createReport() to POST to their service
-package nesims.main;
+package cmoProject.controllers;
 
 import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import nesims.main.model.Report;
 import org.springframework.web.client.RestTemplate;
+
+import cmoProject.entities.Report;
 
 public class SpringBootRestClient {
 

@@ -1,4 +1,4 @@
-package nesims.main.model;
+package cmoProject.entities;
 
 public class Report {
 	

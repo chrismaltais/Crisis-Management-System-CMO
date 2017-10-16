@@ -1,5 +1,5 @@
 //This is for CMO to call our API POST method
-package nesims.main.controller;
+package cmoProject.controllers;
 
 import java.util.List;
 
@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
- 
-import nesims.main.model.Report;
-import nesims.main.service.ReportRepository;
+
+import cmoProject.entities.Report;
 import nesims.main.config.CustomErrorType;
  
 @RestController

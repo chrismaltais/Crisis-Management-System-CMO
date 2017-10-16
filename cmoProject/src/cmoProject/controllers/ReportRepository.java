@@ -1,8 +1,8 @@
-package nesims.main.service;
+package cmoProject.controllers;
 
 import java.util.List;
 
-import nesims.main.model.Report;
+import cmoProject.entities.Report;
  
 public interface ReportRepository {
      
