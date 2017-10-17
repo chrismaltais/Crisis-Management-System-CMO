@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**Sample controller for pseudo DB access
  * 
@@ -36,5 +37,11 @@ public class SampleDbController {
 		model.addAttribute("message2", message2);
 		
 		return "sample";
+	}
+	
+	@ResponseBody
+	@RequestMapping("dbSample/rest")
+	public SampleEntity getEntity() {
+		return sampleEntityRepo.findById(1);
 	}
 }
