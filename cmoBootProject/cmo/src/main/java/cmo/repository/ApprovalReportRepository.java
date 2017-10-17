@@ -1,5 +1,7 @@
 package cmo.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import cmo.entities.ApprovalReport;
@@ -12,6 +14,8 @@ import cmo.entities.ApprovalReport;
  */
 public interface ApprovalReportRepository extends CrudRepository<ApprovalReport, Long> {
 
-	public ApprovalReport findByCrisisID(int id);
+	public ApprovalReport findByCrisisID(long id);
+	
+	public List<ApprovalReport> findAll();
 
 }

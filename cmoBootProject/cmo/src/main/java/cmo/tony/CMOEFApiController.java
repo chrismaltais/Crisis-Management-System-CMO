@@ -18,7 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import cmo.entities.CustomErrorType;
 import cmo.entities.FeedbackReport;
-import cmo.tony.FeedbackReportRepository;
+import cmo.repository.FeedbackReportRepository;
  
 @RestController
 @RequestMapping("/EFtoCMO")
@@ -34,7 +34,7 @@ public class CMOEFApiController {
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value = "/feedbackReport/", method = RequestMethod.GET)
     public ResponseEntity<List<FeedbackReport>> listAllFeedbackReports() {
-        List<FeedbackReport> feedbackReports = feedbackReportRepository.findAllFeedbackReports();
+        List<FeedbackReport> feedbackReports = feedbackReportRepository.findAll();
         if (feedbackReports.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
             // You many decide to return HttpStatus.NOT_FOUND
@@ -48,7 +48,7 @@ public class CMOEFApiController {
 	@RequestMapping(value = "/feedbackReport/{crisisID}", method = RequestMethod.GET)
     public ResponseEntity<?> getFeedbackReport(@PathVariable("crisisID") long crisisID) {
         logger.info("Fetching Feedback Report with crisisID {}", crisisID);
-        FeedbackReport feedbackReport = feedbackReportRepository.findById(crisisID);
+        FeedbackReport feedbackReport = feedbackReportRepository.findByCrisisID(crisisID);
         if (feedbackReport == null) {
             logger.error("Feedback Report with crisisID {} not found.", crisisID);
             return new ResponseEntity(new CustomErrorType("Feedback Report with crisisID " + crisisID 
@@ -64,12 +64,12 @@ public class CMOEFApiController {
     public ResponseEntity<?> createFeedbackReport(@RequestBody FeedbackReport feedbackReport, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Feedback Report : {}", feedbackReport);
  
-        if (feedbackReportRepository.isFeedbackReportExist(feedbackReport)) {
+        if (feedbackReportRepository.exists(feedbackReport.getCrisisID())) {
             logger.error("Unable to create. An Feedback Report with name {} already exist", feedbackReport.getCrisisID());
             return new ResponseEntity(new CustomErrorType("Unable to create. An Feedback Report with crisisID " + 
             feedbackReport.getCrisisID() + " already exist."),HttpStatus.CONFLICT);
         }
-        feedbackReportRepository.saveFeedbackReport(feedbackReport);
+        feedbackReportRepository.save(feedbackReport);
  
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/EFtoCMO/feedbackReport/{crisisID}").buildAndExpand(feedbackReport.getCrisisID()).toUri());

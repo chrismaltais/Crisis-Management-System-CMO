@@ -1,5 +1,7 @@
 package cmo.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import cmo.entities.FeedbackReport;
@@ -12,5 +14,7 @@ import cmo.entities.FeedbackReport;
  */
 public interface FeedbackReportRepository extends CrudRepository<FeedbackReport, Long> {
 
-	public FeedbackReport findByCrisisID(int id);
+	public FeedbackReport findByCrisisID(long id);
+	
+	public List<FeedbackReport> findAll();
 }

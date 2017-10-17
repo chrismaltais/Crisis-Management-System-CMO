@@ -1,5 +1,7 @@
 package cmo.sample;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -11,5 +13,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface SampleEntityRepository extends CrudRepository<SampleEntity, Long> {
 
 	public SampleEntity findById(int id);
+	
+	public List<SampleEntity> findAll();
 
 }

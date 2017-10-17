@@ -18,7 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import cmo.entities.ApprovalReport;
 import cmo.entities.CustomErrorType;
-import cmo.tony.ApprovalReportRepository;
+import cmo.repository.ApprovalReportRepository;
  
 @RestController
 @RequestMapping("/PMOtoCMO")
@@ -34,7 +34,7 @@ public class CMOPMOApiController {
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value = "/approvalReport/", method = RequestMethod.GET)
     public ResponseEntity<List<ApprovalReport>> listAllApprovalReports() {
-        List<ApprovalReport> approvalReports = approvalReportRepository.findAllApprovalReports();
+        List<ApprovalReport> approvalReports = approvalReportRepository.findAll();
         if (approvalReports.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
             // You many decide to return HttpStatus.NOT_FOUND
@@ -48,7 +48,7 @@ public class CMOPMOApiController {
 	@RequestMapping(value = "/approvalReport/{crisisID}", method = RequestMethod.GET)
     public ResponseEntity<?> getApprovalReport(@PathVariable("crisisID") long crisisID) {
         logger.info("Fetching Approval Report with crisisID {}", crisisID);
-        ApprovalReport approvalReport = approvalReportRepository.findById(crisisID);
+        ApprovalReport approvalReport = approvalReportRepository.findByCrisisID(crisisID);
         if (approvalReport == null) {
             logger.error("Approval Report with crisisID {} not found.", crisisID);
             return new ResponseEntity(new CustomErrorType("Approval Report with crisisID " + crisisID 
@@ -64,12 +64,12 @@ public class CMOPMOApiController {
     public ResponseEntity<?> createApprovalReport(@RequestBody ApprovalReport approvalReport, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Approval Report : {}", approvalReport);
  
-        if (approvalReportRepository.isApprovalReportExist(approvalReport)) {
+        if (approvalReportRepository.exists(approvalReport.getCrisisID())) {
             logger.error("Unable to create. An Approval Report with name {} already exist", approvalReport.getCrisisID());
             return new ResponseEntity(new CustomErrorType("Unable to create. An Approval Report with crisisID " + 
             approvalReport.getCrisisID() + " already exist."),HttpStatus.CONFLICT);
         }
-        approvalReportRepository.saveApprovalReport(approvalReport);
+        approvalReportRepository.save(approvalReport);
  
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/PMOtoCMO/approvalReport/{crisisID}").buildAndExpand(approvalReport.getCrisisID()).toUri());
