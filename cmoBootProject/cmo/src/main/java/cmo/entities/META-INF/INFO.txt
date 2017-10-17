@@ -1,1 +1,0 @@
-All files in cmo.entities package are POJO files with annotations for JPA usage.
