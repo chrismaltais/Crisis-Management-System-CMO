@@ -1,15 +1,12 @@
 package cmo.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Report {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long crisisID;
 	private String positionInCMO;
 	private int threatLevel;

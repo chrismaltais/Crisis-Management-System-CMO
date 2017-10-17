@@ -32,11 +32,13 @@ public class InitializerController {
 		
 		// ApprovalReportRepository
 		ApprovalReport approvalEntity = new ApprovalReport();
+		approvalEntity.setCrisisID(1);
 		approvalEntity.setPdfBase64("Sample PDF");
 		approval.save(approvalEntity);
 		
 		// CallReportRepository
 		CallReport callEntity = new CallReport();
+		callEntity.setCrisisID(2);
 		callEntity.setName("Alpha");
 		callEntity.setPositionIn911("caller");
 		callEntity.setCrisisType("android attack");
@@ -48,6 +50,7 @@ public class InitializerController {
 		
 		// FeedbackReportRepository
 		FeedbackReport feedbackEntity = new FeedbackReport();
+		feedbackEntity.setCrisisID(3);
 		feedbackEntity.setName("Bravo");
 		feedbackEntity.setPositionInEF("Soldier");
 		feedbackEntity.setThreatLevel(3);
