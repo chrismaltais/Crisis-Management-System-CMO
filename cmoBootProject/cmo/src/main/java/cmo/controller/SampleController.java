@@ -2,6 +2,7 @@ package cmo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +17,7 @@ public class SampleController {
         // Add content to replace ${message} with "Hello from the other side"
         model.addAttribute("message", "Hello from the other side");
         //model.addAttribute("message2", "<br><br>This is another message for you.<br><br><h3>ALOHA!!!</h3>");
-        model.addAttribute("message2", "<br><a href=\"maps\">Click here for maps</a>");
+        //model.addAttribute("message2", "<br><a href=\"maps\">Click here for maps</a>");
         
         // Call web content "sample"
         // According to servlet, it is calling '/WEB-INF/view/sample.jsp'
@@ -26,5 +27,10 @@ public class SampleController {
     @RequestMapping(value = "/maps", method = RequestMethod.GET)
     public String printMap(ModelMap model){
         return "maps";
+    }
+    
+    @GetMapping("/cmo")
+    public String cmo() {
+    	return "cmo";
     }
 }

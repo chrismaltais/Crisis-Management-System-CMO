@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**Sample controller for pseudo DB access
  * 
- * @author HawksSeptua
+ * @author Ong Hock Leng
  *
  */
 @Controller
