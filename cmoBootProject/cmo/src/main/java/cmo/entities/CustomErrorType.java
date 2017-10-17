@@ -1,4 +1,4 @@
-package cmo.tony;
+package cmo.entities;
 
 public class CustomErrorType {
 	 
