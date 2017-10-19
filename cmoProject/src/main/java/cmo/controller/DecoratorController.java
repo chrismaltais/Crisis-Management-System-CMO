@@ -7,6 +7,7 @@ import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +21,9 @@ public class DecoratorController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(DecoratorController.class);
 	
-
 	
 	@RequestMapping(value = "/decorators/{decorator}", method = RequestMethod.GET)
-	public String pages(Locale locale, ModelMap model,@PathVariable(value="decorator") String decorator) {
+	public String pages(Locale locale, Model model,@PathVariable(value="decorator") String decorator) {
 		logger.info("Welcome page! The client locale is {}.", locale);
 		
 		Date date = new Date();

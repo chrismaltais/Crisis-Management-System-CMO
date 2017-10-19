@@ -4,7 +4,7 @@
 <jsp:include page="../parts/cachecontrol.jsp"></jsp:include>
 <html>
     <head>
-        <title><sitemesh:write property='title' /></title>
+        <title><sitemesh:write property='title'/></title>
 		<sitemesh:write property='head' />
     </head>
     <body class="wysihtml5-supported  vsc-initialized pace-done fixed skin-black">

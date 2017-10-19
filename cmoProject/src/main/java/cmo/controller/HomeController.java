@@ -25,7 +25,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, ModelMap model) {
+	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -42,7 +42,7 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/pages/{type}/{page}", method = RequestMethod.GET)
-	public String pagesOfTypes(Locale locale, ModelMap model,@PathVariable(value="type") String type,@PathVariable(value="page") String page) {
+	public String pagesOfTypes(Locale locale, Model model,@PathVariable(value="type") String type,@PathVariable(value="page") String page) {
 		logger.info("Welcome page! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -56,7 +56,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/pages/{page}", method = RequestMethod.GET)
-	public String pages(Locale locale, ModelMap model,@PathVariable(value="page") String page) {
+	public String pages(Locale locale, Model model,@PathVariable(value="page") String page) {
 		logger.info("Welcome page! The client locale is {}.", locale);
 		
 		Date date = new Date();
