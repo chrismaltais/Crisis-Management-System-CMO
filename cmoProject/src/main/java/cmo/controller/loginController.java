@@ -13,7 +13,7 @@ public class loginController {
 	@Autowired
 	loginDAO logindao;
 
-	@RequestMapping(value = "/")
+	
 	public String loginPage() {
 		return "login";
 	}
