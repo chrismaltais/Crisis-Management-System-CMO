@@ -3,6 +3,7 @@ package cmo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cmo.entities.ApprovalReport;
 import cmo.entities.CallReport;
@@ -33,7 +34,7 @@ public class InitializerController {
 		// ApprovalReportRepository
 		ApprovalReport approvalEntity = new ApprovalReport();
 		approvalEntity.setCrisisID(1);
-		approvalEntity.setPdfBase64("Sample PDF");
+		approvalEntity.setPdfBase64("Sample PDF".getBytes());
 		approval.save(approvalEntity);
 		
 		// CallReportRepository
@@ -60,5 +61,19 @@ public class InitializerController {
 		feedback.save(feedbackEntity);
 		
 		return "redirect:/";
+	}
+	
+	@ResponseBody
+	@GetMapping("/getReportHL")
+	public String gettingReport() {
+		ApprovalReport reportEntity;
+		try{
+			reportEntity = approval.findByCrisisID(1);
+			String msg = reportEntity.getCrisisID() + " : ";
+			msg += new String(reportEntity.getPdfBase64());
+			return msg;
+		} catch (Exception e) {
+			return "Report not retrieved.";
+		}
 	}
 }
