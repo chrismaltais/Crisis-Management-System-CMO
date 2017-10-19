@@ -219,12 +219,6 @@
 			
 			
 		</div>
-		<!-- /.row (main row) -->
-		<div>
-
-	
-		
-		</div>
 
 	</section>
 	<!-- /.content -->
