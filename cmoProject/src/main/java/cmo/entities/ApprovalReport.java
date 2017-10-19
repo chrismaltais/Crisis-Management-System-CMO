@@ -15,11 +15,6 @@ public class ApprovalReport {
 	public ApprovalReport() {
 		crisisID = 0;
 	}
-	
-	public ApprovalReport(long crisisID, String pdfBase64) {
-		this.crisisID = crisisID;
-		this.pdfBase64 = parsePDF(pdfBase64);
-	}
 
 	public ApprovalReport(long crisisID, byte[] pdfBase64) {
 		this.crisisID = crisisID;
@@ -29,17 +24,13 @@ public class ApprovalReport {
 	public long getCrisisID() {
 		return crisisID;
 	}
-	
-	public String getPdfBase64() {
-		return pdfBase64.toString();
+
+	public byte[] getPdfBase64() {
+		return pdfBase64;
 	}
 
 	public void setCrisisID(long crisisID) {
 		this.crisisID = crisisID;
-	}
-	
-	public void setPdfBase64(String pdfBase64) {
-		this.pdfBase64 = parsePDF(pdfBase64);
 	}
 
 	public void setPdfBase64(byte[] pdfBase64) {
@@ -73,16 +64,20 @@ public class ApprovalReport {
 		return "ApprovalReport [crisisID=" + crisisID + ", pdfBase64=" + Arrays.toString(pdfBase64) + "]";
 	}
 
-	private byte[] parsePDF(String input) {
-		
-		String[] byteValues = input.substring(1, input.length()-1).split(",");
+	public byte[] PDFtoByte(String input) {
+
+		String[] byteValues = input.substring(1, input.length() - 1).split(",");
 		byte[] bytes = new byte[byteValues.length];
-		
+
 		for (int i = 0; i < bytes.length; i++) {
 			bytes[i] = Byte.parseByte(byteValues[i].trim());
 		}
-		
+
 		return bytes;
+	}
+	
+	public String PDFtoString(byte[] input) {
+		return input.toString();
 	}
 
 }

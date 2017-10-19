@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import cmo.entities.ApprovalReport;
+import cmo.entities.ApprovalReportDTO;
 import cmo.entities.CustomErrorType;
 import cmo.repository.ApprovalReportRepository;
  
@@ -61,7 +62,7 @@ public class CMOPMOApiController {
  
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @RequestMapping(value = "/approvalReport/", method = RequestMethod.POST)
-    public ResponseEntity<?> createApprovalReport(@RequestBody ApprovalReport approvalReport, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<?> createApprovalReport(@RequestBody ApprovalReportDTO approvalReport, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Approval Report : {}", approvalReport);
  
         if (approvalReportRepository.exists(approvalReport.getCrisisID())) {
@@ -69,7 +70,7 @@ public class CMOPMOApiController {
             return new ResponseEntity(new CustomErrorType("Unable to create. An Approval Report with crisisID " + 
             approvalReport.getCrisisID() + " already exist."),HttpStatus.CONFLICT);
         }
-        approvalReportRepository.save(approvalReport);
+        approvalReportRepository.save(approvalReport.getApprovalReport());
  
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/PMOtoCMO/approvalReport/{crisisID}").buildAndExpand(approvalReport.getCrisisID()).toUri());
