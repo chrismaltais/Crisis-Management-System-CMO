@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: cmo Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: HawksSeptua
+Built-By: chrismaltais
 Implementation-Vendor-Id: com.ssp2
 Build-Jdk: 1.8.0_144
 Implementation-URL: http://maven.apache.org
