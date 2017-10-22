@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sitemesh>
+
+	<mapping decorator="WEB-INF/views/decorators/dashboardtheme.jsp" path="/*" />
+	<mapping exclude="true" decorator="/decorators/dashboardtheme" path="/ajax/*" />
+	<mapping exclude="true" decorator="/decorators/dashboardtheme" path="/pages/examples/lockscreen" />
+	<mapping exclude="true" decorator="/decorators/dashboardtheme" path="/pages/examples/login" />
+	<mapping exclude="true" decorator="/decorators/dashboardtheme" path="/pages/examples/register" />
+	
+	<!-- 
+	<mapping exclude="true" decorator="/decorators/dashboardtheme" path="/login/*" />
+	 -->
+</sitemesh>

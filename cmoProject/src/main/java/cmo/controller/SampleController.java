@@ -31,6 +31,6 @@ public class SampleController {
     
     @GetMapping("/cmo")
     public String cmo() {
-    	return "cmo";
+    	return "index";
     }
 }
