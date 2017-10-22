@@ -7,6 +7,7 @@ import javax.persistence.Id;
 public class CallReport {
 	
 	@Id
+	private long callReportID;
 	private long crisisID;
 	private String name;
 	private String positionIn911;
@@ -20,7 +21,7 @@ public class CallReport {
         crisisID=0;
     }
 
-	public CallReport(long crisisID, String name, String positionIn911, String crisisType, String affectedArea,
+	public CallReport(long callReportID, long crisisID, String name, String positionIn911, String crisisType, String affectedArea,
 			String crisisDate, String estimatedStartTime, String crisisDetails) {
 		this.crisisID = crisisID;
 		this.name = name;
@@ -32,7 +33,15 @@ public class CallReport {
 		this.crisisDetails = crisisDetails;
 	}
  
-    public long getCrisisID() {
+	public long getCallReportID() {
+		return callReportID;
+	}
+
+	public void setCallReportID(long callReportID) {
+		this.callReportID = callReportID;
+	}
+	
+	public long getCrisisID() {
 		return crisisID;
 	}
 
@@ -120,7 +129,7 @@ public class CallReport {
  
     @Override
 	public String toString() {
-		return "Report [crisisID=" + crisisID + ", name=" + name + ", positionIn911=" + positionIn911
+		return "Report [callReportID=" + callReportID + ", crisisID=" + crisisID + ", name=" + name + ", positionIn911=" + positionIn911
 				+ ", crisisType=" + crisisType + ", affectedArea=" + affectedArea + ", crisisDate=" + crisisDate
 				+ ", estimatedStartTime=" + estimatedStartTime + ", crisisDetails=" + crisisDetails + "]";
 	}
