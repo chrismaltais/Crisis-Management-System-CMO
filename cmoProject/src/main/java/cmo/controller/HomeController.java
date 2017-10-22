@@ -35,7 +35,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "index";
+		return "redirect:/login";
 	}
 	
 	//apps/pages/forms/general.html
