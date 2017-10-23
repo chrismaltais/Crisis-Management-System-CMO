@@ -7,12 +7,8 @@ public class WebSiteMeshFilter extends ConfigurableSiteMeshFilter{
 
 	@Override
 	protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
-		builder.addDecoratorPath("*/pages/911", "/decorators/dashboardtheme")
-			   //.addDecoratorPath("/*", "/decorators/nodashboard")
-			    // .addExcludedPath("/login")
-			   // .addExcludedPath("/pages/911")
-		       // .addExcludedPath("/ajax/*")
-		       // .addExcludedPath("plugin/*")
-		       .create();
+		builder.addDecoratorPath("/pages/*", "/decorators/dashboardtheme")
+			   .addExcludedPath("/login")
+		       .addExcludedPath("/ajax/*");
 	}
 }
