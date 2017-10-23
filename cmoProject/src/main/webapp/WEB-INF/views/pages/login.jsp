@@ -22,17 +22,17 @@
 
         <div class="form-box" id="login-box">
             <div class="header bg-light-blue">CMO Sign In</div>
-            <form action="${pageContext.request.contextPath}/authenticator" method="post">
+            <font color="red">${errorMessage}</font>
+            <form action="${pageContext.request.contextPath}/authenticator" id="loginForm" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="User ID"/>
+                        <input type="text" name="username" class="form-control" placeholder="User ID" required/>
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password"/>
-                    </div>  
-                            
                     
-                    
+					<div class="form-group">
+                    		<input type="password" name="password" class="form-control" placeholder="Password" required/>
+                    	</div>
+
                    <select
             				name="domain">
            	 			<option value="analyst">Analyst</option>
@@ -42,18 +42,41 @@
 				</div>
                 <div class="footer">                                                               
                     <button type="submit" class="btn bg-light-blue btn-block" value="Submit">Sign me in</button>  
-                    
-                    
                 </div>
             	</form>
-
         </div>
 
 
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+        <script> $.validator.setDefaults({
+            errorClass: 'help-block',
+            highlight: function(element) {
+              $(element)
+                .closest('.form-group')
+                .addClass('has-error');
+            },
+            unhighlight: function(element) {
+              $(element)
+                .closest('.form-group')
+                .removeClass('has-error');
+            },
+            errorPlacement: function (error, element) {
+              if (element.prop('type') === 'checkbox') {
+                error.insertAfter(element.parent());
+              } else {
+                error.insertAfter(element);
+              }
+            }
+          });</script>
+        <script> $("#loginForm").validate({
+        	  submitHandler: function(form) {
+        		    $(form).ajaxSubmit();
+        		  }
+        		});</script>
         <!-- Bootstrap -->
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>        
-
+		
     </body>
 </html>

@@ -2,6 +2,7 @@ package cmo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,13 +21,16 @@ public class loginController {
 	}
 
 	@PostMapping(value = "/authenticator")
-	public String authenticator(@RequestParam(name = "username") String username,
+	public String authenticator(ModelMap model, @RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, @RequestParam(name = "domain") String domain) {
 
 		if (logindao.authenticate(username, password, domain))
 			return "redirect:/pages/index";
-		else
+		else {
+			model.put("errorMessage", "Invalid Credentials");
 			return "redirect:/";
+		}
+			
 
 	}
 }
