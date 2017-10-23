@@ -24,7 +24,7 @@ public class loginController {
 			@RequestParam(name = "password") String password, @RequestParam(name = "domain") String domain) {
 
 		if (logindao.authenticate(username, password, domain))
-			return "redirect:/maps";
+			return "redirect:/pages/index";
 		else
 			return "redirect:/";
 

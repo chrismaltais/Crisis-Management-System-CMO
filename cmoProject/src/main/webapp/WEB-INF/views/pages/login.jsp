@@ -21,11 +21,11 @@
     <body class="bg-black">
 
         <div class="form-box" id="login-box">
-            <div class="header bg-light-blue">Sign In</div>
-            <form action="${pageContext.request.contextPath}/pages/index" method="post">
+            <div class="header bg-light-blue">CMO Sign In</div>
+            <form action="${pageContext.request.contextPath}/authenticator" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="userid" class="form-control" placeholder="User ID"/>
+                        <input type="text" name="username" class="form-control" placeholder="User ID"/>
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
@@ -33,15 +33,21 @@
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me
                     </div>
-                </div>
+                   <select
+            				name="domain">
+           	 			<option value="analyst">Analyst</option>
+            				<option value="general">General</option>
+       			  </select> 
+							
+				</div>
                 <div class="footer">                                                               
-                    <button type="submit" class="btn bg-light-blue btn-block">Sign me in</button>  
+                    <button type="submit" class="btn bg-light-blue btn-block" value="Submit">Sign me in</button>  
                     
                     <p><a href="#">I forgot my password</a></p>
                     
                     <a href="register" class="text-center">Register a new membership</a>
                 </div>
-            </form>
+            	</form>
 
         </div>
 
