@@ -71,10 +71,6 @@ and open the template in the editor.
 			 		
 		//add marker function - global
 			function addMarker(props){
-						/*
-						var Icontent = 'Latitude: ' + props.coords.lat + '<br />Longitude: ' + props.coords.lng;
-						content += "<br /><input type = 'button' value = 'Delete' onclick = 'DeleteMarker(" + marker.id + ");' value = 'Delete' />";
-						*/
 						//add marker
 						var marker = new google.maps.Marker({
 						position:props.coords,
@@ -114,7 +110,7 @@ and open the template in the editor.
 					}
 				}
 			};
-			function calcCenter(){ //function for the center marker of all the androids
+			/* function calcCenter(){ //function for the center marker of all the androids
 				var centerX;
 				var centerY;
 				
@@ -137,7 +133,7 @@ and open the template in the editor.
 					radius:calcDistance(),
 					fillColor: '#0000ff'
 					}
-				);
+				); */
 		 
          </script>
 				 
@@ -150,7 +146,5 @@ and open the template in the editor.
 		 </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		
-        
-		
+			
 </html>
