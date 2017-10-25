@@ -13,7 +13,7 @@ import cmo.entities.Proposal;
 
 public class CMOPMOClient {
 
-	public static final String REST_SERVICE_URI = "http://localhost:8080/CMOtoPMO";
+	public static final String REST_SERVICE_URI = "http://10.27.198.16:8080/CMOtoPMO";
 
 	// GET
 	@SuppressWarnings({ "unchecked"})
