@@ -75,7 +75,7 @@ public class CMOPMOApiController {
 		logger.info("Creating Approval Report : {}", approvalReport);
 
 		if (approvalReportRepository.exists(approvalReport.getCrisisID())) {
-			logger.error("Unable to create. An Approval Report with name {} already exist",
+			logger.error("Unable to create. An Approval Report with crisisID {} already exist",
 					approvalReport.getCrisisID());
 			return new ResponseEntity(new CustomErrorType("Unable to create. An Approval Report with crisisID "
 					+ approvalReport.getCrisisID() + " already exist."), HttpStatus.CONFLICT);
