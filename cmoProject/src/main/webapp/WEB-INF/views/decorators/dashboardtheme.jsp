@@ -10,7 +10,7 @@
     <body class="wysihtml5-supported  vsc-initialized pace-done fixed skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="${pageContext.request.contextPath}/" class="logo">
+            <a href="${pageContext.request.contextPath}/pages/index" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 SSP2 CMO
             </a>
@@ -88,7 +88,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="${pageContext.request.contextPath}/">
+                            <a href="${pageContext.request.contextPath}/pages/index">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>

@@ -25,7 +25,7 @@ public class AjaxController {
 	 */
 	@RequestMapping(value = "/dashboard-boxrefresh-demo", method = RequestMethod.GET)
 	public String refreshDashBoard(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome home! The client locale is now {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);

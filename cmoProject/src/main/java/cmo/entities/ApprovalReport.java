@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class ApprovalReport {
 
 	@Id
 	private long crisisID;
+	@Lob
 	private byte[] pdfBase64;
 
 	public ApprovalReport() {
@@ -62,22 +64,6 @@ public class ApprovalReport {
 	@Override
 	public String toString() {
 		return "ApprovalReport [crisisID=" + crisisID + ", pdfBase64=" + Arrays.toString(pdfBase64) + "]";
-	}
-
-	public byte[] PDFtoByte(String input) {
-
-		String[] byteValues = input.substring(1, input.length() - 1).split(",");
-		byte[] bytes = new byte[byteValues.length];
-
-		for (int i = 0; i < bytes.length; i++) {
-			bytes[i] = Byte.parseByte(byteValues[i].trim());
-		}
-
-		return bytes;
-	}
-	
-	public String PDFtoString(byte[] input) {
-		return input.toString();
 	}
 
 }
