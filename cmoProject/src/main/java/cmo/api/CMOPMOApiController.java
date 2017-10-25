@@ -22,6 +22,7 @@ import cmo.entities.ApprovalReportConverter;
 import cmo.entities.ApprovalReportDTO;
 import cmo.entities.CustomErrorType;
 import cmo.repository.ApprovalReportRepository;
+import cmo.pdf.*;
 
 @RestController
 @RequestMapping("/PMOtoCMO")
@@ -31,6 +32,9 @@ public class CMOPMOApiController {
 
 	@Autowired
 	ApprovalReportRepository approvalReportRepository; // Service which will do all data retrieval/manipulation work
+	
+	@Autowired
+	PDFConverter pdf;
 
 	// -------------------Retrieve All
 	// Reports---------------------------------------------
@@ -82,6 +86,8 @@ public class CMOPMOApiController {
 		}
 		approvalReportRepository.save(ApprovalReportConverter.convert(approvalReport));
 
+		pdf.convertToPdf(ApprovalReportConverter.convert(approvalReport));
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/PMOtoCMO/approvalReport/{crisisID}")
 				.buildAndExpand(approvalReport.getCrisisID()).toUri());

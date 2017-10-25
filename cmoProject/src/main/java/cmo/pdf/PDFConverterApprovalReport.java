@@ -1,18 +1,23 @@
 package cmo.pdf;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.stereotype.Service;
+
 import cmo.entities.ApprovalReport;
 
+@Service
 public class PDFConverterApprovalReport implements PDFConverter {
-
+	
 	@Override
 	public String convertToPdf(Object o){
 		ApprovalReport report = (ApprovalReport) o;
-		byte[] bytefile = report.getPdfBase64();
+		Base64 b = new Base64();
+    	byte[] imageBytes = b.decode(report.getPdfBase64());
+
 		String FILEPATH = "approvalReport.pdf";
 		FileOutputStream fout;
 		try {
@@ -22,7 +27,7 @@ public class PDFConverterApprovalReport implements PDFConverter {
 			return null;
 		}
 		try {
-			fout.write(bytefile);
+			fout.write(imageBytes);
 			fout.close();
 		} catch (IOException e) {
 			e.getMessage();
