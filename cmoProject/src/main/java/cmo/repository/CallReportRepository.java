@@ -18,4 +18,7 @@ public interface CallReportRepository extends CrudRepository<CallReport, Long> {
 	
 	public List<CallReport> findAll();
 	
+	public List<CallReport> findAllByOrderByCallReportIDDesc();
+	
+	public List<CallReport> findByCrisisIDOrderByCallReportIDDesc(long id);
 }

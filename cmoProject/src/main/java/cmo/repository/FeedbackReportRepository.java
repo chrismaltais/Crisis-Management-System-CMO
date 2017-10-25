@@ -14,7 +14,7 @@ import cmo.entities.FeedbackReport;
  */
 public interface FeedbackReportRepository extends CrudRepository<FeedbackReport, Long> {
 
-	public FeedbackReport findByCrisisID(long id);
+	public FeedbackReport findByCrisisID(long crisisId);
 	
 	public List<FeedbackReport> findAll();
 }
