@@ -31,18 +31,4 @@ public class PDFConverterApprovalReport implements PDFConverter {
 		return FILEPATH;
 	}
 
-	@Override
-	public byte[] convertToByte(String filepath) {
-		return null;
-//		FileInputStream fin;
-//		try {
-//			fin = new FileInputStream(filepath);
-//		} catch (FileNotFoundException e) {
-//			e.getMessage();
-//			return null;
-//		}
-//		
-		
-	}
-
 }
