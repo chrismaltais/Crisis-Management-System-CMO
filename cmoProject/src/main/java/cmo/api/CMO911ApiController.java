@@ -45,13 +45,13 @@ public class CMO911ApiController {
     // -------------------Retrieve Single Report------------------------------------------
  
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	@RequestMapping(value = "/callReport/{crisisID}", method = RequestMethod.GET)
-    public ResponseEntity<?> getCallReport(@PathVariable("crisisID") long crisisID) {
-        logger.info("Fetching Call Report with crisisID {}", crisisID);
-        CallReport callReport = callReportRepository.findByCrisisID(crisisID);
+	@RequestMapping(value = "/callReport/{callReportID}", method = RequestMethod.GET)
+    public ResponseEntity<?> getCallReport(@PathVariable("callReportID") long callReportID) {
+        logger.info("Fetching Call Report with callReportID {}", callReportID);
+        CallReport callReport = callReportRepository.findByCrisisID(callReportID);
         if (callReport == null) {
-            logger.error("Call Report with crisisID {} not found.", crisisID);
-            return new ResponseEntity(new CustomErrorType("Call Report with crisisID " + crisisID 
+            logger.error("Call Report with callReportID {} not found.", callReportID);
+            return new ResponseEntity(new CustomErrorType("Call Report with callReportID " + callReportID 
                     + " not found"), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<CallReport>(callReport, HttpStatus.OK);
@@ -64,15 +64,15 @@ public class CMO911ApiController {
     public ResponseEntity<?> createCallReport(@RequestBody CallReport callReport, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Call Report : {}", callReport);
  
-        if (callReportRepository.exists(callReport.getCrisisID())) {
-            logger.error("Unable to create. A call report with name {} already exist", callReport.getCrisisID());
-            return new ResponseEntity(new CustomErrorType("Unable to create. A Call Report with crisisID " + 
-            callReport.getCrisisID() + " already exist."),HttpStatus.CONFLICT);
+        if (callReportRepository.exists(callReport.getCallReportID())) {
+            logger.error("Unable to create. A call report with callReportID {} already exist", callReport.getCallReportID());
+            return new ResponseEntity(new CustomErrorType("Unable to create. A Call Report with callReportID " + 
+            callReport.getCallReportID() + " already exist."),HttpStatus.CONFLICT);
         }
         callReportRepository.save(callReport);
  
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/911toCMO/callReport/{crisisID}").buildAndExpand(callReport.getCrisisID()).toUri());
+        headers.setLocation(ucBuilder.path("/911toCMO/callReport/{callReportID}").buildAndExpand(callReport.getCallReportID()).toUri());
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
  

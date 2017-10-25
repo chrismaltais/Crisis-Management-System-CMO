@@ -65,7 +65,7 @@ public class CMOEFApiController {
         logger.info("Creating Feedback Report : {}", feedbackReport);
  
         if (feedbackReportRepository.exists(feedbackReport.getCrisisID())) {
-            logger.error("Unable to create. An Feedback Report with name {} already exist", feedbackReport.getCrisisID());
+            logger.error("Unable to create. An Feedback Report with crisisID {} already exist", feedbackReport.getCrisisID());
             return new ResponseEntity(new CustomErrorType("Unable to create. An Feedback Report with crisisID " + 
             feedbackReport.getCrisisID() + " already exist."),HttpStatus.CONFLICT);
         }
