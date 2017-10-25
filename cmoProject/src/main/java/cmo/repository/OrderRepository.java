@@ -1,8 +1,10 @@
 package cmo.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
-import cmo.entities.Order;
+import cmo.entities.GeneralOrder;
 
 /**
  * Repository for Order entity
@@ -10,7 +12,9 @@ import cmo.entities.Order;
  * @author Ong Hock Leng
  *
  */
-public interface OrderRepository extends CrudRepository<Order, Long> {
+public interface OrderRepository extends CrudRepository<GeneralOrder, Long> {
 
-	public Order findByCrisisID(int id);
+	public GeneralOrder findByCrisisID(long id);
+	
+	public List<GeneralOrder> findAll();
 }
