@@ -18,7 +18,7 @@ public class PDFConverterApprovalReport implements PDFConverter {
 		Base64 b = new Base64();
     	byte[] imageBytes = b.decode(report.getPdfBase64());
 
-		String FILEPATH = "approvalReport.pdf";
+		String FILEPATH = "ApprovalReport-" + report.getCrisisID() + ".pdf";
 		FileOutputStream fout;
 		try {
 			fout = new FileOutputStream(FILEPATH);
