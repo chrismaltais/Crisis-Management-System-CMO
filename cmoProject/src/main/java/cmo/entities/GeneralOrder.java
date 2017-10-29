@@ -1,12 +1,17 @@
 package cmo.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class GeneralOrder {
 
-	@Id
+	@Id @GeneratedValue
 	private long generalOrderID;
 	private long crisisID;
 	private String name;
@@ -16,13 +21,34 @@ public class GeneralOrder {
 	private String affectedArea;
 	private String crisisDetails;
 	private String couseofAction;
+	@CreationTimestamp
+	private Timestamp receivedMessageTime;
+	private boolean read = false;
 
 	public GeneralOrder() {
 		crisisID = 0;
 	}
 
-	public GeneralOrder(long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
-			String affectedArea, String crisisDetails, String couseofAction) {
+	public GeneralOrder(long generalOrderID, long crisisID, String name, String positionInCMO, int threatLevel,
+			String crisisType, String affectedArea, String crisisDetails, String couseofAction,
+			Timestamp receivedMessageTime, boolean read) {
+		this.generalOrderID = generalOrderID;
+		this.crisisID = crisisID;
+		this.name = name;
+		this.positionInCMO = positionInCMO;
+		this.threatLevel = threatLevel;
+		this.crisisType = crisisType;
+		this.affectedArea = affectedArea;
+		this.crisisDetails = crisisDetails;
+		this.couseofAction = couseofAction;
+		this.receivedMessageTime = receivedMessageTime;
+		this.read = read;
+	}
+	
+	
+	// for use by cmo.tony.CMOEFClient
+	public GeneralOrder(long crisisID, String name, String positionInCMO, int threatLevel,
+			String crisisType, String affectedArea, String crisisDetails, String couseofAction) {
 		this.crisisID = crisisID;
 		this.name = name;
 		this.positionInCMO = positionInCMO;
@@ -69,6 +95,14 @@ public class GeneralOrder {
 		return couseofAction;
 	}
 
+	public Timestamp getReceivedMessageTime() {
+		return receivedMessageTime;
+	}
+
+	public boolean isRead() {
+		return read;
+	}
+
 	public void setGeneralOrderID(long generalOrderID) {
 		this.generalOrderID = generalOrderID;
 	}
@@ -105,6 +139,14 @@ public class GeneralOrder {
 		this.couseofAction = couseofAction;
 	}
 
+	public void setReceivedMessageTime(Timestamp receivedMessageTime) {
+		this.receivedMessageTime = receivedMessageTime;
+	}
+
+	public void setRead(boolean read) {
+		this.read = read;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -129,9 +171,10 @@ public class GeneralOrder {
 
 	@Override
 	public String toString() {
-		return "Report [crisisID=" + crisisID + ", name=" + name + ", positionInCMO=" + positionInCMO + ", threatLevel="
-				+ threatLevel + ", crisisType=" + crisisType + ", affectedArea=" + affectedArea + ", crisisDetails="
-				+ crisisDetails + ", couseofAction=" + couseofAction + "]";
+		return "GeneralOrder [generalOrderID=" + generalOrderID + ", crisisID=" + crisisID + ", name=" + name
+				+ ", positionInCMO=" + positionInCMO + ", threatLevel=" + threatLevel + ", crisisType=" + crisisType
+				+ ", affectedArea=" + affectedArea + ", crisisDetails=" + crisisDetails + ", couseofAction="
+				+ couseofAction + ", receivedMessageTime=" + receivedMessageTime + ", read=" + read + "]";
 	}
 
 }

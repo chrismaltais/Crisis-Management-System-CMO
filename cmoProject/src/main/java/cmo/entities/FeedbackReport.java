@@ -1,12 +1,19 @@
 package cmo.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class FeedbackReport {
-	
+
 	@Id
+	@GeneratedValue
+	private long feedbackReportID;
 	private long crisisID;
 	private String name;
 	private String positionInEF;
@@ -14,10 +21,13 @@ public class FeedbackReport {
 	private int casualtiesRescued;
 	private String deploymentStatus;
 	private String situationStatus;
- 
-	public FeedbackReport(){
-        crisisID=0;
-    }
+	@CreationTimestamp
+	private Timestamp messageReceivedTime;
+	private boolean read = false;
+
+	public FeedbackReport() {
+		crisisID = 0;
+	}
 
 	public FeedbackReport(long crisisID, String name, String positionInEF, int threatLevel, int casualtiesRescued,
 			String deploymentStatus, String situationStatus) {
@@ -87,33 +97,33 @@ public class FeedbackReport {
 	}
 
 	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (int) (crisisID ^ (crisisID >>> 32));
-        return result;
-    }
- 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        FeedbackReport other = (FeedbackReport) obj;
-        if (crisisID != other.crisisID)
-            return false;
-        return true;
-    }
- 
-    @Override
-	public String toString() {
-		return "Report [crisisID=" + crisisID + ", name=" + name + ", positionInEF=" + positionInEF
-				+ ", threatLevel=" + threatLevel + ", casualtiesRescued=" + casualtiesRescued
-				+ ", deploymentStatus=" + deploymentStatus + ", situationStatus=" + situationStatus + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (crisisID ^ (crisisID >>> 32));
+		return result;
 	}
- 
- 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FeedbackReport other = (FeedbackReport) obj;
+		if (crisisID != other.crisisID)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "FeedbackReport [feedbackReportID=" + feedbackReportID + ", crisisID=" + crisisID + ", name=" + name
+				+ ", positionInEF=" + positionInEF + ", threatLevel=" + threatLevel + ", casualtiesRescued="
+				+ casualtiesRescued + ", deploymentStatus=" + deploymentStatus + ", situationStatus=" + situationStatus
+				+ ", messageReceivedTime=" + messageReceivedTime + ", read=" + read + "]";
+	}
+
 }

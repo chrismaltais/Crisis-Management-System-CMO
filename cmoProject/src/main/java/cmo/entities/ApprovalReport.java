@@ -1,10 +1,13 @@
 package cmo.entities;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class ApprovalReport {
@@ -13,14 +16,19 @@ public class ApprovalReport {
 	private long crisisID;
 	@Lob
 	private byte[] pdfBase64;
+	@CreationTimestamp
+	private Timestamp messageReceivedTime;
+	private boolean read = false;
 
 	public ApprovalReport() {
 		crisisID = 0;
 	}
 
-	public ApprovalReport(long crisisID, byte[] pdfBase64) {
+	public ApprovalReport(long crisisID, byte[] pdfBase64, Timestamp messageReceivedTime, boolean read) {
 		this.crisisID = crisisID;
 		this.pdfBase64 = pdfBase64;
+		this.messageReceivedTime = messageReceivedTime;
+		this.read = read;
 	}
 
 	public long getCrisisID() {
@@ -31,12 +39,28 @@ public class ApprovalReport {
 		return pdfBase64;
 	}
 
+	public Timestamp getMessageReceivedTime() {
+		return messageReceivedTime;
+	}
+
+	public boolean isRead() {
+		return read;
+	}
+
 	public void setCrisisID(long crisisID) {
 		this.crisisID = crisisID;
 	}
 
 	public void setPdfBase64(byte[] pdfBase64) {
 		this.pdfBase64 = pdfBase64;
+	}
+
+	public void setMessageReceivedTime(Timestamp messageReceivedTime) {
+		this.messageReceivedTime = messageReceivedTime;
+	}
+
+	public void setRead(boolean read) {
+		this.read = read;
 	}
 
 	@Override
@@ -63,7 +87,8 @@ public class ApprovalReport {
 
 	@Override
 	public String toString() {
-		return "ApprovalReport [crisisID=" + crisisID + ", pdfBase64=" + Arrays.toString(pdfBase64) + "]";
+		return "ApprovalReport [crisisID=" + crisisID + ", pdfBase64=" + Arrays.toString(pdfBase64)
+				+ ", messageReceivedTime=" + messageReceivedTime + ", read=" + read + "]";
 	}
 
 }
