@@ -8,6 +8,12 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**Feedback Report from EF
+ * 
+ * @author Ong Hock Leng
+ *
+ */
+
 @Entity
 public class FeedbackReport {
 

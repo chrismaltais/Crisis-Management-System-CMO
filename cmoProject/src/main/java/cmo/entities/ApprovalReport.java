@@ -9,6 +9,12 @@ import javax.persistence.Lob;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**Approval Report from PMO
+ * 
+ * @author Ong Hock Leng
+ *
+ */
+
 @Entity
 public class ApprovalReport {
 

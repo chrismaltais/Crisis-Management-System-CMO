@@ -8,6 +8,11 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**Call Report from 911
+ * 
+ * @author Ong Hock Leng
+ *
+ */
 @Entity
 public class CallReport {
 
