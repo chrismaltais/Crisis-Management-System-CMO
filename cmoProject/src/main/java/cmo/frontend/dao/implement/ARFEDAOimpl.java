@@ -25,13 +25,8 @@ public class ARFEDAOimpl implements ApprovalReportFEDAO {
 	}
 
 	@Override
-	public long[] getReportList() {
-		List<ApprovalReport> reports = repo.findAll();
-		long[] list = new long[reports.size()];
-		for (int i = 0; i < list.length; i++) {
-			list[i] = reports.get(i).getCrisisID();
-		}
-		return list;
+	public List<ApprovalReport> getAllReports() {
+		return repo.findAll();
 	}
 
 }
