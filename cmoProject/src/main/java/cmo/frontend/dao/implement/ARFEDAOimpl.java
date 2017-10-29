@@ -19,14 +19,14 @@ public class ARFEDAOimpl implements ApprovalReportFEDAO {
 	PDFConverter converter;
 
 	@Override
-	public String getReport(long id) {
-		ApprovalReport report = repo.findByCrisisID(id);
+	public String getReportByCrisisId(long crisisId) {
+		ApprovalReport report = repo.findByCrisisID(crisisId);
 		return converter.convertToPdf(report);
 	}
 
 	@Override
 	public List<ApprovalReport> getAllReports() {
-		return repo.findAll();
+		return repo.findAllByOrderByCrisisIDDesc();
 	}
 
 }

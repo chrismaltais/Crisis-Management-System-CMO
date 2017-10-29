@@ -6,7 +6,9 @@ import cmo.entities.Proposal;
 
 public interface ProposalFEDAO {
 
-	public Proposal getByCrisisId(long crisisId);
+	public Proposal getByProposalId(long proposalId);
 	
 	public List<Proposal> getAll();
+	
+	public List<Proposal> getAllByCrisisId(long crisisId);
 }

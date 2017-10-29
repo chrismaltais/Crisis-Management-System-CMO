@@ -16,13 +16,18 @@ public class OFEDAO implements OrderFEDAO {
 	private OrderRepository repo;
 
 	@Override
-	public GeneralOrder getByCrisisId(long crisisID) {
-		return repo.findByCrisisID(crisisID);
+	public GeneralOrder getByOrderId(long orderId) {
+		return repo.findByGeneralOrderID(orderId);
 	}
 
 	@Override
 	public List<GeneralOrder> getAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	public List<GeneralOrder> getAllByCrisisId(long crisisId) {
+		return repo.findByCrisisIDOrderByCrisisIDDesc(crisisId);
 	}
 
 }

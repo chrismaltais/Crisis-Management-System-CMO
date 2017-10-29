@@ -14,7 +14,9 @@ import cmo.entities.GeneralOrder;
  */
 public interface OrderRepository extends CrudRepository<GeneralOrder, Long> {
 
-	public GeneralOrder findByCrisisID(long id);
+	public GeneralOrder findByGeneralOrderID(long generalOrderId);
 	
 	public List<GeneralOrder> findAll();
+	
+	public List<GeneralOrder> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 }

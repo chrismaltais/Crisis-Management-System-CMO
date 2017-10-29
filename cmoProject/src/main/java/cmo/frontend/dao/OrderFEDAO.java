@@ -6,7 +6,9 @@ import cmo.entities.GeneralOrder;
 
 public interface OrderFEDAO {
 
-	public GeneralOrder getByCrisisId(long crisisID);
-
+	public GeneralOrder getByOrderId(long orderId);
+	
 	public List<GeneralOrder> getAll();
+	
+	public List<GeneralOrder> getAllByCrisisId(long crisisId);
 }

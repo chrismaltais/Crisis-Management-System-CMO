@@ -14,7 +14,9 @@ import cmo.entities.Proposal;
  */
 public interface ProposalRepository extends CrudRepository<Proposal, Long> {
 
-	public Proposal findByCrisisID(long id);
+	public Proposal findByProposalID(long proposalId);
 	
 	public List<Proposal> findAll();
+	
+	public List<Proposal> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 }

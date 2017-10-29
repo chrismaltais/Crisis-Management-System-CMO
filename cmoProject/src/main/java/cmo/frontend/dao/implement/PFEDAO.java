@@ -16,13 +16,18 @@ public class PFEDAO implements ProposalFEDAO {
 	private ProposalRepository repo;
 
 	@Override
-	public Proposal getByCrisisId(long crisisId) {
-		return repo.findByCrisisID(crisisId);
+	public Proposal getByProposalId(long proposalId) {
+		return repo.findByProposalID(proposalId);
 	}
 
 	@Override
 	public List<Proposal> getAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	public List<Proposal> getAllByCrisisId(long crisisId) {
+		return repo.findByCrisisIDOrderByCrisisIDDesc(crisisId);
 	}
 
 }

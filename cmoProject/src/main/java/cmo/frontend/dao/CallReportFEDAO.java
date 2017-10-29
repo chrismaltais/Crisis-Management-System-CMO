@@ -13,5 +13,5 @@ public interface CallReportFEDAO {
 	public List<CallReport> getAll();
 	
 	// get list of call reports for crisisID starting from the latest
-	public List<CallReport> getAllByID(long crisisId);
+	public List<CallReport> getAllByCrisisId(long crisisId);
 }

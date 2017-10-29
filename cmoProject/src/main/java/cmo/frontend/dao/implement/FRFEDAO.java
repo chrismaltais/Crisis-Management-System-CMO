@@ -16,13 +16,18 @@ public class FRFEDAO implements FeedbackReportFEDAO {
 	private FeedbackReportRepository repo;
 
 	@Override
-	public FeedbackReport getReportByCrisisId(long crisisID) {
-		return repo.findByCrisisID(crisisID);
+	public FeedbackReport getByFeedbackReportId(long feedbackReportId) {
+		return repo.findByFeedbackReportID(feedbackReportId);
 	}
 
 	@Override
 	public List<FeedbackReport> getAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	public List<FeedbackReport> getAllByCrisisId(long crisisId) {
+		return repo.findByCrisisIDOrderByCrisisIDDesc(crisisId);
 	}
 
 }

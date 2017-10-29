@@ -14,7 +14,9 @@ import cmo.entities.Report;
  */
 public interface ReportRepository extends CrudRepository<Report, Long> {
 
-	public Report findByCrisisID(long id);
+	public Report findByReportID(long reportId);
 
 	public List<Report> findAll();
+
+	public List<Report> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 }

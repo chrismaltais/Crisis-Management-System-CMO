@@ -16,13 +16,18 @@ public class RFEDAO implements ReportFEDAO {
 	private ReportRepository repo;
 
 	@Override
-	public Report getByCrisisId(long crisisId) {
-		return repo.findByCrisisID(crisisId);
+	public Report getByReportId(long reportId) {
+		return repo.findByReportID(reportId);
 	}
 
 	@Override
 	public List<Report> getAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	public List<Report> getAllByCrisisId(long crisisId) {
+		return repo.findByCrisisIDOrderByCrisisIDDesc(crisisId);
 	}
 
 }

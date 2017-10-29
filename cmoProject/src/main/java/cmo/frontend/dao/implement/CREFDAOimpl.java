@@ -26,7 +26,7 @@ public class CREFDAOimpl implements CallReportFEDAO {
 	}
 
 	@Override
-	public List<CallReport> getAllByID(long crisisId) {
+	public List<CallReport> getAllByCrisisId(long crisisId) {
 		return repo.findByCrisisIDOrderByCallReportIDDesc(crisisId);
 	}
 
