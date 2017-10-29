@@ -17,6 +17,9 @@ public class RFEDAO implements ReportFEDAO {
 
 	@Override
 	public Report getByReportId(long reportId) {
+		Report report = repo.findByReportID(reportId);
+		report.setRead(true);
+		repo.save(report);
 		return repo.findByReportID(reportId);
 	}
 

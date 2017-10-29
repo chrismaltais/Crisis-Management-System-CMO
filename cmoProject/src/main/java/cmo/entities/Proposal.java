@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,7 +12,8 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class Proposal {
 
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long proposalID;
 	private long crisisID;
 	private String name;
@@ -33,10 +35,11 @@ public class Proposal {
 		crisisID = 0;
 	}
 
-	public Proposal(long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
-			String affectedArea, int estimatedCasualties, String crisisDuration, String crisisDetails,
-			String courseOfAction, String consequencesOfAction, String cleanUpAction, Timestamp createdTime,
-			boolean read) {
+	public Proposal(long proposalID, long crisisID, String name, String positionInCMO, int threatLevel,
+			String crisisType, String affectedArea, int estimatedCasualties, String crisisDuration,
+			String crisisDetails, String courseOfAction, String consequencesOfAction, String cleanUpAction,
+			Timestamp createdTime, boolean read) {
+		this.proposalID = proposalID;
 		this.crisisID = crisisID;
 		this.name = name;
 		this.positionInCMO = positionInCMO;
@@ -69,6 +72,10 @@ public class Proposal {
 		this.courseOfAction = courseOfAction;
 		this.consequencesOfAction = consequencesOfAction;
 		this.cleanUpAction = cleanUpAction;
+	}
+
+	public long getProposalID() {
+		return proposalID;
 	}
 
 	public long getCrisisID() {
@@ -125,6 +132,10 @@ public class Proposal {
 
 	public boolean isRead() {
 		return read;
+	}
+
+	public void setProposalID(long proposalID) {
+		this.proposalID = proposalID;
 	}
 
 	public void setCrisisID(long crisisID) {
@@ -207,9 +218,9 @@ public class Proposal {
 
 	@Override
 	public String toString() {
-		return "Proposal [crisisID=" + crisisID + ", name=" + name + ", positionInCMO=" + positionInCMO
-				+ ", threatLevel=" + threatLevel + ", crisisType=" + crisisType + ", affectedArea=" + affectedArea
-				+ ", estimatedCasualties=" + estimatedCasualties + ", crisisDuration=" + crisisDuration
+		return "Proposal [proposalID=" + proposalID + ", crisisID=" + crisisID + ", name=" + name + ", positionInCMO="
+				+ positionInCMO + ", threatLevel=" + threatLevel + ", crisisType=" + crisisType + ", affectedArea="
+				+ affectedArea + ", estimatedCasualties=" + estimatedCasualties + ", crisisDuration=" + crisisDuration
 				+ ", crisisDetails=" + crisisDetails + ", courseOfAction=" + courseOfAction + ", consequencesOfAction="
 				+ consequencesOfAction + ", cleanUpAction=" + cleanUpAction + ", createdTime=" + createdTime + ", read="
 				+ read + "]";

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,7 +12,8 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class Report {
 
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long reportID;
 	private long crisisID;
 	private String positionInCMO;
@@ -29,9 +31,10 @@ public class Report {
 		crisisID = 0;
 	}
 
-	public Report(long crisisID, String positionInCMO, int threatLevel, String affectedAreas, int estimatedCasualties,
-			String crisisDuration, String courseOfActions, String consequencesOfAction, Timestamp createdTime,
-			boolean read) {
+	public Report(long reportID, long crisisID, String positionInCMO, int threatLevel, String affectedAreas,
+			int estimatedCasualties, String crisisDuration, String courseOfActions, String consequencesOfAction,
+			Timestamp createdTime, boolean read) {
+		this.reportID = reportID;
 		this.crisisID = crisisID;
 		this.positionInCMO = positionInCMO;
 		this.threatLevel = threatLevel;
@@ -42,6 +45,10 @@ public class Report {
 		this.consequencesOfAction = consequencesOfAction;
 		this.createdTime = createdTime;
 		this.read = read;
+	}
+
+	public long getReportID() {
+		return reportID;
 	}
 
 	public long getCrisisID() {
@@ -82,6 +89,10 @@ public class Report {
 
 	public boolean isRead() {
 		return read;
+	}
+
+	public void setReportID(long reportID) {
+		this.reportID = reportID;
 	}
 
 	public void setCrisisID(long crisisID) {
@@ -148,9 +159,9 @@ public class Report {
 
 	@Override
 	public String toString() {
-		return "Report [crisisID=" + crisisID + ", positionInCMO=" + positionInCMO + ", threatLevel=" + threatLevel
-				+ ", affectedAreas=" + affectedAreas + ", estimatedCasualties=" + estimatedCasualties
-				+ ", crisisDuration=" + crisisDuration + ", courseOfActions=" + courseOfActions
+		return "Report [reportID=" + reportID + ", crisisID=" + crisisID + ", positionInCMO=" + positionInCMO
+				+ ", threatLevel=" + threatLevel + ", affectedAreas=" + affectedAreas + ", estimatedCasualties="
+				+ estimatedCasualties + ", crisisDuration=" + crisisDuration + ", courseOfActions=" + courseOfActions
 				+ ", consequencesOfAction=" + consequencesOfAction + ", createdTime=" + createdTime + ", read=" + read
 				+ "]";
 	}

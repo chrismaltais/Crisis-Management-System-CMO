@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import cmo.entities.ApprovalReport;
 import cmo.entities.CallReport;
@@ -25,18 +27,16 @@ import cmo.repository.ReportRepository;
 public class Test implements CommandLineRunner {
 
 	@GetMapping("/testGet")
-	public Object returningStuff(){
-		CallReport newReport = new CallReport();
-		newReport.setCrisisID(1);
-		newReport.setName("Another");
-		callRepo.save(newReport);
-		
-		return callRepo.findByCrisisID(1);
+	public List<?> returningStuff(){
+		return reportRepo.findAll();
 	}
-	
-	@GetMapping("/testGet/all")
-	public List<?> returningStuff2(){
-		return callRepo.findByCrisisIDOrderByCallReportIDDesc(1);
+
+
+	public static void main(String[] args) {
+		RestTemplate rest = new RestTemplate();
+		ResponseEntity<?> response = rest.getForEntity("http://localhost:8080/ajax/analyst/2", String.class);
+		
+		System.out.println(response.getStatusCodeValue());
 	}
 	
 	//////////////////////////////////////////////////
@@ -126,6 +126,17 @@ public class Test implements CommandLineRunner {
 		report.setConsequencesOfAction("TBC");
 		
 		reportRepo.save(report);
+		
+		Report report2 = new Report();
+		report2.setCrisisID(2);
+		report2.setPositionInCMO("General");
+		report2.setThreatLevel(3);
+		report2.setAffectedAreas("NTU");
+		report2.setEstimatedCasualties(42);
+		report2.setCourseOfActions("Recovery Effort");
+		report2.setConsequencesOfAction("TBC");
+		
+		reportRepo.save(report2);
 		
 		System.err.println("DB populated.");
 	}

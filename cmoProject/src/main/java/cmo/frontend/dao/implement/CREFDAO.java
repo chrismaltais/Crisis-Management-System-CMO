@@ -10,13 +10,16 @@ import cmo.frontend.dao.CallReportFEDAO;
 import cmo.repository.CallReportRepository;
 
 @Service
-public class CREFDAOimpl implements CallReportFEDAO {
+public class CREFDAO implements CallReportFEDAO {
 
 	@Autowired
 	CallReportRepository repo;
 
 	@Override
 	public CallReport getReport(long id) {
+		CallReport report = repo.findByCrisisID(id);
+		report.setRead(true);
+		repo.save(report);
 		return repo.findByCrisisID(id);
 	}
 

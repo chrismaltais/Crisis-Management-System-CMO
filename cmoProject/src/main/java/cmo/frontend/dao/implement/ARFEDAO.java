@@ -11,7 +11,7 @@ import cmo.pdf.PDFConverter;
 import cmo.repository.ApprovalReportRepository;
 
 @Service
-public class ARFEDAOimpl implements ApprovalReportFEDAO {
+public class ARFEDAO implements ApprovalReportFEDAO {
 
 	@Autowired
 	ApprovalReportRepository repo;

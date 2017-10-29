@@ -17,6 +17,9 @@ public class OFEDAO implements OrderFEDAO {
 
 	@Override
 	public GeneralOrder getByOrderId(long orderId) {
+		GeneralOrder order = repo.findByGeneralOrderID(orderId);
+		order.setRead(true);
+		repo.save(order);
 		return repo.findByGeneralOrderID(orderId);
 	}
 

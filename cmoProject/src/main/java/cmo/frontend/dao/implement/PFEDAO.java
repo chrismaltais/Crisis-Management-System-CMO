@@ -17,6 +17,9 @@ public class PFEDAO implements ProposalFEDAO {
 
 	@Override
 	public Proposal getByProposalId(long proposalId) {
+		Proposal proposal = repo.findByProposalID(proposalId);
+		proposal.setRead(true);
+		repo.save(proposal);
 		return repo.findByProposalID(proposalId);
 	}
 

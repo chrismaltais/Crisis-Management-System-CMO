@@ -4,11 +4,13 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-/**Feedback Report from EF
+/**
+ * Feedback Report from EF
  * 
  * @author Ong Hock Leng
  *
@@ -18,7 +20,7 @@ import org.hibernate.annotations.CreationTimestamp;
 public class FeedbackReport {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long feedbackReportID;
 	private long crisisID;
 	private String name;
@@ -35,8 +37,10 @@ public class FeedbackReport {
 		crisisID = 0;
 	}
 
-	public FeedbackReport(long crisisID, String name, String positionInEF, int threatLevel, int casualtiesRescued,
-			String deploymentStatus, String situationStatus) {
+	public FeedbackReport(long feedbackReportID, long crisisID, String name, String positionInEF, int threatLevel,
+			int casualtiesRescued, String deploymentStatus, String situationStatus, Timestamp messageReceivedTime,
+			boolean read) {
+		this.feedbackReportID = feedbackReportID;
 		this.crisisID = crisisID;
 		this.name = name;
 		this.positionInEF = positionInEF;
@@ -44,62 +48,88 @@ public class FeedbackReport {
 		this.casualtiesRescued = casualtiesRescued;
 		this.deploymentStatus = deploymentStatus;
 		this.situationStatus = situationStatus;
+		this.messageReceivedTime = messageReceivedTime;
+		this.read = read;
+	}
+
+	public long getFeedbackReportID() {
+		return feedbackReportID;
 	}
 
 	public long getCrisisID() {
 		return crisisID;
 	}
 
-	public void setCrisisID(long crisisID) {
-		this.crisisID = crisisID;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getPositionInEF() {
 		return positionInEF;
 	}
 
-	public void setPositionInEF(String positionInEF) {
-		this.positionInEF = positionInEF;
-	}
-
 	public int getThreatLevel() {
 		return threatLevel;
-	}
-
-	public void setThreatLevel(int threatLevel) {
-		this.threatLevel = threatLevel;
 	}
 
 	public int getCasualtiesRescued() {
 		return casualtiesRescued;
 	}
 
-	public void setCasualtiesRescued(int casualtiesRescued) {
-		this.casualtiesRescued = casualtiesRescued;
-	}
-
 	public String getDeploymentStatus() {
 		return deploymentStatus;
-	}
-
-	public void setDeploymentStatus(String deploymentStatus) {
-		this.deploymentStatus = deploymentStatus;
 	}
 
 	public String getSituationStatus() {
 		return situationStatus;
 	}
 
+	public Timestamp getMessageReceivedTime() {
+		return messageReceivedTime;
+	}
+
+	public boolean isRead() {
+		return read;
+	}
+
+	public void setFeedbackReportID(long feedbackReportID) {
+		this.feedbackReportID = feedbackReportID;
+	}
+
+	public void setCrisisID(long crisisID) {
+		this.crisisID = crisisID;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPositionInEF(String positionInEF) {
+		this.positionInEF = positionInEF;
+	}
+
+	public void setThreatLevel(int threatLevel) {
+		this.threatLevel = threatLevel;
+	}
+
+	public void setCasualtiesRescued(int casualtiesRescued) {
+		this.casualtiesRescued = casualtiesRescued;
+	}
+
+	public void setDeploymentStatus(String deploymentStatus) {
+		this.deploymentStatus = deploymentStatus;
+	}
+
 	public void setSituationStatus(String situationStatus) {
 		this.situationStatus = situationStatus;
+	}
+
+	public void setMessageReceivedTime(Timestamp messageReceivedTime) {
+		this.messageReceivedTime = messageReceivedTime;
+	}
+
+	public void setRead(boolean read) {
+		this.read = read;
 	}
 
 	@Override

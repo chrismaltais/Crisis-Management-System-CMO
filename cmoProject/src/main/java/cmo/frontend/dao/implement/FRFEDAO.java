@@ -17,6 +17,9 @@ public class FRFEDAO implements FeedbackReportFEDAO {
 
 	@Override
 	public FeedbackReport getByFeedbackReportId(long feedbackReportId) {
+		FeedbackReport report = repo.findByFeedbackReportID(feedbackReportId);
+		report.setRead(true);
+		repo.save(report);
 		return repo.findByFeedbackReportID(feedbackReportId);
 	}
 
