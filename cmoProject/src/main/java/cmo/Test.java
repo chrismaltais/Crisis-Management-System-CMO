@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import cmo.entities.ApprovalReport;
 import cmo.entities.CallReport;
 import cmo.entities.FeedbackReport;
-import cmo.entities.GeneralOrder;
+import cmo.entities.EFOrder;
 import cmo.entities.Proposal;
 import cmo.entities.Report;
 import cmo.repository.ApprovalReportRepository;
@@ -86,7 +86,7 @@ public class Test implements CommandLineRunner {
 		
 		// Populate Order
 		
-		GeneralOrder order = new GeneralOrder();
+		EFOrder order = new EFOrder();
 		order.setCrisisID(1);
 		order.setName("General");
 		order.setPositionInCMO("General");

@@ -30,6 +30,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
 	rel="stylesheet" type="text/css" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/chat/main.css"
+	rel="stylesheet" type="text/css" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -220,14 +223,18 @@
 
 						<!--CHAT INPUT FORM -->
 						<div class="box-footer">
-							<div class="input-group">
-								<input class="form-control" placeholder="Type message..." />
-								<div class="input-group-btn">
-									<button class="btn btn-success">
-										<i class="fa fa-plus"></i>
-									</button>
+						<form id="messageForm" name="messageForm" action="">
+								<div class="input-group">
+									<input class="form-control" type="text"
+										placeholder="Send a message..." id="message" /> <span
+										class="input-group-btn">
+										<button class="btn btn-success" type="submit"
+											style="width: 50px;">
+											<i class="fa fa-send"></i>
+										</button>
+									</span>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -338,33 +345,50 @@
 
 	<!-- jQuery 2.0.2 -->
 	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+	</script>
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+		</script>
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
-		type="text/javascript"></script>
-
+		type="text/javascript">
+		</script>
 	<!-- Bootstrap WYSIHTML5 -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+		</script>
 	<!-- iCheck -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//iCheck/icheck.min.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+	</script>
+	<!-- Chat Scripts -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/main.js"
+		type="text/javascript">
+	</script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/sockjs.min.js"
+		type="text/javascript">
+	</script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/stomp.min.js"
+		type="text/javascript">
+	</script>
 	<!-- Page script -->
 	<script type="text/javascript">
-		$(function() {
+	$(function() {
 
-			"use strict";
+		"use strict";
 
-			//Initialize WYSIHTML5 - text editor
-			$("#email_message").wysihtml5();
-		});
+		//Initialize WYSIHTML5 - text editor
+		$("#email_message").wysihtml5();
+	});
 	</script>
 
 </body>
