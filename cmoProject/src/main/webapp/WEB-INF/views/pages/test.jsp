@@ -30,6 +30,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
 	rel="stylesheet" type="text/css" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/chat/main.css"
+	rel="stylesheet" type="text/css" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -355,6 +358,16 @@
 	<!-- iCheck -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//iCheck/icheck.min.js"
+		type="text/javascript"></script>
+	<!-- Chat Scripts -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/main.js"
+		type="text/javascript"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/sockjs.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/stomp.min.js"
 		type="text/javascript"></script>
 	<!-- Page script -->
 	<script type="text/javascript">
