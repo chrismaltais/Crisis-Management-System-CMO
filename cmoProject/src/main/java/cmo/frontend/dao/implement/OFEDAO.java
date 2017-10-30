@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cmo.entities.GeneralOrder;
+import cmo.entities.EFOrder;
 import cmo.frontend.dao.OrderFEDAO;
 import cmo.repository.OrderRepository;
 
@@ -16,20 +16,20 @@ public class OFEDAO implements OrderFEDAO {
 	private OrderRepository repo;
 
 	@Override
-	public GeneralOrder getByOrderId(long orderId) {
-		GeneralOrder order = repo.findByGeneralOrderID(orderId);
+	public EFOrder getByOrderId(long orderId) {
+		EFOrder order = repo.findByGeneralOrderID(orderId);
 		order.setRead(true);
 		repo.save(order);
 		return repo.findByGeneralOrderID(orderId);
 	}
 
 	@Override
-	public List<GeneralOrder> getAll() {
+	public List<EFOrder> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public List<GeneralOrder> getAllByCrisisId(long crisisId) {
+	public List<EFOrder> getAllByCrisisId(long crisisId) {
 		return repo.findByCrisisIDOrderByCrisisIDDesc(crisisId);
 	}
 

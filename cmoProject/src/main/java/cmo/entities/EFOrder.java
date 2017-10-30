@@ -9,8 +9,13 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**To EF
+ * 
+ * @author HawksSeptua
+ *
+ */
 @Entity
-public class GeneralOrder {
+public class EFOrder {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private long generalOrderID;
@@ -26,11 +31,11 @@ public class GeneralOrder {
 	private Timestamp receivedMessageTime;
 	private boolean read = false;
 
-	public GeneralOrder() {
+	public EFOrder() {
 		crisisID = 0;
 	}
 
-	public GeneralOrder(long generalOrderID, long crisisID, String name, String positionInCMO, int threatLevel,
+	public EFOrder(long generalOrderID, long crisisID, String name, String positionInCMO, int threatLevel,
 			String crisisType, String affectedArea, String crisisDetails, String couseofAction,
 			Timestamp receivedMessageTime, boolean read) {
 		this.generalOrderID = generalOrderID;
@@ -48,7 +53,7 @@ public class GeneralOrder {
 	
 	
 	// for use by cmo.tony.CMOEFClient
-	public GeneralOrder(long crisisID, String name, String positionInCMO, int threatLevel,
+	public EFOrder(long crisisID, String name, String positionInCMO, int threatLevel,
 			String crisisType, String affectedArea, String crisisDetails, String couseofAction) {
 		this.crisisID = crisisID;
 		this.name = name;
@@ -164,7 +169,7 @@ public class GeneralOrder {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GeneralOrder other = (GeneralOrder) obj;
+		EFOrder other = (EFOrder) obj;
 		if (crisisID != other.crisisID)
 			return false;
 		return true;
