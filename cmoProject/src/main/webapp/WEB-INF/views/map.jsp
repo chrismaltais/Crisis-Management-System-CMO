@@ -53,7 +53,7 @@ and open the template in the editor.
 		<script> 
             var map;
 			var markers = [];
-			var iconFolder = '/resources/img';
+			var iconFolder = "${pageContext.request.contextPath}/resources/img/";
 			var clickMark;
 			var isPolice;
 			var isAmbulance;
@@ -77,17 +77,17 @@ and open the template in the editor.
                 var initialMarkers = [
                     {//1
                         coords:p1,
-                        //iconImage:iconFolder+'android.jpg',
+                        iconImage:iconFolder+'android.JPG',
                         content: '<h3>Coordinate 1</h3>'
                     },
                     {//2
                         coords:p2,
-						//iconImage:iconFolder+'android.jpg',
+						iconImage:iconFolder+'android.JPG',
 						content:'<h3>Coordinate 2</h3>'    
                     },
                     {//3
                         coords:p3,
-						//iconImage:iconFolder+'android.jpg',
+						iconImage:iconFolder+'android.JPG',
                         content: '<h3>Coordinate 3</h3>'
                     }
                     ]; // this array of markers sets the default locations, can be stored in a DB
@@ -106,7 +106,7 @@ and open the template in the editor.
 				
 				var centerMarker = new google.maps.Marker({
 						position:centerP,
-						//icon:iconFolder+'talktohand.jpg',
+						icon:iconFolder+'talktohand.jpg',
 						map:map                   
                 });
 				var AOE = new google.maps.Circle(
@@ -180,7 +180,7 @@ and open the template in the editor.
 						defEvent = map.addListener('click',
 							function(event){
 									addMarker({coords:event.latLng,
-												iconImage:iconFolder+'android.jpg'
+												iconImage:iconFolder+'android.JPG'
 												}
 									
 									);
