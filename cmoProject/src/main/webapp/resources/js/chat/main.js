@@ -18,16 +18,15 @@ var colors = [
 function connect(event) {
 	
 	  
-    username = $('#valueHolderId').html();
+    //username = $('#valueHolderId').html();
+	username = "General";
 
-
-    if(username) {
-
+    //if(username) {
         var socket = new SockJS('http://localhost:8080/ws');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
-    }
+    //}
     event.preventDefault();
 }
 
