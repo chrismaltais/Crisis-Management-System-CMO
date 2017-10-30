@@ -6,9 +6,9 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,6 +55,8 @@ public class HomeController {
 		return "pages/"+type+"/"+page;
 	}
 	
+	@Autowired MailboxController mail;
+	
 	@RequestMapping(value = "/pages/{page}", method = RequestMethod.GET)
 	public String pages(Locale locale, Model model,@PathVariable(value="page") String page) {
 		logger.info("Welcome page! The client locale is {}.", locale);
@@ -65,6 +67,8 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		
+		mail.messageList(model, page);
 		
 		return "pages/"+page;
 	}

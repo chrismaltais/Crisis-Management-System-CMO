@@ -1,5 +1,7 @@
 package cmo.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import cmo.entities.Report;
@@ -12,5 +14,9 @@ import cmo.entities.Report;
  */
 public interface ReportRepository extends CrudRepository<Report, Long> {
 
-	public Report findByCrisisID(int id);
+	public Report findByReportID(long reportId);
+
+	public List<Report> findAll();
+
+	public List<Report> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 }

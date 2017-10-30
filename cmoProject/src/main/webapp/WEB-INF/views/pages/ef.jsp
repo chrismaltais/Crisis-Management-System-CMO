@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>SSP2 CMO Analyst</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <!-- bootstrap 3.0.2 -->
-        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <!-- font Awesome -->
-        <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Ionicons -->
-        <link href="${pageContext.request.contextPath}/resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- Theme style -->
-        <link href="${pageContext.request.contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<head>
+<meta charset="UTF-8">
+<title>SSP2 CMO Analyst</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+<!-- bootstrap 3.0.2 -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- font Awesome -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
+	rel="stylesheet" type="text/css" />
 
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body>
+<style>#map{ height: 800px; width:100%; }</style>
+</head>
+<body>
 
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -37,17 +48,17 @@
 
 	<!-- Main content -->
 	<section class="content">
-	
+
 		<!-- top row -->
 		<!--  <div class="911-row">
 			<div class="col-xs-12"></div>-->
-			<!-- /.col -->
+		<!-- /.col -->
 		<!-- </div>-->
-		<!-- /.row -->	
-		
+		<!-- /.row -->
+
 		<!-- 1st row -->
 		<div class="mailbox row">
-		
+
 			<section class="col-xs-8">
 
 				<div class="box box-solid">
@@ -172,8 +183,8 @@
 					</div>
 				</div>
 
-			
-			</section>	
+
+			</section>
 
 
 			<section class="col-xs-4">
@@ -188,20 +199,18 @@
 					<div class="loading-img"></div>
 					<div class="box-footer clearfix">
 						<div class="pull-right">
-							<button class="btn btn-xl btn-primary">
-									SEND
-							</button>
+							<button class="btn btn-xl btn-primary">SEND</button>
 						</div>
 					</div>
 					<!-- box-footer -->
 				</div>
-			
-			</section>	
+
+			</section>
 
 
 
 
-		
+
 		</div>
 
 		<!--  2nd row -->
@@ -242,32 +251,58 @@
 							<tr>
 								<td>4</td>
 								<td>Remarks</td>
-								<td><p>I got a headache looking at HTML codes all day<p></td>
+								<td><p>I got a headache looking at HTML codes all day
+									<p></td>
 							</tr>
 						</table>
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xl btn-primary pull-right">View on Map</button>
+						<button class="btn btn-xl btn-primary pull-right">View on
+							Map</button>
 					</div>
 				</div>
 				<!-- /.box -->
 			</div>
 			<!-- /.col -->
-			
-			
+
+
 			<div class="col-md-6">
 				<div class="box">
 					<div class="box-header">
-						<i class="fa fa-globe"></i><h3 class="box-title">Map</h3>
+						<i class="fa fa-globe"></i>
+						<h3 class="box-title">Map</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						
-						<h2 class="text-center">WHERE IS MY FREAKING MAP?</h2>
-						<br />
-						<br />
-						<br />
+
+						<h2 class="text-center">YOUR MAP IS HARDCODED HERE, THANK
+							YOUR TEMPLATE</h2>
+						<div>
+							<div id="map">
+
+								<script>
+									var map;
+
+									function initMap() {// for initialization of map
+										//map options
+										var options = {
+											zoom : 12,
+											center : {
+												lat : 1.3521,
+												lng : 103.8198
+											}
+										};
+										map = new google.maps.Map(document
+												.getElementById('map'), options);
+
+									} //end of initMap
+								</script>
+								<script async defer
+									src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&callback=initMap"></script>
+							</div>
+
+						</div>
 					</div>
 					<!-- Loading (remove the following to stop the loading)-->
 					<div class="overlay"></div>
@@ -275,18 +310,23 @@
 					<!-- end loading -->
 				</div>
 			</div>
-		
+
 		</div>
-	
+
 	</section>
 	<!-- /.content -->
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js" type="text/javascript"></script>
+	<!-- jQuery 2.0.2 -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!-- AdminLTE App -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
+		type="text/javascript"></script>
 
-    </body>
+</body>
 </html>

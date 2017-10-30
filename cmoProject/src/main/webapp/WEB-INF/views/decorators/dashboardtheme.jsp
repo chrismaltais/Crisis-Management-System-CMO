@@ -29,14 +29,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Zad Kayde <i class="caret"></i></span>
+                                <span>Analyst <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-black">
                                     <img src="${pageContext.request.contextPath}/resources/img/avatar04.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Zad Kayde - Senior Analyst
+                                        Senior Analyst
                                         <small>Analyst since Aug. 2017</small>
                                     </p>
                                 </li>
@@ -78,7 +78,7 @@
                             <img src="${pageContext.request.contextPath}/resources/img/avatar04.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Zad</p>
+                            <p>Hello, Analyst</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -184,6 +184,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="${pageContext.request.contextPath}/pages/ef"><i class="fa fa-angle-double-right"></i> Orders Inbox</a></li>
                                 <li><a href="${pageContext.request.contextPath}/pages/create_order"><i class="fa fa-angle-double-right"></i> Create Order</a></li>
+                                <li><a href="${pageContext.request.contextPath}/pages/test"><i class="fa fa-angle-double-right"></i> TEST</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

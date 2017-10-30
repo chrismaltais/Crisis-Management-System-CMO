@@ -17,5 +17,7 @@ public interface ApprovalReportRepository extends CrudRepository<ApprovalReport,
 	public ApprovalReport findByCrisisID(long id);
 	
 	public List<ApprovalReport> findAll();
+	
+	public List<ApprovalReport> findAllByOrderByCrisisIDDesc();
 
 }

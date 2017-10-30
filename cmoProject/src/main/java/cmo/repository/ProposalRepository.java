@@ -1,5 +1,7 @@
 package cmo.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import cmo.entities.Proposal;
@@ -12,5 +14,9 @@ import cmo.entities.Proposal;
  */
 public interface ProposalRepository extends CrudRepository<Proposal, Long> {
 
-	public Proposal findByCrisisID(int id);
+	public Proposal findByProposalID(long proposalId);
+	
+	public List<Proposal> findAll();
+	
+	public List<Proposal> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 }
