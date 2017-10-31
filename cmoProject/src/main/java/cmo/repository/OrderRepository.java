@@ -14,7 +14,7 @@ import cmo.entities.EFOrder;
  */
 public interface OrderRepository extends CrudRepository<EFOrder, Long> {
 
-	public EFOrder findByGeneralOrderID(long generalOrderId);
+	public EFOrder findByEfOrderID(long efOrderId);
 	
 	public List<EFOrder> findAll();
 	

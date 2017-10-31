@@ -17,10 +17,10 @@ public class OFEDAO implements OrderFEDAO {
 
 	@Override
 	public EFOrder getByOrderId(long orderId) {
-		EFOrder order = repo.findByGeneralOrderID(orderId);
+		EFOrder order = repo.findByEfOrderID(orderId);
 		order.setRead(true);
 		repo.save(order);
-		return repo.findByGeneralOrderID(orderId);
+		return repo.findByEfOrderID(orderId);
 	}
 
 	@Override

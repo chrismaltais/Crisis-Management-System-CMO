@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import cmo.entities.Report;
 import cmo.frontend.dao.ApprovalReportFEDAO;
 import cmo.frontend.dao.FeedbackReportFEDAO;
 import cmo.frontend.dao.OrderFEDAO;
@@ -22,8 +21,6 @@ public class MailboxController {
 	private ReportFEDAO reportDAO;
 	@Autowired
 	private ApprovalReportFEDAO approvalDAO;
-	@Autowired
-	private OrderFEDAO orderDAO;
 	@Autowired private FeedbackReportFEDAO feedbackDAO;
 
 	@GetMapping("/ajax/analyst/{reportId}")
