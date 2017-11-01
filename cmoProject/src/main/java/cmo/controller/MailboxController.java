@@ -25,12 +25,14 @@ public class MailboxController {
 	private ReportFEDAO reportDAO;
 	@Autowired
 	private ApprovalReportFEDAO approvalDAO;
+
 	@Autowired
 	private FeedbackReportFEDAO feedbackDAO;
 	@Autowired
 	private CallReportFEDAO callreportDAO;
 	@Resource(name="approvalPDF")
 	PDFConverter pdfConverter;
+
 
 	@GetMapping("/ajax/analyst/{reportId}")
 	public ResponseEntity<?> analyst(@PathVariable("reportId") long reportId, ModelMap model) {
@@ -41,6 +43,12 @@ public class MailboxController {
 	public ResponseEntity<?> ef(@PathVariable("feedbackReportId") long feedbackReportId, ModelMap model) {
 		return new ResponseEntity<Object>(feedbackDAO.getByFeedbackReportId(feedbackReportId), HttpStatus.OK);
 	}
+	
+	@GetMapping("/ajax/pmo/fromGeneral/{approvalReportId}")
+	public ResponseEntity<?> general(@PathVariable("approvalReportId") long approvalReportId, ModelMap model) {
+		return new ResponseEntity<Object>(approvalDAO.getByApprovalReportId(approvalReportId), HttpStatus.OK);
+	}
+	
 
 	@GetMapping("/ajax/911/{callReportId}")
 	public ResponseEntity<?> nineoneone(@PathVariable("callReportId") long callReportId, ModelMap model) {
@@ -90,7 +98,8 @@ public class MailboxController {
 		else if (page.equals("general"))
 			generalList(model);
 	}
-
+	
+	
 	private void analystList(Model model) {
 		model.addAttribute("messageList", reportDAO.getAll());
 	}
@@ -98,12 +107,16 @@ public class MailboxController {
 	private void efListFeedback(Model model) {
 		model.addAttribute("messageList", feedbackDAO.getAll());
 	}
-
+	
 	private void generalList(Model model) {
 		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}
 
 	private void nineoneoneList(Model model) {
 		model.addAttribute("messageList", callreportDAO.getAll());
+	}
+	
+	private void pmoList(Model model) {
+		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}
 }

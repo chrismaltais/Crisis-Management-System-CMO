@@ -13,21 +13,10 @@ and open the template in the editor.
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <style>
             #map{
-                height: 800px;
+                height: 400px;
                 width:100%;
             }
-			#floating-panel {
-			position: absolute;
-			top: 10px;
-			left: 25%;
-			z-index: 5;
-			background-color: #fff;
-			padding: 5px;
-			border: 1px solid #999;
-			text-align: center;
-			font-family: 'Roboto','sans-serif';
-			line-height: 30px;
-			padding-left: 10px;
+			
         </style>
     </head>
     <body>
