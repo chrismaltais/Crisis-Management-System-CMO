@@ -1,39 +1,42 @@
 package cmo.pdf;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
 
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 
 import cmo.entities.ApprovalReport;
 
-@Service
-public class PDFConverterApprovalReport implements PDFConverter {
-	
-	@Override
-	public String convertToPdf(Object o){
-		ApprovalReport report = (ApprovalReport) o;
-		Base64 b = new Base64();
-    	byte[] imageBytes = b.decode(report.getPdfBase64());
+@Service("approvalPDF")
+public class PDFConverterApprovalReport implements PDFConverter<ApprovalReport> {
+	// according to project's Java Build Path, this should refer to root folder
+	private final String BASEPATH = "src/main/webapp/";
 
-		String FILEPATH = "ApprovalReport-" + report.getCrisisID() + ".pdf";
-		FileOutputStream fout;
+	@Override
+	public String convertToPdf(ApprovalReport report) {
+		String FILENAME = "Approval-" + report.getCrisisID() + ".pdf";
+		
 		try {
-			fout = new FileOutputStream(FILEPATH);
-		} catch (FileNotFoundException e) {
-			e.getMessage();
-			return null;
+			Files.write(Paths.get(BASEPATH + FILENAME), Base64.getDecoder().decode(report.getPdfBase64()));
+		} catch (Exception e) {
+			FILENAME = "";
+			e.printStackTrace();
 		}
+		
+		return FILENAME;
+	}
+
+	@Override
+	public ApprovalReport convertToByteArray(ApprovalReport report, String filepath) {
 		try {
-			fout.write(imageBytes);
-			fout.close();
-		} catch (IOException e) {
-			e.getMessage();
-			return null;
+			report.setPdfBase64(Base64.getEncoder().encode(Files.readAllBytes(Paths.get(BASEPATH + filepath))));
+		} catch (Exception e) {
+			report = null;
+			e.printStackTrace();
 		}
-		return FILEPATH;
+		
+		return report;
 	}
 
 }

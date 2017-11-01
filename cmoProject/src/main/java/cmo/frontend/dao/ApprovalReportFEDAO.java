@@ -2,12 +2,14 @@ package cmo.frontend.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import cmo.entities.ApprovalReport;
 
 public interface ApprovalReportFEDAO {
 
 	// returns file link for report id
-	public String getReportByCrisisId(long crisisId);
+	public ApprovalReport getReportByCrisisId(long crisisId);
 	
 	// returns all available reports
 	public List<ApprovalReport> getAllReports();

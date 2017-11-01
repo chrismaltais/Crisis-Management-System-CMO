@@ -30,6 +30,8 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 </head>
 <body>
 
@@ -96,72 +98,85 @@
 
 									<table class="table table-mailbox">
 										<tr>
-											<td class="small-col">#</td>
-											<td class="name">ID</td>
-											<td class="subject">Subject</td>
-											<td class="time">Time</td>
+											<th class="small-col">#</th>
+											<th class="name">ID</th>
+											<th class="subject">Subject</th>
+											<th class="time">Time</th>
 										</tr>
 
-										<tr class="unread">
-											<td class="small-col">1</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">2</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">3</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">4</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">5</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">6</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">7</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">8</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">9</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">10</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
+										<c:forEach items="${messageList}" var="item" varStatus="stat">
+											<tr ${item.read ? '' : 'class="unread"'}
+												style="cursor: pointer;"
+												onclick="loadDoc('/ajax/general/${item.crisisID}')">
+												<td class="small-col">${stat.index + 1}</td>
+												<td class="name">${item.crisisID}</td>
+												<td class="name">Approval Report</td>
+												<td class="time"><fmt:formatDate
+														value="${item.messageReceivedTime}"
+														pattern="dd/MM/yyyy hh:mm" /></td>
+											</tr>
+										</c:forEach>
+
+										<!-- 										<tr class="unread"> -->
+										<!-- 											<td class="small-col">1</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">2</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">3</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr class="unread"> -->
+										<!-- 											<td class="small-col">4</td> -->
+										<!-- 											<td class="name">John Doe</a></td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">5</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">6</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">7</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr> -->
+										<!-- 											<td class="small-col">8</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr class="unread"> -->
+										<!-- 											<td class="small-col">9</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
+										<!-- 										<tr class="unread"> -->
+										<!-- 											<td class="small-col">10</td> -->
+										<!-- 											<td class="name">John Doe</td> -->
+										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+										<!-- 											<td class="time">12:30 PM</td> -->
+										<!-- 										</tr> -->
 									</table>
 								</div>
 								<!-- /.table-responsive -->
@@ -201,38 +216,34 @@
 					<div class="box-body">
 						<table class="table table-bordered">
 							<tr>
-								<th style="width: 10px">#</th>
-								<th style="width: 100px">Key</th>
-								<th>Value</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>proposal ID</td>
-								<td><p>general_01</p></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>content</td>
-								<td><p>this module is in crisis, #nojoke</p></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>json key</td>
-								<td><p>why the elearning SOO WORDY!?</p></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Map</td>
-								<td><p>*insert coordinate*</p></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Remarks</td>
-								<td><p>I got a headache looking at HTML codes all day
-									<p></td>
+								<td>Crisis ID:</td>
+								<td id="crisisID"></td>
 							</tr>
 						</table>
+						<object id="pdf" data="" height="100%" width="100%">
+							<p>No Approval Report loaded.</p>
+						</object>
 					</div>
+					<script>
+						function loadDoc(link) {
+							var xhttp = new XMLHttpRequest();
+
+							document.getElementById("crisisID").innerHTML = "";
+							document.getElementById("pdf").setAttribute("data", "");
+
+							xhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									var jsonObj = JSON.parse(this.response);
+
+									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
+									document.getElementById("pdf").setAttribute("data", "/" + jsonObj.reportURI);
+
+								}
+							};
+							xhttp.open("GET", link, true);
+							xhttp.send();
+						}
+					</script>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
 						<button class="btn btn-xs btn-primary pull-right">View on

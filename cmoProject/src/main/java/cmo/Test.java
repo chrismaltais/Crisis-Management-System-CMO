@@ -1,21 +1,22 @@
 package cmo;
 
-import java.util.Base64;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import cmo.entities.ApprovalReport;
 import cmo.entities.CallReport;
-import cmo.entities.FeedbackReport;
 import cmo.entities.EFOrder;
+import cmo.entities.FeedbackReport;
 import cmo.entities.Proposal;
 import cmo.entities.Report;
+import cmo.pdf.PDFConverter;
+import cmo.pdf.PDFConverterApprovalReport;
 import cmo.repository.ApprovalReportRepository;
 import cmo.repository.CallReportRepository;
 import cmo.repository.FeedbackReportRepository;
@@ -28,15 +29,22 @@ public class Test implements CommandLineRunner {
 
 	@GetMapping("/testGet")
 	public List<?> returningStuff(){
-		return reportRepo.findAll();
+		return approvalRepo.findAll();
 	}
 
 
 	public static void main(String[] args) {
-		RestTemplate rest = new RestTemplate();
-		ResponseEntity<?> response = rest.getForEntity("http://localhost:8080/ajax/analyst/2", String.class);
+		String medium;
+		PDFConverter converter = new PDFConverterApprovalReport();
 		
-		System.out.println(response.getStatusCodeValue());
+		ApprovalReport report = new ApprovalReport();
+		report.setCrisisID(1);
+		converter.convertToByteArray(report, "sampleFile.pdf");
+		
+		String location;
+		location = converter.convertToPdf(report);
+		
+		System.out.println(location);
 	}
 	
 	//////////////////////////////////////////////////
@@ -46,6 +54,7 @@ public class Test implements CommandLineRunner {
 	@Autowired OrderRepository orderRepo;
 	@Autowired ProposalRepository proposalRepo;
 	@Autowired ReportRepository reportRepo;
+	@Resource(name="approvalPDF") PDFConverter pdfConverter;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -53,7 +62,7 @@ public class Test implements CommandLineRunner {
 		
 		ApprovalReport approvalReport = new ApprovalReport();
 		approvalReport.setCrisisID(1);
-		approvalReport.setPdfBase64(Base64.getEncoder().encode("Hello World PDF".getBytes()));
+		pdfConverter.convertToByteArray(approvalReport, "sampleFile.pdf");
 		
 		approvalRepo.save(approvalReport);
 		
