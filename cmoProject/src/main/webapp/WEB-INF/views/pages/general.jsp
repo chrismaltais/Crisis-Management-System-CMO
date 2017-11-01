@@ -244,11 +244,22 @@
 						<br />
 						<br />
 						<br />
+						 <div class="box-body">
+
+						<h2 class="text-center">Scroll down to view more</h2>
+							<div>
+								<object type="text/html"
+									data="${pageContext.request.contextPath}/map" width="600px"
+									height="450px"></object>
+
+							</div>
+						</div>
 					</div>
-					<!-- Loading (remove the following to stop the loading)-->
+					<!-- Loading (remove the following to stop the loading)
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
 					<!-- end loading -->
+					-->
 				</div>
 			</div>
 		

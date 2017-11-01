@@ -276,38 +276,20 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 
-						<h2 class="text-center">YOUR MAP IS HARDCODED HERE, THANK
-							YOUR TEMPLATE</h2>
+						<h2 class="text-center">Scroll down to view more</h2>
 						<div>
-							<div id="map">
-
-								<script>
-									var map;
-
-									function initMap() {// for initialization of map
-										//map options
-										var options = {
-											zoom : 12,
-											center : {
-												lat : 1.3521,
-												lng : 103.8198
-											}
-										};
-										map = new google.maps.Map(document
-												.getElementById('map'), options);
-
-									} //end of initMap
-								</script>
-								<script async defer
-									src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&callback=initMap"></script>
-							</div>
+							<object type="text/html"
+								data="${pageContext.request.contextPath}/map" width="600px"
+								height="450px"></object>
 
 						</div>
 					</div>
-					<!-- Loading (remove the following to stop the loading)-->
+					<!-- Loading (remove the following to stop the loading)
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
 					<!-- end loading -->
+					
+					-->
 				</div>
 			</div>
 
