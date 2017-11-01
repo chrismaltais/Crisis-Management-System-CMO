@@ -10,7 +10,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="${pageContext.request.contextPath}/" class="logo">
+            <a href="${pageContext.request.contextPath}/general/index_general" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 SSP2 CMO
             </a>
@@ -29,7 +29,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span> Gabriel <i class="caret"></i></span>
+                                <span> General <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -66,9 +66,9 @@
                             <img src="${pageContext.request.contextPath}/resources/img/avatar5.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Gabriel</p>
+                            <p>Hello, General</p>
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Snoozing</a>
+                            <a href="#"><i class="fa fa-circle text-success"></i>Active</a>
                         </div>
                     </div>
                     <!-- /.search form -->
@@ -82,66 +82,16 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/pages/analyst">
                                 <i class="fa fa-users"></i> <span>Analyst</span>
+                                <small class="badge pull-right bg-red"></small>
                             </a>
                         </li>
                         <li>
-                        	   <a href="${pageContext.request.contextPath}/pages/pmo">
+                        	   <a href="${pageContext.request.contextPath}/general/pmo">
                                 <i class="fa fa-user"></i> <span>PMO</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${pageContext.request.contextPath}/pages/pmo"><i class="fa fa-angle-double-right"></i> Proposals</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${pageContext.request.contextPath}/pages/charts/morris"><i class="fa fa-angle-double-right"></i> Morris</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/charts/flot"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/charts/inline"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${pageContext.request.contextPath}/pages/forms/general"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/forms/advanced"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/forms/editors"><i class="fa fa-angle-double-right"></i> Editors</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/pages/calendar">
-                                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                                <small class="badge pull-right bg-red">3</small>
+                                <small class="badge pull-right bg-red"></small>
                             </a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/pages/wewe">
-                                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-folder"></i> <span>Examples</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/invoice"><i class="fa fa-angle-double-right"></i> Invoice</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/login"><i class="fa fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/register"><i class="fa fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/lockscreen"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/404"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/500"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/examples/blank"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
-                            </ul>
-                        </li>
+                        
                     </ul>
                 </section>
                 <!-- /.sidebar -->

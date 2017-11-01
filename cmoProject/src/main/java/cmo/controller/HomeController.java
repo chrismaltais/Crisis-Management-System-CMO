@@ -72,4 +72,20 @@ public class HomeController {
 		
 		return "pages/"+page;
 	}
+	
+	@RequestMapping(value = "/general/{page}", method = RequestMethod.GET)
+	public String general(Locale locale, Model model,@PathVariable(value="page") String generalPage) {
+		logger.info("Welcome page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		mail.messageList(model, generalPage);
+		
+		return "general/"+ generalPage;
+	}
 }
