@@ -273,7 +273,7 @@
 						</tr>
 						<tr>
 							<td>Message received time:</td>
-							<td id="messageReceivedTime;"></td>
+							<td id="messageReceivedTime"></td>
 						</tr>
 							
 							
@@ -297,9 +297,9 @@
 		
 								xhttp.onreadystatechange = function() {
 									if (this.readyState == 4 && this.status == 200) {
+										
 										var jsonObj = JSON.parse(this.response);
 		
-										document.getElementById("reportID").innerHTML = jsonObj.reportID;
 										document.getElementById("callReportID").innerHTML = jsonObj.callReportID;
 										document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
 										document.getElementById("name").innerHTML = jsonObj.name;
