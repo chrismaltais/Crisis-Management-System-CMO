@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import cmo.frontend.dao.ApprovalReportFEDAO;
+import cmo.frontend.dao.CallReportFEDAO;
 import cmo.frontend.dao.FeedbackReportFEDAO;
 import cmo.frontend.dao.OrderFEDAO;
 import cmo.frontend.dao.ReportFEDAO;
@@ -22,6 +23,8 @@ public class MailboxController {
 	@Autowired
 	private ApprovalReportFEDAO approvalDAO;
 	@Autowired private FeedbackReportFEDAO feedbackDAO;
+	
+	@Autowired private CallReportFEDAO callreportDAO;
 
 	@GetMapping("/ajax/analyst/{reportId}")
 	public ResponseEntity<?> analyst(@PathVariable("reportId") long reportId, ModelMap model) {
@@ -32,10 +35,17 @@ public class MailboxController {
 	public ResponseEntity<?> ef(@PathVariable("feedbackReportId") long feedbackReportId, ModelMap model) {
 		return new ResponseEntity<Object>(feedbackDAO.getByFeedbackReportId(feedbackReportId), HttpStatus.OK);
 	}
+	
+	@GetMapping("/ajax/911/{callReportId}")
+	public ResponseEntity<?> nineoneone(@PathVariable("callReportId") long callReportId, ModelMap model) {
+		return new ResponseEntity<Object>(callreportDAO.getReport(callReportId), HttpStatus.OK);
+	}	
 
 	public void messageList(Model model, String page) {
 		if (page.equals("analyst"))
 			analystList(model);
+		else if (page.equals("911"))
+			nineoneoneList(model);
 		else if (page.equals("ef")) {
 			efListFeedback(model);
 		}
@@ -51,5 +61,8 @@ public class MailboxController {
 
 	private void generalList(Model model) {
 		model.addAttribute("messageList", approvalDAO.getAllReports());
+	}
+	private void nineoneoneList(Model model) {
+		model.addAttribute("messageList", callreportDAO.getAll());
 	}
 }
