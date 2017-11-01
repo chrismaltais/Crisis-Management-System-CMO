@@ -279,8 +279,8 @@
 						<h2 class="text-center">Scroll down to view more</h2>
 						<div>
 							<object type="text/html"
-								data="${pageContext.request.contextPath}/map" width="600px"
-								height="450px"></object>
+								data="${pageContext.request.contextPath}/map" width="100%"
+								height="800px"></object>
 
 						</div>
 					</div>

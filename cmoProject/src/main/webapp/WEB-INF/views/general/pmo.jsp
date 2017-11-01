@@ -344,7 +344,7 @@
 							<h3 class="box-title">Map</h3>
 						</div>
 						<div class="box-body">
-							<object type="text/html" data="${pageContext.request.contextPath}/map"  width= "600px" height="450px" ></object>
+							<object type="text/html" data="${pageContext.request.contextPath}/map"  width= "100%" height="800px" ></object>
 						<div class="box-tools pull-right">
 							<button class="btn btn-danger btn-sm" data-widget="collapse">
 								<i class="fa fa-minus"></i>

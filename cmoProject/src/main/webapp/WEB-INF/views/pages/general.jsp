@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>SSP2 CMO Analyst</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <!-- bootstrap 3.0.2 -->
-        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <!-- font Awesome -->
-        <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Ionicons -->
-        <link href="${pageContext.request.contextPath}/resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- Theme style -->
-        <link href="${pageContext.request.contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<head>
+<meta charset="UTF-8">
+<title>SSP2 CMO Analyst</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+<!-- bootstrap 3.0.2 -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- font Awesome -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
+	rel="stylesheet" type="text/css" />
 
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body>
+</head>
+<body>
 
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -37,14 +47,14 @@
 
 	<!-- Main content -->
 	<section class="content">
-	
+
 		<!-- top row -->
 		<!--  <div class="911-row">
 			<div class="col-xs-12"></div>-->
-			<!-- /.col -->
+		<!-- /.col -->
 		<!-- </div>-->
-		<!-- /.row -->	
-		
+		<!-- /.row -->
+
 		<!-- main row -->
 		<div class="mailbox row">
 			<section class="col-xs-12">
@@ -174,13 +184,13 @@
 					</div>
 					<!-- box-footer -->
 				</div>
-				<!-- /.box -->		
-			
-			</section>	
-		
-		
+				<!-- /.box -->
+
+			</section>
+
+
 		</div>
-	
+
 		<div class="row">
 			<div class="col-md-6">
 				<div class="box">
@@ -218,39 +228,40 @@
 							<tr>
 								<td>4</td>
 								<td>Remarks</td>
-								<td><p>I got a headache looking at HTML codes all day<p></td>
+								<td><p>I got a headache looking at HTML codes all day
+									<p></td>
 							</tr>
 						</table>
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xs btn-primary pull-right">View on Map</button>
+						<button class="btn btn-xs btn-primary pull-right">View on
+							Map</button>
 					</div>
 				</div>
 				<!-- /.box -->
 			</div>
 			<!-- /.col -->
-			
-			
+
+
 			<div class="col-md-6">
 				<div class="box">
 					<div class="box-header">
-						<i class="fa fa-globe"></i><h3 class="box-title">Map</h3>
+						<i class="fa fa-globe"></i>
+						<h3 class="box-title">Map</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						
-						<h2 class="text-center">WHERE IS MY FREAKING MAP?</h2>
-						<br />
-						<br />
-						<br />
-						 <div class="box-body">
 
-						<h2 class="text-center">Scroll down to view more</h2>
+						<h2 class="text-center">WHERE IS MY FREAKING MAP?</h2>
+						<br /> <br /> <br />
+						<div class="box-body">
+
+							<h2 class="text-center">Scroll down to view more</h2>
 							<div>
 								<object type="text/html"
-									data="${pageContext.request.contextPath}/map" width="600px"
-									height="450px"></object>
+									data="${pageContext.request.contextPath}/map" width="100%"
+									height="800px"></object>
 
 							</div>
 						</div>
@@ -262,17 +273,22 @@
 					-->
 				</div>
 			</div>
-		
+
 		</div>
 	</section>
 	<!-- /.content -->
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js" type="text/javascript"></script>
+	<!-- jQuery 2.0.2 -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!-- AdminLTE App -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
+		type="text/javascript"></script>
 
-    </body>
+</body>
 </html>
