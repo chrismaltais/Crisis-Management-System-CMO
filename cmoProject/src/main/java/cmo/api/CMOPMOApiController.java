@@ -4,6 +4,8 @@ package cmo.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ import cmo.entities.ApprovalReport;
 import cmo.entities.ApprovalReportConverter;
 import cmo.entities.ApprovalReportDTO;
 import cmo.entities.CustomErrorType;
+import cmo.pdf.PDFConverter;
 import cmo.repository.ApprovalReportRepository;
-import cmo.pdf.*;
 
 @RestController
 @RequestMapping("/PMOtoCMO")
@@ -32,9 +34,9 @@ public class CMOPMOApiController {
 
 	@Autowired
 	ApprovalReportRepository approvalReportRepository; // Service which will do all data retrieval/manipulation work
-	
-	@Autowired
-	PDFConverter pdf;
+
+	@Resource(name = "approvalPDF")
+	private PDFConverter pdf;
 
 	// -------------------Retrieve All
 	// Reports---------------------------------------------
@@ -87,7 +89,7 @@ public class CMOPMOApiController {
 		approvalReportRepository.save(ApprovalReportConverter.convert(approvalReport));
 
 		pdf.convertToPdf(ApprovalReportConverter.convert(approvalReport));
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/PMOtoCMO/approvalReport/{crisisID}")
 				.buildAndExpand(approvalReport.getCrisisID()).toUri());

@@ -30,9 +30,9 @@ public class MailboxController {
 	private FeedbackReportFEDAO feedbackDAO;
 	@Autowired
 	private CallReportFEDAO callreportDAO;
-	@Resource(name="approvalPDF")
-	PDFConverter pdfConverter;
 
+	@Resource(name = "approvalPDF")
+	private PDFConverter pdfConverter;
 
 	@GetMapping("/ajax/analyst/{reportId}")
 	public ResponseEntity<?> analyst(@PathVariable("reportId") long reportId, ModelMap model) {
@@ -43,12 +43,14 @@ public class MailboxController {
 	public ResponseEntity<?> ef(@PathVariable("feedbackReportId") long feedbackReportId, ModelMap model) {
 		return new ResponseEntity<Object>(feedbackDAO.getByFeedbackReportId(feedbackReportId), HttpStatus.OK);
 	}
-	
-	@GetMapping("/ajax/pmo/fromGeneral/{approvalReportId}")
-	public ResponseEntity<?> general(@PathVariable("approvalReportId") long approvalReportId, ModelMap model) {
-		return new ResponseEntity<Object>(approvalDAO.getByApprovalReportId(approvalReportId), HttpStatus.OK);
-	}
-	
+
+	// @GetMapping("/ajax/pmo/fromGeneral/{approvalReportId}")
+	// public ResponseEntity<?> general(@PathVariable("approvalReportId") long
+	// approvalReportId, ModelMap model) {
+	// return new
+	// ResponseEntity<Object>(approvalDAO.getByApprovalReportId(approvalReportId),
+	// HttpStatus.OK);
+	// }
 
 	@GetMapping("/ajax/911/{callReportId}")
 	public ResponseEntity<?> nineoneone(@PathVariable("callReportId") long callReportId, ModelMap model) {
@@ -56,36 +58,38 @@ public class MailboxController {
 	}
 
 	@GetMapping("/ajax/general/{crisisId}")
-	public ResponseEntity<?> approvalReport(@PathVariable("crisisId") long crisisId, ModelMap model){
+	public ResponseEntity<?> approvalReport(@PathVariable("crisisId") long crisisId, ModelMap model) {
 		ApprovalReport report = approvalDAO.getReportByCrisisId(crisisId);
 		String reportURI = pdfConverter.convertToPdf(report);
-		
-		System.out.println("reportURI: " + reportURI);
-		
-		class ApprovalReportDTO{
+
+		class ApprovalReportDTO {
 			private long crisisID;
 			private String reportURI;
+
 			public long getCrisisID() {
 				return crisisID;
 			}
-			public String getReportURI() {
-				return reportURI;
-			}
+
 			public void setCrisisID(long crisisID) {
 				this.crisisID = crisisID;
 			}
+
+			public String getReportURI() {
+				return reportURI;
+			}
+
 			public void setReportURI(String reportURI) {
 				this.reportURI = reportURI;
 			}
-			
+
 		}
-		
+
 		ApprovalReportDTO dto = new ApprovalReportDTO();
 		dto.setCrisisID(report.getCrisisID());
 		dto.setReportURI(reportURI);
-		
-		return new ResponseEntity<ApprovalReportDTO>(dto,HttpStatus.OK);
-		
+
+		return new ResponseEntity<ApprovalReportDTO>(dto, HttpStatus.OK);
+
 	}
 
 	public void messageList(Model model, String page) {
@@ -98,8 +102,7 @@ public class MailboxController {
 		else if (page.equals("general"))
 			generalList(model);
 	}
-	
-	
+
 	private void analystList(Model model) {
 		model.addAttribute("messageList", reportDAO.getAll());
 	}
@@ -107,7 +110,7 @@ public class MailboxController {
 	private void efListFeedback(Model model) {
 		model.addAttribute("messageList", feedbackDAO.getAll());
 	}
-	
+
 	private void generalList(Model model) {
 		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}
@@ -115,7 +118,7 @@ public class MailboxController {
 	private void nineoneoneList(Model model) {
 		model.addAttribute("messageList", callreportDAO.getAll());
 	}
-	
+
 	private void pmoList(Model model) {
 		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}

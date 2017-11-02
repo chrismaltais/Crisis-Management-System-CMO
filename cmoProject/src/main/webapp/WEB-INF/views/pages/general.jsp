@@ -36,11 +36,6 @@
 </head>
 <body>
 
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-		<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    </head>
-    <body>
-
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
@@ -191,7 +186,7 @@
 						<!-- /.row -->
 					</div>
 					<!-- /.box-body -->
-					
+
 					<!-- box-footer -->
 				</div>
 				<!-- /.box -->
@@ -209,9 +204,13 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-
+						<table class="table">
+							<tr>
+								<td class="col-md-7">Crisis ID:</td>
+								<td id="crisisID"></td>
+							</tr>
 						</table>
-						<object id="pdf" data="" height="100%" width="100%">
+						<object id="pdf" data="" height="400px" width="100%">
 							<p>No Approval Report loaded.</p>
 						</object>
 					</div>
@@ -220,14 +219,17 @@
 							var xhttp = new XMLHttpRequest();
 
 							document.getElementById("crisisID").innerHTML = "";
-							document.getElementById("pdf").setAttribute("data", "");
+							document.getElementById("pdf").setAttribute("data",
+									"");
 
 							xhttp.onreadystatechange = function() {
 								if (this.readyState == 4 && this.status == 200) {
 									var jsonObj = JSON.parse(this.response);
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
-									document.getElementById("pdf").setAttribute("data", "/" + jsonObj.reportURI);
+									document.getElementById("pdf")
+											.setAttribute("data",
+													"/" + jsonObj.reportURI);
 
 								}
 							};
@@ -254,20 +256,20 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-							<div>
-								<object type="text/html"
-									data="${pageContext.request.contextPath}/map" width="100%"
-									height="400px"></object>
+						<div>
+							<object type="text/html"
+								data="${pageContext.request.contextPath}/map" width="100%"
+								height="400px"></object>
 
-							</div>
 						</div>
 					</div>
-					<!-- Loading (remove the following to stop the loading)
+				</div>
+				<!-- Loading (remove the following to stop the loading)
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
 					<!-- end loading -->
-				</div>
 			</div>
+		</div>
 
 		</div>
 	</section>
