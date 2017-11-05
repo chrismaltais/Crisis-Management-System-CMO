@@ -14,4 +14,8 @@ public interface ApprovalReportFEDAO {
 
 	// returns all available reports
 	public List<ApprovalReport> getAllReports();
+	
+	public void setAnalysisReadable(long crisisID, boolean readable);
+	
+	public List<ApprovalReport> getAllAnalysisReadableReports();
 }
