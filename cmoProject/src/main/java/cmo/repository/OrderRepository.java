@@ -19,4 +19,6 @@ public interface OrderRepository extends CrudRepository<EFOrder, Long> {
 	public List<EFOrder> findAll();
 	
 	public List<EFOrder> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
+	
+	public EFOrder findTop1ByOrderByEfOrderIDDesc();
 }

@@ -14,6 +14,12 @@ public class OFEDAO implements OrderFEDAO {
 
 	@Autowired
 	private OrderRepository repo;
+	
+	@Override
+	public EFOrder saveNewOrder(EFOrder order) {
+		repo.save(order);
+		return repo.findTop1ByOrderByEfOrderIDDesc();
+	}
 
 	@Override
 	public EFOrder getByOrderId(long orderId) {
