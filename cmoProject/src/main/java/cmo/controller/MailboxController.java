@@ -32,7 +32,7 @@ public class MailboxController {
 	private CallReportFEDAO callreportDAO;
 
 	@Resource(name = "approvalPDF")
-	private PDFConverter pdfConverter;
+	private PDFConverter<ApprovalReport> pdfConverter;
 
 	@GetMapping("/ajax/analyst/{reportId}")
 	public ResponseEntity<?> analyst(@PathVariable("reportId") long reportId, ModelMap model) {

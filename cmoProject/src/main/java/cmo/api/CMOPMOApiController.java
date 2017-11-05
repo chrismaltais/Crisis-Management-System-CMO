@@ -36,7 +36,7 @@ public class CMOPMOApiController {
 	ApprovalReportRepository approvalReportRepository; // Service which will do all data retrieval/manipulation work
 
 	@Resource(name = "approvalPDF")
-	private PDFConverter pdf;
+	private PDFConverter<ApprovalReport> pdf;
 
 	// -------------------Retrieve All
 	// Reports---------------------------------------------
