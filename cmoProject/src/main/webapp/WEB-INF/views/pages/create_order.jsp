@@ -56,34 +56,60 @@
 						<h3 class='box-title'>Create EF Orders</h3>
 					</div>
 					<!-- /.box-header -->
-					<form role="form">
+					<form role="form" action="${pageContext.request.contextPath}/formSubmission/efOrders" method="post">
 						<div class="box-body">
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="crisisID">Crisis ID</label> <input type="text"
+									id="crisisID" name="crisisID" class="form-control" placeholder="Crisis ID">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="name">Name</label> <input type="text" id="name" name="name"
+									class="form-control" placeholder="Name">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="positionInCMO">Position in CMO</label> <input
+									type="text" id="positionInCMO" name="positionInCMO" class="form-control"
+									placeholder="Position in CMO">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="threatLevel">Threat Level</label><br> <select
+									id="threatLevel" name="threatLevel" class="dropdown">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
 							</div>
 							<div class="form-group">
-								<label>Textarea</label>
-								<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+								<label for="crisisType">Crisis Type</label> <input type="text"
+									id="crisisType" name="crisisType" class="form-control" placeholder="Crisis Type">
 							</div>
+							<div class="form-group">
+								<label for="affectedArea">Affected Area</label> <input
+									type="text" id="affectedArea" name="affectedArea" class="form-control"
+									placeholder="Affected Area">
+							</div>
+							<div class="form-group">
+								<label for="crisisDetails">Crisis Details</label> <input
+									type="text" id="crisisDetails" name="crisisDetails" class="form-control"
+									placeholder="Crisis Details">
+							</div>
+							<div class="form-group">
+								<label for="couseofAction">Course of Action</label> <input
+									type="text" id="couseofAction" name="couseofAction" class="form-control"
+									placeholder="Course of Action">
+							</div>
+							<!-- 							<div class="form-group"> -->
+							<!-- 								<label>Textarea</label> -->
+							<!-- 								<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea> -->
+							<!-- 							</div> -->
 
-							<div class="form-group">
-								<label for="exampleInputFile">File input</label> <input
-									type="file" id="exampleInputFile">
-								<p class="help-block">Example block-level help text here.</p>
-							</div>
+							<!-- 							<div class="form-group"> -->
+							<!-- 								<label for="exampleInputFile">File input</label> <input -->
+							<!-- 									type="file" id="exampleInputFile"> -->
+							<!-- 								<p class="help-block">Example block-level help text here.</p> -->
+							<!-- 							</div> -->
 
 						</div>
 						<!-- /.box-body -->
@@ -91,6 +117,7 @@
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
+						${messageContent}
 					</form>
 				</div>
 			</div>

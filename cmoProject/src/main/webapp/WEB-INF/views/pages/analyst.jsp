@@ -106,7 +106,7 @@
 										<td class="subject">${item.threatLevel}</td>
 										<td class="subject">${item.affectedAreas}</td>
 										<td class="time"><fmt:formatDate
-												value="${item.createdTime}" pattern="dd/MM/yyyy hh:mm" /></td>
+												value="${item.createdTime}" pattern="dd/MM/yyyy HH:mm" /></td>
 									</tr>
 								</c:forEach>
 
@@ -305,7 +305,7 @@
 								document.getElementById("courseOfActions").innerHTML = jsonObj.courseOfActions;
 								document
 										.getElementById("consequencesOfActions").innerHTML = jsonObj.consequencesOfAction;
-								document.getElementById("timestamp").innerHTML = jsonObj.createdTime;
+								document.getElementById("timestamp").innerHTML = moment(jsonObj.createdTime).format("DD/MM/YYYY HH:mm");
 
 							}
 						};

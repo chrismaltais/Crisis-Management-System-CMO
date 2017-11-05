@@ -113,7 +113,7 @@
 												<td class="name">Approval Report</td>
 												<td class="time"><fmt:formatDate
 														value="${item.messageReceivedTime}"
-														pattern="dd/MM/yyyy hh:mm" /></td>
+														pattern="dd/MM/yyyy HH:mm" /></td>
 											</tr>
 										</c:forEach>
 

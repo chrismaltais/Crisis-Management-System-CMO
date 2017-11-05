@@ -22,6 +22,7 @@
         <![endif]-->
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 		<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+		<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
     </head>
     <body>
 
@@ -97,7 +98,7 @@
 												<td class="small-col">${stat.index + 1}</td>
 												<td class="name">${item.crisisID}</td>
 												<td class="subject">${item.affectedArea}</td>
-												<td class="time"><fmt:formatDate value="${item.messageReceivedTime}" pattern="dd/MM/yyyy hh:mm"/></td>
+												<td class="time"><fmt:formatDate value="${item.messageReceivedTime}" pattern="dd/MM/yyyy HH:mm"/></td>
 											</tr>
 										</c:forEach>
 										
@@ -309,7 +310,7 @@
 										document.getElementById("crisisDate").innerHTML = jsonObj.crisisDate;
 										document.getElementById("estimatedStartTime").innerHTML = jsonObj.estimatedStartTime;
 										document.getElementById("crisisDetails").innerHTML = jsonObj.crisisDetails;
-										document.getElementById("messageReceivedTime").innerHTML = jsonObj.messageReceivedTime;
+										document.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime).format("DD/MM/YYYY HH:mm");
 		
 									}
 								};

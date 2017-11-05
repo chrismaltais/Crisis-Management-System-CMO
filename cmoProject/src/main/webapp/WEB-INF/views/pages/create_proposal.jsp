@@ -57,42 +57,81 @@
 					</div>
 					<!-- /.box-header -->
 
-					<form role="form">
+					<form role="form"
+						action="${pageContext.request.contextPath}/formSubmission/proposal"
+						method="post">
 						<div class="box-body">
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="crisisID">Crisis ID</label> <input type="text"
+									id="crisisID" name="crisisID" class="form-control"
+									placeholder="Crisis ID">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="name">Name</label> <input type="text" id="name"
+									name="name" class="form-control" placeholder="Name">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="positionInCMO">Position in CMO</label> <input
+									type="text" id="positionInCMO" name="positionInCMO"
+									class="form-control" placeholder="Position in CMO">
 							</div>
 							<div class="form-group">
-								<label>Text</label> <input type="text" class="form-control"
-									placeholder="Enter ..." />
+								<label for="threatLevel">Threat Level</label><br> <select
+									id="threatLevel" name="threatLevel" class="dropdown">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
 							</div>
 							<div class="form-group">
-								<label>Textarea</label>
-								<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+								<label for="crisisType">Crisis Type</label> <input type="text"
+									id="crisisType" name="crisisType" class="form-control"
+									placeholder="Crisis Type">
 							</div>
+							<div class="form-group">
+								<label for="affectedArea">Affected Area</label> <input
+									type="text" id="affectedArea" name="affectedArea"
+									class="form-control" placeholder="Affected Area">
+							</div>
+							<div class="form-group">
+								<label for="estimatedCasualties">Estimated Casualties</label>
+								<input type="number" id="estimatedCasualties" name="estimatedCasualties" class="form-control" placeholder="Estimated Casulaties">
+							</div>
+							<div class="form-group">
+								<label for="crisisDuration">Crisis Duration</label> <input
+									type="text" id="crisisDuration" name="crisisDuration"
+									class="form-control" placeholder="Crisis Duration">
+							</div>
+							<div class="form-group">
+								<label for="crisisDetails">Crisis Details</label> <input
+									type="text" id="crisisDetails" name="crisisDetails"
+									class="form-control" placeholder="Crisis Details">
+							</div>
+							<div class="form-group">
+								<label for="courseOfAction">Course of Action</label> <input
+									type="text" id="courseOfAction" name="courseOfAction"
+									class="form-control" placeholder="Course of Action">
+							</div>
+							<div class="form-group">
+								<label for="consequencesOfAction">Consequences of Action</label> <input
+									type="text" id="consequencesOfAction" name="consequencesOfAction"
+									class="form-control" placeholder="Consequences of Action">
+							</div>
+							<div class="form-group">
+								<label for="cleanUpAction">Clean Up Action</label> <input
+									type="text" id="cleanUpAction" name="cleanUpAction"
+									class="form-control" placeholder="Clean Up Action">
+							</div>
+							<!-- /.box-body -->
 
-							<div class="form-group">
-								<label for="exampleInputFile">File input</label> <input
-									type="file" id="exampleInputFile">
-								<p class="help-block">Example block-level help text here.</p>
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
-
-						</div>
-						<!-- /.box-body -->
-
-						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
 					</form>
+					${messageContent}
 				</div>
 			</div>
 		</div>

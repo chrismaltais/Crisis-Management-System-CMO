@@ -33,6 +33,7 @@
 <style>#map{ height: 800px; width:100%; }</style>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -106,7 +107,7 @@
 											<td class="name">${item.crisisID}</td>
 											<td class="subject">${item.threatLevel}</td>
 											<td class="subject">${item.deploymentStatus}</td>
-											<td class="time"><fmt:formatDate value="${item.messageReceivedTime}" pattern="dd/MM/yyyy hh:mm"/></td>
+											<td class="time"><fmt:formatDate value="${item.messageReceivedTime}" pattern="dd/MM/yyyy HH:mm"/></td>
 										</tr>
 									</c:forEach>
 									</table>
@@ -264,7 +265,7 @@
 				if (this.readyState == 4 && this.status == 200) {
 					var jsonObj = JSON.parse(this.response);
 
-					document.getElementById("reportID").innerHTML = jsonObj.feedbackReportID;
+					document.getElementById("feedbackReportID").innerHTML = jsonObj.feedbackReportID;
 					document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
 					document.getElementById("name").innerHTML = jsonObj.name
 					document.getElementById("positionInEF").innerHTML = jsonObj.positionInEF;
@@ -272,7 +273,7 @@
 					document.getElementById("casualtiesRescued").innerHTML = jsonObj.casualtiesRescued;
 					document.getElementById("deploymentStatus").innerHTML = jsonObj.deploymentStatus;
 					document.getElementById("situationStatus").innerHTML = jsonObj.situationStatus;
-					document.getElementById("timestamp").innerHTML = jsonObj.createdTime;
+					document.getElementById("timestamp").innerHTML = moment(jsonObj.createdTime).format("DD/MM/YYYY HH:mm");
 				}
 			};
 			xhttp.open("GET", link, true);
