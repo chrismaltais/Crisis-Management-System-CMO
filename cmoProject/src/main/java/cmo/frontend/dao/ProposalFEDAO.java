@@ -11,4 +11,6 @@ public interface ProposalFEDAO {
 	public List<Proposal> getAll();
 	
 	public List<Proposal> getAllByCrisisId(long crisisId);
+	
+	public Proposal saveNewProposal(Proposal proposal);
 }
