@@ -24,13 +24,14 @@ public class loginController {
 	public String authenticator(ModelMap model, @RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, @RequestParam(name = "domain") String domain) {
 
-		if (logindao.authenticate(username, password, domain))
-			return "redirect:/pages/index";
-		else {
+		if (logindao.authenticate(username, password, domain)) {
+			if (username.equals("analyst")) {
+				return "redirect:/pages/index";
+			} else 
+				return "redirect:/general/index_general";		
+		} else {
 			model.put("errorMessage", "Invalid Credentials");
 			return "redirect:/";
-		}
-			
-
+		}	
 	}
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
-import cmo.entities.GeneralOrder;
+import cmo.entities.EFOrder;
 
 public class CMOEFClient {
 
@@ -70,7 +70,7 @@ public class CMOEFClient {
 		System.out.println("Testing get Order API----------");
 
 		RestTemplate restTemplate = new RestTemplate();
-		GeneralOrder order = restTemplate.getForObject(REST_SERVICE_URI + "/order/1", GeneralOrder.class);
+		EFOrder order = restTemplate.getForObject(REST_SERVICE_URI + "/order/1", EFOrder.class);
 		System.out.println(order);
 	}
 
@@ -79,9 +79,9 @@ public class CMOEFClient {
 	System.out.println("Testing create Order API----------");
 
 	RestTemplate restTemplate = new RestTemplate();
-	GeneralOrder order = new GeneralOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10", "Detail10", "Action10");
+	EFOrder order = new EFOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10", "Detail10", "Action10");
 	URI uri = restTemplate.postForLocation(REST_SERVICE_URI + "/order/", order,
-			GeneralOrder.class);System.out.println("Location : "+uri.toASCIIString());
+			EFOrder.class);System.out.println("Location : "+uri.toASCIIString());
 	}
 
 	public static void main(String args[]) {

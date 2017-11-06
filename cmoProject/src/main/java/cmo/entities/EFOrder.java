@@ -9,11 +9,18 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**
+ * To EF
+ * 
+ * @author HawksSeptua
+ *
+ */
 @Entity
-public class GeneralOrder {
+public class EFOrder {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private long generalOrderID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long efOrderID;
 	private long crisisID;
 	private String name;
 	private String positionInCMO;
@@ -26,14 +33,14 @@ public class GeneralOrder {
 	private Timestamp receivedMessageTime;
 	private boolean read = false;
 
-	public GeneralOrder() {
+	public EFOrder() {
 		crisisID = 0;
 	}
 
-	public GeneralOrder(long generalOrderID, long crisisID, String name, String positionInCMO, int threatLevel,
-			String crisisType, String affectedArea, String crisisDetails, String couseofAction,
-			Timestamp receivedMessageTime, boolean read) {
-		this.generalOrderID = generalOrderID;
+	public EFOrder(long efOrderID, long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
+			String affectedArea, String crisisDetails, String couseofAction, Timestamp receivedMessageTime,
+			boolean read) {
+		this.efOrderID = efOrderID;
 		this.crisisID = crisisID;
 		this.name = name;
 		this.positionInCMO = positionInCMO;
@@ -45,11 +52,10 @@ public class GeneralOrder {
 		this.receivedMessageTime = receivedMessageTime;
 		this.read = read;
 	}
-	
-	
+
 	// for use by cmo.tony.CMOEFClient
-	public GeneralOrder(long crisisID, String name, String positionInCMO, int threatLevel,
-			String crisisType, String affectedArea, String crisisDetails, String couseofAction) {
+	public EFOrder(long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
+			String affectedArea, String crisisDetails, String couseofAction) {
 		this.crisisID = crisisID;
 		this.name = name;
 		this.positionInCMO = positionInCMO;
@@ -60,8 +66,8 @@ public class GeneralOrder {
 		this.couseofAction = couseofAction;
 	}
 
-	public long getGeneralOrderID() {
-		return generalOrderID;
+	public long getEfOrderID() {
+		return efOrderID;
 	}
 
 	public long getCrisisID() {
@@ -104,8 +110,8 @@ public class GeneralOrder {
 		return read;
 	}
 
-	public void setGeneralOrderID(long generalOrderID) {
-		this.generalOrderID = generalOrderID;
+	public void setEfOrderID(long efOrderID) {
+		this.efOrderID = efOrderID;
 	}
 
 	public void setCrisisID(long crisisID) {
@@ -164,7 +170,7 @@ public class GeneralOrder {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GeneralOrder other = (GeneralOrder) obj;
+		EFOrder other = (EFOrder) obj;
 		if (crisisID != other.crisisID)
 			return false;
 		return true;
@@ -172,10 +178,10 @@ public class GeneralOrder {
 
 	@Override
 	public String toString() {
-		return "GeneralOrder [generalOrderID=" + generalOrderID + ", crisisID=" + crisisID + ", name=" + name
-				+ ", positionInCMO=" + positionInCMO + ", threatLevel=" + threatLevel + ", crisisType=" + crisisType
-				+ ", affectedArea=" + affectedArea + ", crisisDetails=" + crisisDetails + ", couseofAction="
-				+ couseofAction + ", receivedMessageTime=" + receivedMessageTime + ", read=" + read + "]";
+		return "EFOrder [efOrderID=" + efOrderID + ", crisisID=" + crisisID + ", name=" + name + ", positionInCMO="
+				+ positionInCMO + ", threatLevel=" + threatLevel + ", crisisType=" + crisisType + ", affectedArea="
+				+ affectedArea + ", crisisDetails=" + crisisDetails + ", couseofAction=" + couseofAction
+				+ ", receivedMessageTime=" + receivedMessageTime + ", read=" + read + "]";
 	}
 
 }

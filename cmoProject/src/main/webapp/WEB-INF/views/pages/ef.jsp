@@ -31,6 +31,9 @@
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
 <style>#map{ height: 800px; width:100%; }</style>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -48,13 +51,6 @@
 
 	<!-- Main content -->
 	<section class="content">
-
-		<!-- top row -->
-		<!--  <div class="911-row">
-			<div class="col-xs-12"></div>-->
-		<!-- /.col -->
-		<!-- </div>-->
-		<!-- /.row -->
 
 		<!-- 1st row -->
 		<div class="mailbox row">
@@ -96,73 +92,24 @@
 									<!-- THE MESSAGES -->
 
 									<table class="table table-mailbox">
-										<tr>
-											<td class="small-col"><b>#</b></td>
-											<td class="name"><b>ID</b></td>
-											<td class="subject"><b>Subject</b></td>
-											<td class="time"><b>Time</b></td>
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>CrisisID</th>
+												<th>Threat Level</th>
+												<th>Deployment Status</th>
+												<th>DateTime</th>
+											</tr>
+										</thead>
+									<c:forEach items="${messageList}" var="item" varStatus="stat">
+										<tr ${item.read ? '' : 'class="unread"'} style="cursor: pointer;" onclick="loadDoc('/ajax/ef/from/${item.feedbackReportID}')">
+											<td class="small-col">${stat.index + 1}</td>
+											<td class="name">${item.crisisID}</td>
+											<td class="subject">${item.threatLevel}</td>
+											<td class="subject">${item.deploymentStatus}</td>
+											<td class="time"><fmt:formatDate value="${item.messageReceivedTime}" pattern="dd/MM/yyyy HH:mm"/></td>
 										</tr>
-
-										<tr class="unread">
-											<td class="small-col">1</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">2</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">3</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">4</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">5</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">6</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">7</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">8</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">9</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">10</td>
-											<td class="name">John Doe</a></td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
+									</c:forEach>
 									</table>
 								</div>
 								<!-- /.table-responsive -->
@@ -206,11 +153,6 @@
 				</div>
 
 			</section>
-
-
-
-
-
 		</div>
 
 		<!--  2nd row -->
@@ -218,43 +160,50 @@
 			<div class="col-md-6">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">*insert json content ID here*</h3>
+						<h4 class="box-title">Crisis Data</h4>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table class="table table-bordered">
+						<table id="messageContent" class="table table-condensed">
+							<tbody>
 							<tr>
-								<th style="width: 10px">#</th>
-								<th style="width: 100px">Key</th>
-								<th>Value</th>
+								<td>Report ID:</td>
+								<td id="feedbackReportID"></td>
 							</tr>
 							<tr>
-								<td>1</td>
-								<td>order ID</td>
-								<td><p>EF_01</p></td>
+								<td>Crisis ID:</td>
+								<td id="crisisID"></td>
 							</tr>
 							<tr>
-								<td>2</td>
-								<td>content</td>
-								<td><p>this module is in crisis, #nojoke</p></td>
+								<td>Name:</td>
+								<td id="name"></td>
 							</tr>
 							<tr>
-								<td>3</td>
-								<td>json key</td>
-								<td><p>why the elearning SOO WORDY!?</p></td>
+								<td>Position in EF:</td>
+								<td id="positionInEF"></td>
 							</tr>
 							<tr>
-								<td>4</td>
-								<td>Map</td>
-								<td><p>*insert coordinate*</p></td>
+								<td>Threat Level:</td>
+								<td id="threatLevel"></td>
 							</tr>
 							<tr>
-								<td>4</td>
-								<td>Remarks</td>
-								<td><p>I got a headache looking at HTML codes all day
-									<p></td>
+								<td>Casualties Rescued:</td>
+								<td id="casualtiesRescued"></td>
 							</tr>
-						</table>
+							<tr>
+								<td>Deployment Status</td>
+								<td id="deploymentStatus"></td>
+							</tr>
+							<tr>
+								<td>Situation Status:</td>
+								<td id="situationStatus"></td>
+							</tr>
+							<tr>
+								<td>Timestamp:</td>
+								<td id="timestamp"></td>
+							</tr>
+						</tbody>
+					</table>
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
@@ -276,38 +225,20 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 
-						<h2 class="text-center">YOUR MAP IS HARDCODED HERE, THANK
-							YOUR TEMPLATE</h2>
+						<h2 class="text-center">Scroll down to view more</h2>
 						<div>
-							<div id="map">
-
-								<script>
-									var map;
-
-									function initMap() {// for initialization of map
-										//map options
-										var options = {
-											zoom : 12,
-											center : {
-												lat : 1.3521,
-												lng : 103.8198
-											}
-										};
-										map = new google.maps.Map(document
-												.getElementById('map'), options);
-
-									} //end of initMap
-								</script>
-								<script async defer
-									src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&callback=initMap"></script>
-							</div>
+							<object type="text/html"
+								data="${pageContext.request.contextPath}/map" width="100%"
+								height="800px"></object>
 
 						</div>
 					</div>
-					<!-- Loading (remove the following to stop the loading)-->
+					<!-- Loading (remove the following to stop the loading)
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
 					<!-- end loading -->
+					
+					-->
 				</div>
 			</div>
 
@@ -315,7 +246,40 @@
 
 	</section>
 	<!-- /.content -->
+	<!-- Ajax script -->
+	<script>
+		function loadDoc(link) {
+			var xhttp = new XMLHttpRequest();
+			document.getElementById("feedbackReportID").innerHTML = "";
+			document.getElementById("crisisID").innerHTML = "";
+			document.getElementById("name").innerHTML = "";
+			document.getElementById("positionInEF").innerHTML = "";
+			document.getElementById("threatLevel").innerHTML = "";
+			document.getElementById("casualtiesRescued").innerHTML = "";
+			document.getElementById("deploymentStatus").innerHTML = "";
+			document.getElementById("situationStatus").innerHTML = "";
+			
+			document.getElementById("timestamp").innerHTML = "";
 
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var jsonObj = JSON.parse(this.response);
+
+					document.getElementById("feedbackReportID").innerHTML = jsonObj.feedbackReportID;
+					document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
+					document.getElementById("name").innerHTML = jsonObj.name
+					document.getElementById("positionInEF").innerHTML = jsonObj.positionInEF;
+					document.getElementById("threatLevel").innerHTML = jsonObj.threatLevel;
+					document.getElementById("casualtiesRescued").innerHTML = jsonObj.casualtiesRescued;
+					document.getElementById("deploymentStatus").innerHTML = jsonObj.deploymentStatus;
+					document.getElementById("situationStatus").innerHTML = jsonObj.situationStatus;
+					document.getElementById("timestamp").innerHTML = moment(jsonObj.createdTime).format("DD/MM/YYYY HH:mm");
+				}
+			};
+			xhttp.open("GET", link, true);
+			xhttp.send();
+		}
+				</script>
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

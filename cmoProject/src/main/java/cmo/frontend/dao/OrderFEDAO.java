@@ -2,13 +2,15 @@ package cmo.frontend.dao;
 
 import java.util.List;
 
-import cmo.entities.GeneralOrder;
+import cmo.entities.EFOrder;
 
 public interface OrderFEDAO {
 
-	public GeneralOrder getByOrderId(long orderId);
+	public EFOrder saveNewOrder(EFOrder order);
 	
-	public List<GeneralOrder> getAll();
+	public EFOrder getByOrderId(long orderId);
 	
-	public List<GeneralOrder> getAllByCrisisId(long crisisId);
+	public List<EFOrder> getAll();
+	
+	public List<EFOrder> getAllByCrisisId(long crisisId);
 }

@@ -344,7 +344,7 @@
 							<h3 class="box-title">Map</h3>
 						</div>
 						<div class="box-body">
-							<h3 class="box-title">Danger Box (Loading state)</h3>
+							<object type="text/html" data="${pageContext.request.contextPath}/map"  width= "100%" height="800px" ></object>
 						<div class="box-tools pull-right">
 							<button class="btn btn-danger btn-sm" data-widget="collapse">
 								<i class="fa fa-minus"></i>
@@ -354,19 +354,10 @@
 							</button>
 						</div>
 					</div>
-					<div class="box-body">
-						Box class:
-						<code>.box.box-danger</code>
-						<p>piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.
-						piece of shit pieces of shit.piece of shit pieces of shit.</p>
-					</div>
+				<!--  
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
+					-->	
 				</div>
 			</div>
 <!--/.content -->	

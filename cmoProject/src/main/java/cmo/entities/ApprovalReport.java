@@ -9,7 +9,8 @@ import javax.persistence.Lob;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-/**Approval Report from PMO
+/**
+ * Approval Report from PMO
  * 
  * @author Ong Hock Leng
  *
@@ -25,48 +26,59 @@ public class ApprovalReport {
 	@CreationTimestamp
 	private Timestamp messageReceivedTime;
 	private boolean read = false;
+	private boolean analysisReadable = false;
 
 	public ApprovalReport() {
 		crisisID = 0;
 	}
 
-	public ApprovalReport(long crisisID, byte[] pdfBase64, Timestamp messageReceivedTime, boolean read) {
+	public ApprovalReport(long crisisID, byte[] pdfBase64, Timestamp messageReceivedTime, boolean read,
+			boolean analysisReadable) {
 		this.crisisID = crisisID;
 		this.pdfBase64 = pdfBase64;
 		this.messageReceivedTime = messageReceivedTime;
 		this.read = read;
+		this.analysisReadable = analysisReadable;
 	}
 
 	public long getCrisisID() {
 		return crisisID;
 	}
 
-	public byte[] getPdfBase64() {
-		return pdfBase64;
-	}
-
-	public Timestamp getMessageReceivedTime() {
-		return messageReceivedTime;
-	}
-
-	public boolean isRead() {
-		return read;
-	}
-
 	public void setCrisisID(long crisisID) {
 		this.crisisID = crisisID;
+	}
+
+	public byte[] getPdfBase64() {
+		return pdfBase64;
 	}
 
 	public void setPdfBase64(byte[] pdfBase64) {
 		this.pdfBase64 = pdfBase64;
 	}
 
+	public Timestamp getMessageReceivedTime() {
+		return messageReceivedTime;
+	}
+
 	public void setMessageReceivedTime(Timestamp messageReceivedTime) {
 		this.messageReceivedTime = messageReceivedTime;
 	}
 
+	public boolean isRead() {
+		return read;
+	}
+
 	public void setRead(boolean read) {
 		this.read = read;
+	}
+
+	public boolean isAnalysisReadable() {
+		return analysisReadable;
+	}
+
+	public void setAnalysisReadable(boolean analysisReadable) {
+		this.analysisReadable = analysisReadable;
 	}
 
 	@Override
@@ -94,7 +106,8 @@ public class ApprovalReport {
 	@Override
 	public String toString() {
 		return "ApprovalReport [crisisID=" + crisisID + ", pdfBase64=" + Arrays.toString(pdfBase64)
-				+ ", messageReceivedTime=" + messageReceivedTime + ", read=" + read + "]";
+				+ ", messageReceivedTime=" + messageReceivedTime + ", read=" + read + ", analysisReadable="
+				+ analysisReadable + "]";
 	}
 
 }

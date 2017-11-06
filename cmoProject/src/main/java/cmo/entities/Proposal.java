@@ -9,6 +9,12 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**To PMO
+ * 
+ * @author HawksSeptua
+ *
+ */
+
 @Entity
 public class Proposal {
 

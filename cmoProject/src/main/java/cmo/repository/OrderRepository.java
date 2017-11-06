@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import cmo.entities.GeneralOrder;
+import cmo.entities.EFOrder;
 
 /**
  * Repository for Order entity
@@ -12,11 +12,13 @@ import cmo.entities.GeneralOrder;
  * @author Ong Hock Leng
  *
  */
-public interface OrderRepository extends CrudRepository<GeneralOrder, Long> {
+public interface OrderRepository extends CrudRepository<EFOrder, Long> {
 
-	public GeneralOrder findByGeneralOrderID(long generalOrderId);
+	public EFOrder findByEfOrderID(long efOrderId);
 	
-	public List<GeneralOrder> findAll();
+	public List<EFOrder> findAll();
 	
-	public List<GeneralOrder> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
+	public List<EFOrder> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
+	
+	public EFOrder findTop1ByOrderByEfOrderIDDesc();
 }

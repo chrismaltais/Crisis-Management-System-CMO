@@ -38,7 +38,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 </head>
 <body>
 
@@ -98,12 +98,15 @@
 									</tr>
 								</thead>
 								<c:forEach items="${messageList}" var="item" varStatus="stat">
-									<tr ${item.read ? '' : 'class="unread"'} style="cursor: pointer;" onclick="loadDoc('/ajax/analyst/${item.reportID}')">
+									<tr ${item.read ? '' : 'class="unread"'}
+										style="cursor: pointer;"
+										onclick="loadDoc('/ajax/analyst/${item.reportID}')">
 										<td class="small-col">${stat.index + 1}</td>
 										<td class="name">${item.crisisID}</td>
 										<td class="subject">${item.threatLevel}</td>
 										<td class="subject">${item.affectedAreas}</td>
-										<td class="time"><fmt:formatDate value="${item.createdTime}" pattern="dd/MM/yyyy hh:mm"/></td>
+										<td class="time"><fmt:formatDate
+												value="${item.createdTime}" pattern="dd/MM/yyyy HH:mm" /></td>
 									</tr>
 								</c:forEach>
 
@@ -302,7 +305,7 @@
 								document.getElementById("courseOfActions").innerHTML = jsonObj.courseOfActions;
 								document
 										.getElementById("consequencesOfActions").innerHTML = jsonObj.consequencesOfAction;
-								document.getElementById("timestamp").innerHTML = jsonObj.createdTime;
+								document.getElementById("timestamp").innerHTML = moment(jsonObj.createdTime).format("DD/MM/YYYY HH:mm");
 
 							}
 						};
@@ -327,30 +330,21 @@
 			<div class="box-header">
 				<h3 class="box-title">Map</h3>
 			</div>
+
 			<div class="box-body">
-				<h3 class="box-title">Danger Box (Loading state)</h3>
-				<div class="box-tools pull-right">
-					<button class="btn btn-danger btn-sm" data-widget="collapse">
-						<i class="fa fa-minus"></i>
-					</button>
-					<button class="btn btn-danger btn-sm" data-widget="remove">
-						<i class="fa fa-times"></i>
-					</button>
+
+				<h2 class="text-center">Scroll down to view more</h2>
+				<div>
+					<object type="text/html"
+						data="${pageContext.request.contextPath}/map" width="100%"
+						height="800px"></object>
+
 				</div>
 			</div>
-			<div class="box-body">
-				Box class:
-				<code>.box.box-danger</code>
-				<p>piece of shit pieces of shit.piece of shit pieces of shit.
-					piece of shit pieces of shit.piece of shit pieces of shit. piece of
-					shit pieces of shit.piece of shit pieces of shit. piece of shit
-					pieces of shit.piece of shit pieces of shit. piece of shit pieces
-					of shit.piece of shit pieces of shit. piece of shit pieces of
-					shit.piece of shit pieces of shit. piece of shit pieces of
-					shit.piece of shit pieces of shit.</p>
-			</div>
+			<!-- 
 			<div class="overlay"></div>
 			<div class="loading-img"></div>
+			 -->
 		</div>
 	</div>
 	<!-- /.content -->
