@@ -10,33 +10,33 @@ import org.springframework.stereotype.Controller;
 public class ChatController {
 
 	@MessageMapping("/chat.sendMessage")
-	@SendTo("/channel/public")
+	@SendTo("/channel/cmopmochat")
 	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
 		return chatMessage;
 	}
 
 	@MessageMapping("/chat.addUser")
-	@SendTo("/channel/public")
+	@SendTo("/channel/cmopmochat")
 	public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
 		// Add username in web socket session
 		headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-		headerAccessor.getSessionAttributes().put("channeltype", "public");
+		headerAccessor.getSessionAttributes().put("channeltype", "cmopmochat");
 
 		return chatMessage;
 	}
 
 	@MessageMapping("/chat.sendInternalMessage")
-	@SendTo("/channel/private")
+	@SendTo("/channel/cmoefchat")
 	public ChatMessage sendInternalMessage(@Payload ChatMessage chatMessage) {
 		return chatMessage;
 	}
 
 	@MessageMapping("/chat.addInternalUser")
-	@SendTo("/channel/private")
+	@SendTo("/channel/cmoefchat")
 	public ChatMessage addInternalUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
 		// Add username in web socket session
 		headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-		headerAccessor.getSessionAttributes().put("channeltype", "private");
+		headerAccessor.getSessionAttributes().put("channeltype", "cmoefchat");
 
 		return chatMessage;
 	}

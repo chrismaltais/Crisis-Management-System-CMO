@@ -37,10 +37,10 @@ public class WebSocketEventListener {
 			chatMessage.setType(ChatMessage.MessageType.LEAVE);
 			chatMessage.setSender(username);
 
-			if (channelType == "public")
-				messagingTemplate.convertAndSend("/channel/public", chatMessage);
+			if (channelType == "cmopmochat")
+				messagingTemplate.convertAndSend("/channel/cmopmochat", chatMessage);
 			else
-				messagingTemplate.convertAndSend("/channel/private", chatMessage);
+				messagingTemplate.convertAndSend("/channel/cmoefchat", chatMessage);
 
 		}
 	}
