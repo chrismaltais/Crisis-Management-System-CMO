@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AdminLTE | Mailbox</title>
+<title>SSP2 CMO Analyst</title>
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
@@ -230,7 +230,7 @@
 										class="input-group-btn">
 										<button class="btn btn-success" type="submit"
 											style="width: 50px;">
-											<i class="fa fa-send"></i>
+											<i class="fa fa-plus"></i>
 										</button>
 									</span>
 								</div>
