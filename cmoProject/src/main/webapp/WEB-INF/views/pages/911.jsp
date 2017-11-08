@@ -257,10 +257,6 @@
 							<td id="affectedArea"></td>
 						</tr>
 						<tr>
-							<td>Affected Areas:</td>
-							<td id="affectedArea"></td>
-						</tr>
-						<tr>
 							<td>Crisis Date</td>
 							<td id="crisisDate"></td>
 						</tr>
