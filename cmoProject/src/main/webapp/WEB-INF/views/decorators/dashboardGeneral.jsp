@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/pages/analyst">
+                            <a href="${pageContext.request.contextPath}/general/analyst">
                                 <i class="fa fa-users"></i> <span>Analyst</span>
                                 <small class="badge pull-right bg-red"></small>
                             </a>
