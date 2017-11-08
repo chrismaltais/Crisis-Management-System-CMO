@@ -21,4 +21,6 @@ public interface ProposalRepository extends CrudRepository<Proposal, Long> {
 	public List<Proposal> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
 	
 	public Proposal findTop1ByOrderByProposalIDDesc();
+	
+	public List<Proposal> findAllByOrderByCrisisIDDesc();
 }

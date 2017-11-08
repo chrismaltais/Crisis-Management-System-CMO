@@ -31,7 +31,7 @@ public class PFEDAO implements ProposalFEDAO {
 
 	@Override
 	public List<Proposal> getAll() {
-		return repo.findAll();
+		return repo.findAllByOrderByCrisisIDDesc();
 	}
 
 	@Override
