@@ -54,7 +54,7 @@ public class Test implements CommandLineRunner {
 	@Autowired OrderRepository orderRepo;
 	@Autowired ProposalRepository proposalRepo;
 	@Autowired ReportRepository reportRepo;
-	@Resource(name="approvalPDF") PDFConverter pdfConverter;
+	@Resource(name="approvalPDF") PDFConverter<ApprovalReport> pdfConverter;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -73,7 +73,7 @@ public class Test implements CommandLineRunner {
 		callReport.setName("caller 1");
 		callReport.setPositionIn911("caller");
 		callReport.setCrisisType("Android Invasion");
-		callReport.setAffectedArea("Orchard Road");
+		callReport.setAffectedArea("Orchard Road (1.349404, 103.685949)");
 		callReport.setCrisisDate("15/5/2017");
 		callReport.setEstimatedStartTime("2.25 PM");
 		callReport.setCrisisDetails("Mass Panic");
