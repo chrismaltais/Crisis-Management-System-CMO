@@ -209,27 +209,27 @@
 								<td class="col-md-7">Crisis ID:</td>
 								<td id="crisisID"></td>
 							</tr>
+							<tr>
+								<td class="col-md-7">PDF:</td>
+								<td><a id="pdf" href="#"></a></td>
+							</tr>
 						</table>
-						<object id="pdf" data="" height="400px" width="100%">
-							<p>No Approval Report loaded.</p>
-						</object>
 					</div>
 					<script>
 						function loadDoc(link) {
 							var xhttp = new XMLHttpRequest();
 
 							document.getElementById("crisisID").innerHTML = "";
-							document.getElementById("pdf").setAttribute("data",
-									"");
+							document.getElementById("pdf").innerHTML = "";
+							document.getElementById("pdf").setAttribute("href", "#");
 
 							xhttp.onreadystatechange = function() {
 								if (this.readyState == 4 && this.status == 200) {
 									var jsonObj = JSON.parse(this.response);
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
-									document.getElementById("pdf")
-											.setAttribute("data",
-													"/" + jsonObj.reportURI);
+									document.getElementById("pdf").innerHTML = "Click here	";
+									document.getElementById("pdf").setAttribute("href", "/" + jsonObj.reportURI);
 
 								}
 							};
