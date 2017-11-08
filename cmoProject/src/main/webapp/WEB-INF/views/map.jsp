@@ -66,18 +66,15 @@ and open the template in the editor.
                 var initialMarkers = [
                     {//1
                         coords:p1,
-                        iconImage:iconFolder+'android.JPG',
-                        content: '<h3>Coordinate 1</h3>'
+                         content: '<h3>Coordinate 1</h3>'
                     },
                     {//2
                         coords:p2,
-						iconImage:iconFolder+'android.JPG',
 						content:'<h3>Coordinate 2</h3>'    
                     },
                     {//3
                         coords:p3,
-						iconImage:iconFolder+'android.JPG',
-                        content: '<h3>Coordinate 3</h3>'
+						content: '<h3>Coordinate 3</h3>'
                     }
                     ]; // this array of markers sets the default locations, can be stored in a DB
                     // can create a form to pass in the marker parameters from the database
@@ -95,7 +92,7 @@ and open the template in the editor.
 				
 				var centerMarker = new google.maps.Marker({
 						position:centerP,
-						icon:iconFolder+'talktohand.jpg',
+						icon:'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
 						map:map                   
                 });
 				var AOE = new google.maps.Circle(
