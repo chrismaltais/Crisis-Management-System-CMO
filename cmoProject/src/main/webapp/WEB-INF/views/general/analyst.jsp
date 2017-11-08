@@ -100,11 +100,11 @@
 								<c:forEach items="${messageList}" var="item" varStatus="stat">
 									<tr ${item.read ? '' : 'class="unread"'}
 										style="cursor: pointer;"
-										onclick="loadDoc('/ajax/analyst/${item.reportID}')">
+										onclick="loadDoc('/ajax/proposalFromAnalyst/${item.proposalID}')">
 										<td class="small-col">${stat.index + 1}</td>
 										<td class="name">${item.crisisID}</td>
 										<td class="subject">${item.threatLevel}</td>
-										<td class="subject">${item.affectedAreas}</td>
+										<td class="subject">${item.affectedArea}</td>
 										<td class="time"><fmt:formatDate
 												value="${item.createdTime}" pattern="dd/MM/yyyy HH:mm" /></td>
 									</tr>
@@ -235,12 +235,16 @@
 						<!-- 						<tr> -->
 
 						<tr>
-							<td>Report ID:</td>
-							<td id="reportID"></td>
+							<td>Proposal ID:</td>
+							<td id="proposalID"></td>
 						</tr>
 						<tr>
 							<td>Crisis ID:</td>
 							<td id="crisisID"></td>
+						</tr>
+						<tr>
+							<td>Name:</td>
+							<td id="name"></td>
 						</tr>
 						<tr>
 							<td>Position in CMO:</td>
@@ -251,8 +255,12 @@
 							<td id="threatLevel"></td>
 						</tr>
 						<tr>
-							<td>Affected Areas:</td>
-							<td id="affectedAreas"></td>
+							<td>Crisis Type:</td>
+							<td id="crisisType"></td>
+						</tr>
+						<tr>
+							<td>Affected Area:</td>
+							<td id="affectedArea"></td>
 						</tr>
 						<tr>
 							<td>Estimated Casualties</td>
@@ -263,16 +271,24 @@
 							<td id="crisisDuration"></td>
 						</tr>
 						<tr>
-							<td>Course of Actions:</td>
-							<td id="courseOfActions"></td>
+							<td>Crisis Details:</td>
+							<td id="crisisDetails"></td>
 						</tr>
 						<tr>
-							<td>Consequences of Actions:</td>
-							<td id="consequencesOfActions"></td>
+							<td>Course of Action:</td>
+							<td id="courseOfAction"></td>
+						</tr>
+						<tr>
+							<td>Consequences of Action:</td>
+							<td id="consequencesOfAction"></td>
+						</tr>
+						<tr>
+							<td>Clean Up Action:</td>
+							<td id="cleanUpAction"></td>
 						</tr>
 						<tr>
 							<td>Timestamp:</td>
-							<td id="timestamp"></td>
+							<td id="createdTime"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -280,32 +296,41 @@
 					function loadDoc(link) {
 						var xhttp = new XMLHttpRequest();
 
-						document.getElementById("reportID").innerHTML = "";
+						document.getElementById("proposalID").innerHTML = "";
 						document.getElementById("crisisID").innerHTML = "";
+						document.getElementById("name").innerHTML = "";
 						document.getElementById("positionInCMO").innerHTML = "";
 						document.getElementById("threatLevel").innerHTML = "";
-						document.getElementById("affectedAreas").innerHTML = "";
+						document.getElementById("crisisType").innerHTML = "";
+						document.getElementById("affectedArea").innerHTML = "";
 						document.getElementById("estimatedCasualties").innerHTML = "";
 						document.getElementById("crisisDuration").innerHTML = "";
-						document.getElementById("courseOfActions").innerHTML = "";
-						document.getElementById("consequencesOfActions").innerHTML = "";
-						document.getElementById("timestamp").innerHTML = "";
+						document.getElementById("crisisDetails").innerHTML = "";
+						document.getElementById("courseOfAction").innerHTML = "";
+						document.getElementById("consequencesOfAction").innerHTML = "";
+						document.getElementById("cleanUpAction").innerHTML = "";
+						document.getElementById("createdTime").innerHTML = "";
 
 						xhttp.onreadystatechange = function() {
 							if (this.readyState == 4 && this.status == 200) {
 								var jsonObj = JSON.parse(this.response);
 
-								document.getElementById("reportID").innerHTML = jsonObj.reportID;
+								document.getElementById("proposalID").innerHTML = jsonObj.proposalID;
 								document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
+								document.getElementById("name").innerHTML = jsonObj.name;
 								document.getElementById("positionInCMO").innerHTML = jsonObj.positionInCMO;
 								document.getElementById("threatLevel").innerHTML = jsonObj.threatLevel;
-								document.getElementById("affectedAreas").innerHTML = jsonObj.affectedAreas;
+								document.getElementById("crisisType").innerHTML = jsonObj.crisisType;
+								document.getElementById("affectedArea").innerHTML = jsonObj.affectedArea;
 								document.getElementById("estimatedCasualties").innerHTML = jsonObj.estimatedCasualties;
 								document.getElementById("crisisDuration").innerHTML = jsonObj.crisisDuration;
-								document.getElementById("courseOfActions").innerHTML = jsonObj.courseOfActions;
-								document
-										.getElementById("consequencesOfActions").innerHTML = jsonObj.consequencesOfAction;
-								document.getElementById("timestamp").innerHTML = moment(jsonObj.createdTime).format("DD/MM/YYYY HH:mm");
+								document.getElementById("crisisDetails").innerHTML = jsonObj.crisisDetails;
+								document.getElementById("courseOfAction").innerHTML = jsonObj.courseOfAction;
+								document.getElementById("consequencesOfAction").innerHTML = jsonObj.consequencesOfAction;
+								document.getElementById("cleanUpAction").innerHTML = jsonObj.cleanUpAction;
+								document.getElementById("createdTime").innerHTML = moment(
+										jsonObj.createdTime).format(
+										"DD/MM/YYYY HH:mm");
 
 							}
 						};

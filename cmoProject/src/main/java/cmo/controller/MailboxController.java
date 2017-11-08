@@ -15,17 +15,16 @@ import cmo.entities.ApprovalReport;
 import cmo.frontend.dao.ApprovalReportFEDAO;
 import cmo.frontend.dao.CallReportFEDAO;
 import cmo.frontend.dao.FeedbackReportFEDAO;
-import cmo.frontend.dao.ReportFEDAO;
+import cmo.frontend.dao.ProposalFEDAO;
 import cmo.pdf.PDFConverter;
 
 @RestController
 public class MailboxController {
 
 	@Autowired
-	private ReportFEDAO reportDAO;
+	private ProposalFEDAO proposalDAO;
 	@Autowired
 	private ApprovalReportFEDAO approvalDAO;
-
 	@Autowired
 	private FeedbackReportFEDAO feedbackDAO;
 	@Autowired
@@ -34,23 +33,15 @@ public class MailboxController {
 	@Resource(name = "approvalPDF")
 	private PDFConverter<ApprovalReport> pdfConverter;
 
-	@GetMapping("/ajax/analyst/{reportId}")
-	public ResponseEntity<?> analyst(@PathVariable("reportId") long reportId, ModelMap model) {
-		return new ResponseEntity<Object>(reportDAO.getByReportId(reportId), HttpStatus.OK);
+	@GetMapping("/ajax/proposalFromAnalyst/{proposalId}")
+	public ResponseEntity<?> analyst(@PathVariable("proposalId") long proposalId, ModelMap model) {
+		return new ResponseEntity<Object>(proposalDAO.getByProposalId(proposalId), HttpStatus.OK);
 	}
 
 	@GetMapping("/ajax/ef/from/{feedbackReportId}")
 	public ResponseEntity<?> ef(@PathVariable("feedbackReportId") long feedbackReportId, ModelMap model) {
 		return new ResponseEntity<Object>(feedbackDAO.getByFeedbackReportId(feedbackReportId), HttpStatus.OK);
 	}
-
-	// @GetMapping("/ajax/pmo/fromGeneral/{approvalReportId}")
-	// public ResponseEntity<?> general(@PathVariable("approvalReportId") long
-	// approvalReportId, ModelMap model) {
-	// return new
-	// ResponseEntity<Object>(approvalDAO.getByApprovalReportId(approvalReportId),
-	// HttpStatus.OK);
-	// }
 
 	@GetMapping("/ajax/911/{callReportId}")
 	public ResponseEntity<?> nineoneone(@PathVariable("callReportId") long callReportId, ModelMap model) {
@@ -104,7 +95,7 @@ public class MailboxController {
 	}
 
 	private void analystList(Model model) {
-		model.addAttribute("messageList", reportDAO.getAll());
+		model.addAttribute("messageList", proposalDAO.getAll());
 	}
 
 	private void efListFeedback(Model model) {
