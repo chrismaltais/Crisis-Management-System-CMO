@@ -19,10 +19,10 @@ function connect(event) {
 	
 	  
     //username = $('#valueHolderId').html();
-	username = "General";
+	username = "Analyst";
 
     //if(username) {
-        var socket = new SockJS('http://10.27.125.55:8080/ws');
+        var socket = new SockJS('http://10.27.220.206:8080/ws');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
@@ -33,7 +33,7 @@ function connect(event) {
 function onConnected() {
 
     // Subscribe to the Public Channel
-    stompClient.subscribe('/channel/cmopmochat', onMessageReceived);
+    stompClient.subscribe('/channel/cmoefchat', onMessageReceived);
 
     // Tell your username to the server
     stompClient.send("/app/chat.addUser",
