@@ -3,20 +3,20 @@
 //Create a method like createReport() to POST to their service
 package cmo.tony;
 
-import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import cmo.entities.EFOrder;
 
 public class CMOEFClient {
 
-	public static final String REST_SERVICE_URI = "http://localhost:8080/CMOtoEF";
+	public static final String REST_SERVICE_URI = "http://10.27.226.216:8080/CMOtoEF";
 
 	// GET
-	@SuppressWarnings({ "unchecked"})
+	@SuppressWarnings({ "unchecked" })
 	private static void listLatestOrder() {
 		int i = 1;
 		System.out.println("Testing receiving Order API-----------");
@@ -29,12 +29,12 @@ public class CMOEFClient {
 			for (LinkedHashMap<String, Object> map : ordersMap) {
 				if (i++ == ordersMap.size()) {
 					// end
-					
+
 					System.out.println("crisisID=" + map.get("crisisID") + "," + " name=" + map.get("name") + ","
-							+ " positionInCMO=" + map.get("positionInCMO") + "," + " threatLevel=" + map.get("threatLevel") + ","
-							+ " crisisType=" + map.get("crisisType") + "," + " affectedArea=" + map.get("affectedArea") + ","
-							+ " crisisDetails=" + map.get("crisisDetails") + ","
-							+ " courseOfAction=" + map.get("courseOfAction"));
+							+ " positionInCMO=" + map.get("positionInCMO") + "," + " threatLevel="
+							+ map.get("threatLevel") + "," + " crisisType=" + map.get("crisisType") + ","
+							+ " affectedArea=" + map.get("affectedArea") + "," + " crisisDetails="
+							+ map.get("crisisDetails") + "," + " courseOfAction=" + map.get("courseOfAction"));
 				}
 			}
 		} else {
@@ -43,7 +43,7 @@ public class CMOEFClient {
 	}
 
 	// GET
-	@SuppressWarnings({"unchecked" })
+	@SuppressWarnings({ "unchecked" })
 	private static void listAllOrders() {
 		System.out.println("Testing receiving Order API-----------");
 
@@ -55,9 +55,9 @@ public class CMOEFClient {
 			for (LinkedHashMap<String, Object> map : ordersMap) {
 
 				System.out.println("crisisID=" + map.get("crisisID") + "," + " name=" + map.get("name") + ","
-						+ " positionInCMO=" + map.get("positionInCMO") + "," + " threatLevel=" + map.get("threatLevel") + ","
-						+ " crisisType=" + map.get("crisisType") + "," + " affectedArea=" + map.get("affectedArea") + ","
-						+ " crisisDetails=" + map.get("crisisDetails") + ","
+						+ " positionInCMO=" + map.get("positionInCMO") + "," + " threatLevel=" + map.get("threatLevel")
+						+ "," + " crisisType=" + map.get("crisisType") + "," + " affectedArea="
+						+ map.get("affectedArea") + "," + " crisisDetails=" + map.get("crisisDetails") + ","
 						+ " courseOfAction=" + map.get("courseOfAction"));
 			}
 		} else {
@@ -74,18 +74,21 @@ public class CMOEFClient {
 		System.out.println(order);
 	}
 
-	// POST 
-	private static void createOrder() {
-	System.out.println("Testing create Order API----------");
+	// POST
+	public static boolean createOrder(EFOrder order) {
+		System.out.println("Testing create Order API----------");
 
-	RestTemplate restTemplate = new RestTemplate();
-	EFOrder order = new EFOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10", "Detail10", "Action10");
-	URI uri = restTemplate.postForLocation(REST_SERVICE_URI + "/order/", order,
-			EFOrder.class);System.out.println("Location : "+uri.toASCIIString());
+		RestTemplate restTemplate = new RestTemplate();
+		// EFOrder order = new EFOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10",
+		// "Detail10", "Action10");
+		ResponseEntity<EFOrder> response = restTemplate.postForEntity(REST_SERVICE_URI + "/order/", order, EFOrder.class);
+//		System.out.println("Location : " + uri.toASCIIString());
+		
+		return response.getStatusCode().is2xxSuccessful();
 	}
 
 	public static void main(String args[]) {
-		createOrder();
+		// createOrder();
 		getOrder();
 		listAllOrders();
 		listLatestOrder();

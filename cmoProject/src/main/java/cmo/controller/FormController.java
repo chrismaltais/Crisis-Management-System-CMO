@@ -1,6 +1,7 @@
 package cmo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import cmo.entities.EFOrder;
 import cmo.entities.Proposal;
 import cmo.frontend.dao.OrderFEDAO;
 import cmo.frontend.dao.ProposalFEDAO;
+import cmo.tony.CMOEFClient;
 
 @Controller
 @RequestMapping("/formSubmission")
@@ -22,11 +24,8 @@ public class FormController {
 	@PostMapping("/efOrders")
 	public String createEFOrder(@ModelAttribute EFOrder order, RedirectAttributes redirect) {
 		order = orderDAO.saveNewOrder(order);
-		
-		// Send to EF function MISSING
-		
-		// Please add function above
-		boolean success = true;
+
+		boolean success = CMOEFClient.createOrder(order);
 		
 		String message = "<script>alert('";
 		message += success ? "EF Order " + order.getEfOrderID() + " sent successfully." : "Error sending.";
