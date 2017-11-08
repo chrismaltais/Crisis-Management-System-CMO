@@ -1,8 +1,8 @@
 'use strict';
 
-var messageForm = document.querySelector('#messageForm');
-var messageInput = document.querySelector('#message');
-var messageArea = document.querySelector('#messageArea');
+var messageForm = document.querySelector('#internalmessageForm');
+var messageInput = document.querySelector('#internalmessage');
+var messageArea = document.querySelector('#internalmessageArea');
 var connectingElement = document.querySelector('.connecting');
 var reportText = document.querySelector('#reportText');
 var actionReportText = document.querySelector('#actionReportText');
@@ -36,7 +36,7 @@ function onConnected() {
     stompClient.subscribe('/channel/cmoefchat', onMessageReceived);
 
     // Tell your username to the server
-    stompClient.send("/app/chat.addUser",
+    stompClient.send("/app/chat.addInternalUser",
         {},
         JSON.stringify({sender: username, type: 'JOIN'})
     )
@@ -44,12 +44,12 @@ function onConnected() {
     connectingElement.classList.add('hidden');
     
 
-    document.getElementById('online-status').style.background = "#32CD32";
-    document.getElementById("online-status-text").classList.remove('text-danger');
-    document.getElementById("online-status-text").classList.add('text-success');
-    document.getElementById("online-status-text").innerHTML = "Online";
+    document.getElementById('internal-online-status').style.background = "#32CD32";
+    document.getElementById("internal-online-status-text").classList.remove('text-danger');
+    document.getElementById("internal-online-status-text").classList.add('text-success');
+    document.getElementById("internal-online-status-text").innerHTML = "Online";
     
-    document.getElementById('reconnect').style.display = "none";
+    document.getElementById('internal-reconnect').style.display = "none";
     document.getElementById('chat-page').style.display = "block";
     connectingElement.style.display = "none";
 
@@ -64,12 +64,12 @@ function onError(error) {
     connectingElement.style.marginTop  = '20px';
 
     
-    document.getElementById('online-status').style.background = "#f00";
-    document.getElementById("online-status-text").classList.remove('text-success');
-    document.getElementById("online-status-text").classList.add('text-danger');
-    document.getElementById("online-status-text").innerHTML = "Offline";
+    document.getElementById('internal-online-status').style.background = "#f00";
+    document.getElementById("internal-online-status-text").classList.remove('text-success');
+    document.getElementById("internal-online-status-text").classList.add('text-danger');
+    document.getElementById("internal-online-status-text").innerHTML = "Offline";
     
-    document.getElementById('reconnect').style.display = "block";
+    document.getElementById('internal-reconnect').style.display = "block";
     document.getElementById('chat-page').style.display = "none";
     connectingElement.style.display = "block";
 
@@ -88,7 +88,7 @@ function sendMessage(event) {
             type: 'CHAT'
         };
 
-        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+        stompClient.send("/app/chat.sendInternalMessage", {}, JSON.stringify(chatMessage));
         messageInput.value = '';
     }
     event.preventDefault();
