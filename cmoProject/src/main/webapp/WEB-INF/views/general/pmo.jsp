@@ -42,7 +42,7 @@
 	<section class="content">
 		<!-- MAILBOX BEGIN -->
 		<div class="mailbox row">
-			<div class="col-xs-6">
+			<div class="col-xs-8">
 				<div class="box box-solid">
 					<div class="box-body">
 						<div class="row">
