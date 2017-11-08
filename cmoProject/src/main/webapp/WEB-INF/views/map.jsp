@@ -28,6 +28,7 @@ and open the template in the editor.
 		</div>
 		<div id="map"> 
 		<script> //for obtaining coordinates
+			/*
 			var inputCoord = '{"x1":1.303233, "x2":1.290276, "x3":1.311814, "y1":103.809763, "y2":103.846070, "y3":103.857142}';
 			var coordinates = JSON.parse(inputCoord);
 			var p1 = new google.maps.LatLng(coordinates.x1, coordinates.y1);
@@ -36,6 +37,8 @@ and open the template in the editor.
 			var centerX= (coordinates.x1 + coordinates.x2 + coordinates.x3)/3;
 			var centerY= (coordinates.y1 + coordinates.y2 + coordinates.y3)/3;
 			var centerP = new google.maps.LatLng(centerX,centerY);
+			*/
+			
 		</script>
 		
 		
@@ -43,12 +46,7 @@ and open the template in the editor.
             var map;
 			var markers = [];
 			var iconFolder = "${pageContext.request.contextPath}/resources/img/";
-			var clickMark;
-			var isPolice;
-			var isAmbulance;
-			var defEvent;
-			var polEvent;
-			var ambEvent;
+			
 			function initMap(){// for initialization of map
 			/*
 			initial map: first 3 coordinates with default circle and radius
@@ -65,15 +63,15 @@ and open the template in the editor.
 				//this array specify the default markers loaded when map starts
                 var initialMarkers = [
                     {//1
-                        coords:p1,
+                         coords:coordParse("Orchard/1.303233/103.809763"),
                          content: '<h3>Coordinate 1</h3>'
                     },
                     {//2
-                        coords:p2,
+                        coords:coordParse("abc/1.290276/103.846070"),
 						content:'<h3>Coordinate 2</h3>'    
                     },
                     {//3
-                        coords:p3,
+                        coords:coordParse("cde/1.311814/103.857142"),
 						content: '<h3>Coordinate 3</h3>'
                     }
                     ]; // this array of markers sets the default locations, can be stored in a DB
@@ -87,7 +85,12 @@ and open the template in the editor.
                 
 				//Global default marker listener
                 //add a listener to listen for click events on map
-					
+					 google.maps.event.addListener(map, 'click',
+                        function(event){
+                            //add marker
+                            addMarker({coords:event.latLng});
+                        }
+                    );
 				//end of listener		
 				
 				var centerMarker = new google.maps.Marker({
@@ -158,56 +161,22 @@ and open the template in the editor.
 				clearMarkers();
 				markers = [];
 			  }
-			function defaultMarker(){
-					clickMark =1;
-					isPolice=0;
-					isAmbulance =0;
-					if(clickMark ==1){
-						defEvent = map.addListener('click',
-							function(event){
-									addMarker({coords:event.latLng,
-												iconImage:iconFolder+'android.JPG'
-												}
-									
-									);
-								}
-							);
-						}
-					
-					}
-			function addPolice(){
-				isPolice =1;
-				isAmbulance =0;
-				if(isPolice ==1){
-					polEvent = map.addListener('click',function(police){
-					
-					addMarker({coords:police.latLng, 
-						iconImage:iconFolder+'police.jpg'});
-						}
-					);
-				}
-				if(isPolice==0){
-					map.removeListener(polEvent);
-				}
+			function coordParse(affectedArea){
+				var array = null;
+				var lat; //obtain lat as a numerical value
+				var lng; //obtain lng as a numerical value
+				
+				array = affectedArea.split("/");
+				lat = array[1];
+				lng = array[2];
+				
+				var coordi =  new google.maps.LatLng(lat,lng);
+				
+				return coordi;
 			}
-			function addAmb(){
-				isPolice=0;
-				isAmbulance=1;
-				if(isAmbulance==1){
-					
-					ambEvent = map.addListener('click',function(ambulance){
-						addMarker({coords:ambulance.latLng, 
-						iconImage:iconFolder+'ambulance.jpg'});
-						}
-					);
-				}
-				if(isAmbulance==0){
-					map.removeListener(ambEvent);
-				}
-			}
-			
-		 
-         </script>
+		 	
+		 	
+	     </script>
 				 
 		 </div>
 		 
