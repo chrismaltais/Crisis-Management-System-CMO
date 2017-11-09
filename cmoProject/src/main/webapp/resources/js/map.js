@@ -96,6 +96,7 @@ function addMarker(props) {
 		});
 	}
 	markers.push(marker);
+	console.log("adding marker... " + markers.includes(marker));
 }
 
 // functions for hide/show markers, delete markers
