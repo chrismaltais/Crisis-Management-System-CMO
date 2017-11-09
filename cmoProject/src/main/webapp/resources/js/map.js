@@ -11,6 +11,8 @@
 var map;
 var markers = [];
 var iconFolder = "${pageContext.request.contextPath}/resources/img/";
+var circle;
+var bounds = new google.maps.LatLngBounds();
 
 function initMap() {// for initialization of map
 	/*
@@ -19,8 +21,8 @@ function initMap() {// for initialization of map
 	var options = {
 		zoom : 12,
 		center : {
-			lat : 1.30416545,
-			lng : 103.824080037
+			lat : 1.3521,
+			lng : 103.8198
 		},
 		mapTypeID : 'terrain'
 	};
@@ -57,17 +59,17 @@ function initMap() {// for initialization of map
 	});
 	// end of listener
 
-	var centerMarker = new google.maps.Marker({
-		position : centerP,
-		icon : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-		map : map
-	});
-	var AOE = new google.maps.Circle({
-		map : map,
-		radius : 5000,
-		fillColor : '#0000ff'
-	});
-	AOE.bindTo('center', centerMarker, 'position');
+//	var centerMarker = new google.maps.Marker({
+//		position : centerP,
+//		icon : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+//		map : map
+//	});
+//	var AOE = new google.maps.Circle({
+//		map : map,
+//		radius : 5000,
+//		fillColor : '#0000ff'
+//	});
+//	AOE.bindTo('center', centerMarker, 'position');
 
 } // end of initMap
 
@@ -97,6 +99,10 @@ function addMarker(props) {
 	}
 	markers.push(marker);
 	console.log("adding marker... " + markers.includes(marker));
+	
+	bounds.extend(marker.position);
+	
+	buildCircle();
 }
 
 // functions for hide/show markers, delete markers
@@ -134,6 +140,35 @@ function coordParse(affectedArea) {
 	var coordi = new google.maps.LatLng(lat, lng);
 
 	return coordi;
+}
+
+function buildCircle(){
+	var radius = 0;
+	
+	for (var i = 0; i < markers.length; i++){
+		var testDist = google.maps.geometry.spherical.computeDistanceBetween(bounds.getCenter(), markers[i].getPosition());
+		radius = Math.max(radius, testDist);
+	}
+	
+	radius += 1000;
+	
+	if (circle){
+		circle.setOptions({
+//			center	: center.coords,
+			center	: bounds.getCenter(),
+			radius	: radius
+		});
+	} else {
+		circle = new google.maps.Circle({
+			map			: map,
+//			center		: center.coords,
+			center		: bounds.getCenter(),
+			radius		: radius,
+			fillColor	: '#0000ff'
+		});
+	}
+	
+	map.setCenter(bounds.getCenter());
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);
