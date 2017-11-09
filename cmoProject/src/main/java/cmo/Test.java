@@ -1,5 +1,6 @@
 package cmo;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import cmo.entities.ApprovalReport;
 import cmo.entities.CallReport;
@@ -15,6 +17,7 @@ import cmo.entities.EFOrder;
 import cmo.entities.FeedbackReport;
 import cmo.entities.Proposal;
 import cmo.entities.Report;
+import cmo.frontend.dao.ProposalFEDAO;
 import cmo.pdf.PDFConverter;
 import cmo.pdf.PDFConverterApprovalReport;
 import cmo.repository.ApprovalReportRepository;
@@ -29,7 +32,20 @@ public class Test implements CommandLineRunner {
 
 	@GetMapping("/testGet")
 	public List<?> returningStuff(){
-		return approvalRepo.findAll();
+		return callRepo.findAll();
+	}
+	@Autowired ProposalFEDAO proposalDAO;
+	
+	@GetMapping("/testPMO")
+	public String sendToPMO() {
+		String URI = "http://10.27.199.49:8080/CMOtoPMO/proposal/";
+		RestTemplate rest = new RestTemplate();
+		Proposal proposal = proposalDAO.getByProposalId(1);
+//		Proposal o = new Proposal();
+//		o.setCrisisID(342);
+//		o.setName("Hawks");
+		rest.postForEntity(URI, proposal, String.class);
+		return "done";
 	}
 
 
@@ -73,12 +89,22 @@ public class Test implements CommandLineRunner {
 		callReport.setName("caller 1");
 		callReport.setPositionIn911("caller");
 		callReport.setCrisisType("Android Invasion");
-		callReport.setAffectedArea("Orchard Road (1.349404, 103.685949)");
+		callReport.setAffectedArea("Orchard/1.303233/103.809763");
 		callReport.setCrisisDate("15/5/2017");
 		callReport.setEstimatedStartTime("2.25 PM");
 		callReport.setCrisisDetails("Mass Panic");
 		
 		callRepo.save(callReport);
+		
+		CallReport call2 = new CallReport();
+		call2.setCrisisID(1);
+		call2.setAffectedArea("abc/1.290276/103.846070");
+		callRepo.save(call2);
+		
+		CallReport call3 = new CallReport();
+		call3.setCrisisID(2);
+		call3.setAffectedArea("cde/1.311814/103.857142");
+		callRepo.save(call3);
 		
 		// Populate FeedbackReport
 		
@@ -110,7 +136,7 @@ public class Test implements CommandLineRunner {
 		// Populate Proposal
 		
 		Proposal proposal = new Proposal();
-		proposal.setCrisisID(1);
+		proposal.setCrisisID(154);
 		proposal.setName("Septua");
 		proposal.setPositionInCMO("Operator");
 		proposal.setThreatLevel(4);

@@ -33,6 +33,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -210,6 +211,10 @@
 								<td id="crisisID"></td>
 							</tr>
 							<tr>
+								<td class="col-md-7">Received Time:</td>
+								<td id="messageReceivedTime"></td>
+							</tr>
+							<tr>
 								<td class="col-md-7">PDF:</td>
 								<td><a id="pdf" href="#"></a></td>
 							</tr>
@@ -220,6 +225,7 @@
 							var xhttp = new XMLHttpRequest();
 
 							document.getElementById("crisisID").innerHTML = "";
+							document.getElementById("messageReceivedTime").innerHTML = "";
 							document.getElementById("pdf").innerHTML = "";
 							document.getElementById("pdf").setAttribute("href", "#");
 
@@ -228,6 +234,7 @@
 									var jsonObj = JSON.parse(this.response);
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
+									document.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime);
 									document.getElementById("pdf").innerHTML = "Click here	";
 									document.getElementById("pdf").setAttribute("href", "/" + jsonObj.reportURI);
 

@@ -17,6 +17,9 @@ public class ARFEDAO implements ApprovalReportFEDAO {
 
 	@Override
 	public ApprovalReport getReportByCrisisId(long crisisId) {
+		ApprovalReport report = repo.findByCrisisID(crisisId);
+		report.setRead(true);
+		repo.save(report);
 		return repo.findByCrisisID(crisisId);
 	}
 

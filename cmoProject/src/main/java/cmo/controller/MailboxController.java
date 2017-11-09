@@ -91,7 +91,9 @@ public class MailboxController {
 		else if (page.equals("ef"))
 			efListFeedback(model);
 		else if (page.equals("general"))
-			generalList(model);
+			generalListForAnalyst(model);
+		else if (page.equals("pmo"))
+			pmoListForGeneral(model);
 	}
 
 	private void analystList(Model model) {
@@ -102,15 +104,16 @@ public class MailboxController {
 		model.addAttribute("messageList", feedbackDAO.getAll());
 	}
 
-	private void generalList(Model model) {
-		model.addAttribute("messageList", approvalDAO.getAllReports());
+	private void generalListForAnalyst(Model model) {
+		model.addAttribute("messageList", approvalDAO.getAllAnalysisReadableReports());
 	}
 
 	private void nineoneoneList(Model model) {
 		model.addAttribute("messageList", callreportDAO.getAll());
 	}
-
-	private void pmoList(Model model) {
+	
+	private void pmoListForGeneral(Model model) {
 		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}
+	
 }

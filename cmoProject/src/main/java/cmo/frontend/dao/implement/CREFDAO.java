@@ -17,10 +17,10 @@ public class CREFDAO implements CallReportFEDAO {
 
 	@Override
 	public CallReport getReport(long id) {
-		CallReport report = repo.findByCrisisID(id);
+		CallReport report = repo.findByCallReportID(id);
 		report.setRead(true);
 		repo.save(report);
-		return repo.findByCrisisID(id);
+		return repo.findByCallReportID(id);
 	}
 
 	@Override
