@@ -197,43 +197,6 @@
 				<!-- the events -->
 				<table id="messageContent" class="table table-condensed">
 					<tbody>
-						<!-- 						<tr> -->
-						<!-- 							<td>Crisis ID:</td> -->
-						<!-- 							<td>1</td> -->
-						<!-- 						</tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Name:</td> -->
-						<!-- 							<td>Gabriel</td> -->
-						<!-- 						</tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Position in 911:</td> -->
-						<!-- 							<td>Janitor</td> -->
-						<!-- 						</tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Crisis type:</td> -->
-						<!-- 							<td>Robot Invasion</td> -->
-						<!-- 						<tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Crisis Details:</td> -->
-						<!-- 							<td>Robot shooting and killing students</td> -->
-						<!-- 						<tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Crisis Date:</td> -->
-						<!-- 							<td>20 September 2017</td> -->
-						<!-- 						<tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Estimated start time of crisis:</td> -->
-						<!-- 							<td>1500</td> -->
-						<!-- 						<tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Affected location:</td> -->
-						<!-- 							<td>Orchard (1.301800, 103.837797)</td> -->
-						<!-- 						<tr> -->
-						<!-- 						<tr> -->
-						<!-- 							<td>Suggested Strategy:</td> -->
-						<!-- 							<td>Surround robots at predicted area</td> -->
-						<!-- 						<tr> -->
-
 						<tr>
 							<td>Proposal ID:</td>
 							<td id="proposalID"></td>
@@ -366,10 +329,6 @@
 
 				</div>
 			</div>
-			<!-- 
-			<div class="overlay"></div>
-			<div class="loading-img"></div>
-			 -->
 		</div>
 	</div>
 	<!-- /.content -->
@@ -393,11 +352,6 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
 		type="text/javascript"></script>
-	<!-- iCheck -->
-	<script
-		src="${pageContext.request.contextPath}/resources/js/plugins//iCheck/icheck.min.js"
-		type="text/javascript"></script>
-	<!-- Page script -->
 	<script type="text/javascript">
 		$(function() {
 
@@ -407,6 +361,17 @@
 			$("#email_message").wysihtml5();
 		});
 	</script>
+	
+	<!-- Inbox Reactive Script -->
+	<script>
+	$(document).ready(function(){
+	    $(".table tr").click(function(){
+	        $(this).toggleClass("unread");
+	    });
+	});
+	</script>
+	<!-- End Inbox Reactive Script -->
+		
 
 </body>
 </html>

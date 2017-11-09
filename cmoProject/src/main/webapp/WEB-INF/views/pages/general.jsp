@@ -293,6 +293,16 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript"></script>
+		
+	<!-- Inbox Reactive Script -->
+	<script>
+	$(document).ready(function(){
+	    $(".table tr").click(function(){
+	        $(this).toggleClass("unread");
+	    });
+	});
+	</script>
+	<!-- End Inbox Reactive Script -->
 
 </body>
 </html>

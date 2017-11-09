@@ -116,67 +116,37 @@
 											</tr>
 										</c:forEach>
 
-										<!-- <tr class="unread">
+										<tr class="unread">
 											<td class="small-col">1</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
+											<td class="name">Jacob Spritzer</td>
+											<td class="subject"><a href="#">Urgent! Banned Cell Numbers</a></td>
+											<td class="time">11:30 AM</td>
 
 										</tr>
-										<tr>
+										<tr class="unread">
 											<td class="small-col">2</td>
 											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
+											<td class="subject"><a href="#">RE: Transition from 4G to 5G</a></td>
+											<td class="time">11:17 AM</td>
 										</tr>
-										<tr>
+										<tr class="unread">
 											<td class="small-col">3</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
+											<td class="name">Tristan Wells</td>
+											<td class="subject"><a href="#">Status Update #33</a></td>
+											<td class="time">11:03 AM</td>
 										</tr>
 										<tr class="unread">
 											<td class="small-col">4</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
+											<td class="name">Mary Johnson</td>
+											<td class="subject"><a href="#">RE: Working on Holidays</a></td>
+											<td class="time">10:23 AM</td>
 										</tr>
-										<tr>
+										<tr class="unread">
 											<td class="small-col">5</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
+											<td class="name">Hock Leng</td>
+											<td class="subject"><a href="#">Call Log #12</a></td>
+											<td class="time">9:30 AM</td>
 										</tr>
-										<tr>
-											<td class="small-col">6</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">7</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr>
-											<td class="small-col">8</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">9</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">10</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">Urgent! Please read</a></td>
-											<td class="time">12:30 PM</td>
-										</tr> -->
 									</table>
 								</div>
 								<!-- /.table-responsive -->
@@ -359,21 +329,13 @@
 							<object type="text/html"
 								data="${pageContext.request.contextPath}/map" width="100%"
 								height="400px"></object>
-
 						</div>
 					</div>
-					
 				</div>
 			</div>
-
 		</div>
-
-
 	</section>
 	<!-- /.content -->
-
-
-
 
 	<!-- jQuery 2.0.2 -->
 	<script
@@ -386,6 +348,16 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript"></script>
+	
+	<!-- Inbox Reactive Script -->
+	<script>
+	$(document).ready(function(){
+	    $(".table tr").click(function(){
+	        $(this).toggleClass("unread");
+	    });
+	});
+	</script>
+	<!-- End Inbox Reactive Script -->
 
 </body>
 </html>

@@ -138,17 +138,6 @@
 
 					</div>
 				</div>
-				<div class="box-footer clearfix">
-					<div class="pull-right">
-						<small>Showing 1-10/1,240</small>
-						<button class="btn btn-xs btn-primary">
-							<i class="fa fa-caret-left"></i>
-						</button>
-						<button class="btn btn-xs btn-primary">
-							<i class="fa fa-caret-right"></i>
-						</button>
-					</div>
-				</div>
 			</div>
 
 
@@ -378,6 +367,17 @@
 		$("#email_message").wysihtml5();
 	});
 	</script>
+	
+	<!-- Inbox Reactive Script -->
+	<script>
+	$(document).ready(function(){
+	    $(".table tr").click(function(){
+	        $(this).toggleClass("unread");
+	    });
+	});
+	</script>
+	<!-- End Inbox Reactive Script -->
+	
 
 </body>
 </html>
