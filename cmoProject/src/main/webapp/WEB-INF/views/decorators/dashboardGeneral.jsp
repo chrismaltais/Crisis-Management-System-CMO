@@ -10,7 +10,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="${pageContext.request.contextPath}/general/index_general" class="logo">
+            <a href="${pageContext.request.contextPath}/general/analyst" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 SSP2 CMO
             </a>
@@ -72,8 +72,8 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="${pageContext.request.contextPath}/general/index_general">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            <!-- <a href="${pageContext.request.contextPath}/general/index_general">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span> -->
                             </a>
                         </li>
                         <li>
