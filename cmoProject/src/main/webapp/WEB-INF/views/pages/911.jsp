@@ -341,7 +341,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
