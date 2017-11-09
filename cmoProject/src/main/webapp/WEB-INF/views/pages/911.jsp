@@ -33,13 +33,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry" type="text/javascript"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry"
+	type="text/javascript"></script>
 <script src="/resources/js/map.js" type="text/javascript"></script>
 <style>
-	#map{
-		height: 400px;
-		width: 100%;
-	}
+#map {
+	height: 400px;
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -103,58 +105,64 @@
 									<!-- THE MESSAGES -->
 
 									<table class="table table-mailbox">
-										<tr>
-											<td class="small-col"><b>#</b></td>
-											<td class="name"><b>Crisis ID</b></td>
-											<td class="subject"><b>AffectedAreas</b></td>
-											<td class="time"><b>DateTime</b></td>
+										<thead>
+											<tr>
+												<td class="small-col"><b>#</b></td>
+												<td class="name"><b>Crisis ID</b></td>
+												<td class="subject"><b>AffectedAreas</b></td>
+												<td class="time"><b>DateTime</b></td>
 
-										</tr>
-
-										<c:forEach items="${messageList}" var="item" varStatus="stat">
-											<tr ${item.read ? '' : 'class="unread"'}
-												style="cursor: pointer;"
-												onclick="loadDoc('/ajax/911/${item.callReportID}')">
-												<td class="small-col">${stat.index + 1}</td>
-												<td class="name">${item.crisisID}</td>
-												<td class="subject">${item.affectedArea}</td>
-												<td class="time"><fmt:formatDate
-														value="${item.messageReceivedTime}"
-														pattern="dd/MM/yyyy HH:mm" /></td>
 											</tr>
-										</c:forEach>
+										</thead>
+										<tbody>
+											<c:forEach items="${messageList}" var="item" varStatus="stat">
+												<tr ${item.read ? '' : 'class="unread"'}
+													style="cursor: pointer;"
+													onclick="loadDoc('/ajax/911/${item.callReportID}')">
+													<td class="small-col">${stat.index + 1}</td>
+													<td class="name">${item.crisisID}</td>
+													<td class="subject">${item.affectedArea}</td>
+													<td class="time"><fmt:formatDate
+															value="${item.messageReceivedTime}"
+															pattern="dd/MM/yyyy HH:mm" /></td>
+												</tr>
+											</c:forEach>
 
-										<tr class="unread">
-											<td class="small-col">1</td>
-											<td class="name">Jacob Spritzer</td>
-											<td class="subject"><a href="#">Urgent! Banned Cell Numbers</a></td>
-											<td class="time">11:30 AM</td>
+<!-- 											<tr class="unread"> -->
+<!-- 												<td class="small-col">1</td> -->
+<!-- 												<td class="name">Jacob Spritzer</td> -->
+<!-- 												<td class="subject"><a href="#">Urgent! Banned Cell -->
+<!-- 														Numbers</a></td> -->
+<!-- 												<td class="time">11:30 AM</td> -->
 
-										</tr>
-										<tr class="unread">
-											<td class="small-col">2</td>
-											<td class="name">John Doe</td>
-											<td class="subject"><a href="#">RE: Transition from 4G to 5G</a></td>
-											<td class="time">11:17 AM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">3</td>
-											<td class="name">Tristan Wells</td>
-											<td class="subject"><a href="#">Status Update #33</a></td>
-											<td class="time">11:03 AM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">4</td>
-											<td class="name">Mary Johnson</td>
-											<td class="subject"><a href="#">RE: Working on Holidays</a></td>
-											<td class="time">10:23 AM</td>
-										</tr>
-										<tr class="unread">
-											<td class="small-col">5</td>
-											<td class="name">Hock Leng</td>
-											<td class="subject"><a href="#">Call Log #12</a></td>
-											<td class="time">9:30 AM</td>
-										</tr>
+<!-- 											</tr> -->
+<!-- 											<tr class="unread"> -->
+<!-- 												<td class="small-col">2</td> -->
+<!-- 												<td class="name">John Doe</td> -->
+<!-- 												<td class="subject"><a href="#">RE: Transition from -->
+<!-- 														4G to 5G</a></td> -->
+<!-- 												<td class="time">11:17 AM</td> -->
+<!-- 											</tr> -->
+<!-- 											<tr class="unread"> -->
+<!-- 												<td class="small-col">3</td> -->
+<!-- 												<td class="name">Tristan Wells</td> -->
+<!-- 												<td class="subject"><a href="#">Status Update #33</a></td> -->
+<!-- 												<td class="time">11:03 AM</td> -->
+<!-- 											</tr> -->
+<!-- 											<tr class="unread"> -->
+<!-- 												<td class="small-col">4</td> -->
+<!-- 												<td class="name">Mary Johnson</td> -->
+<!-- 												<td class="subject"><a href="#">RE: Working on -->
+<!-- 														Holidays</a></td> -->
+<!-- 												<td class="time">10:23 AM</td> -->
+<!-- 											</tr> -->
+<!-- 											<tr class="unread"> -->
+<!-- 												<td class="small-col">5</td> -->
+<!-- 												<td class="name">Hock Leng</td> -->
+<!-- 												<td class="subject"><a href="#">Call Log #12</a></td> -->
+<!-- 												<td class="time">9:30 AM</td> -->
+<!-- 											</tr> -->
+										</tbody>
 									</table>
 								</div>
 								<!-- /.table-responsive -->
@@ -317,14 +325,16 @@
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xs btn-primary pull-right" onclick="putToMap()">View on
-							Map</button>
+						<button class="btn btn-xs btn-primary pull-right"
+							onclick="putToMap()">View on Map</button>
 					</div>
 					<script type="text/javascript">
-						function putToMap(){
+						function putToMap() {
 							var marker = {
-								coords	: coordParse(document.getElementById("affectedArea").innerHTML),
-								content	: document.getElementById("callReportID").innerHTML
+								coords : coordParse(document
+										.getElementById("affectedArea").innerHTML),
+								content : document
+										.getElementById("callReportID").innerHTML
 							};
 							addMarker(marker);
 						}
@@ -360,14 +370,14 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript"></script>
-	
+
 	<!-- Inbox Reactive Script -->
 	<script>
-	$(document).ready(function(){
-	    $(".table tr").click(function(){
-	        $(this).toggleClass("unread");
-	    });
-	});
+		$(document).ready(function() {
+			$("tbody tr").click(function() {
+				$(this).removeClass("unread");
+			});
+		});
 	</script>
 	<!-- End Inbox Reactive Script -->
 
