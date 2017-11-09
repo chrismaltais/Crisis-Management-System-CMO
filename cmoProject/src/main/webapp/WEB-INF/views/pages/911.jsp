@@ -354,7 +354,7 @@
 						function putToMap(){
 							var marker = {
 								coords	: coordParse(document.getElementById("affectedArea").innerHTML),
-								content	: document.getElementById("callReportID")
+								content	: document.getElementById("callReportID").innerHTML
 							};
 							addMarker(marker);
 						}
