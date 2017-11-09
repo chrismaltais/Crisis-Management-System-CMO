@@ -28,8 +28,8 @@ and open the template in the editor.
 		</div>
 		<div id="map"> 
 		<script> //for obtaining coordinates
-			/*
-			var inputCoord = '{"x1":1.303233, "x2":1.290276, "x3":1.311814, "y1":103.809763, "y2":103.846070, "y3":103.857142}';
+			
+			var inputCoord = '{"x1":1.2859963, "x2":1.3017996, "x3":1.2545582, "y1":103.85016080000003, "y2":103.83779709999999, "y3":103.81477870000003}';
 			var coordinates = JSON.parse(inputCoord);
 			var p1 = new google.maps.LatLng(coordinates.x1, coordinates.y1);
 			var p2 = new google.maps.LatLng(coordinates.x2, coordinates.y2);
@@ -37,7 +37,7 @@ and open the template in the editor.
 			var centerX= (coordinates.x1 + coordinates.x2 + coordinates.x3)/3;
 			var centerY= (coordinates.y1 + coordinates.y2 + coordinates.y3)/3;
 			var centerP = new google.maps.LatLng(centerX,centerY);
-			*/
+			
 			
 		</script>
 		
@@ -53,7 +53,7 @@ and open the template in the editor.
              */   //map options
                 var options ={
                     zoom:12,
-                    center:{lat:1.3521,lng:103.8198},
+                    center:{lat:1.30416545,lng:103.824080037},
 					mapTypeID: 'terrain'
                 };
                 map = new google.maps.Map(document.getElementById('map'),options);
@@ -63,16 +63,16 @@ and open the template in the editor.
 				//this array specify the default markers loaded when map starts
                 var initialMarkers = [
                     {//1
-                         coords:coordParse("Orchard/1.303233/103.809763"),
-                         content: '<h3>Coordinate 1</h3>'
+                         coords:p1,
+                         content: 'Boat Quay'
                     },
                     {//2
-                        coords:coordParse("abc/1.290276/103.846070"),
-						content:'<h3>Coordinate 2</h3>'    
+                        coords:p2,
+						content:'Orchard Road'    
                     },
                     {//3
-                        coords:coordParse("cde/1.311814/103.857142"),
-						content: '<h3>Coordinate 3</h3>'
+                        coords:p3,
+						content: 'Sentosa Siloso Beach'
                     }
                     ]; // this array of markers sets the default locations, can be stored in a DB
                     // can create a form to pass in the marker parameters from the database
@@ -101,7 +101,7 @@ and open the template in the editor.
 				var AOE = new google.maps.Circle(
 					{
 					map:map,
-					radius: 5000,
+					radius: 4000,
 					fillColor: '#0000ff'
 					}
 				);

@@ -19,8 +19,8 @@ function initMap() {// for initialization of map
 	var options = {
 		zoom : 12,
 		center : {
-			lat : 1.3521,
-			lng : 103.8198
+			lat : 1.30416545,
+			lng : 103.824080037
 		},
 		mapTypeID : 'terrain'
 	};
