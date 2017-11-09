@@ -157,9 +157,9 @@
 				<div class="card mb-3 " style="height: 500px;">
 					<div class="card-header">
 						<i class="fa fa-bell-o"></i>
-						<p class="same-line">CMO Live Feed</p>
-						<div id="online-status" class="online-status"></div>
-						<p id="online-status-text" class="same-line text-success small">Online</p>
+						<p class="same-line">EF Live Feed</p>
+						<div id="internal-online-status" class="online-status"></div>
+						<p id="internal-online-status-text" class="same-line text-success small">Online</p>
 
 					</div>
 
@@ -168,8 +168,8 @@
 
 					<div class="connecting"></div>
 
-					<div id="reconnect" class="center-div form-group">
-						<button type="submit" onclick="reconnect()"
+					<div id="internal-reconnect" class="center-div form-group">
+						<button type="submit" onclick="internalreconnect()"
 							class="accent username-submit btn btn-success">Reconnect</button>
 					</div>
 
@@ -179,16 +179,16 @@
 
 					<div id="chat-page" style="height: 580px;">
 
-						<ul id="messageArea"
+						<ul id="internalmessageArea"
 							style="overflow-y: scroll; overflow-x: hidden;">
 						</ul>
 
 						<!--CHAT INPUT FORM -->
 						<div class="box-footer">
-							<form id="messageForm" name="messageForm" action="">
+						<form id="internalmessageForm" name="messageForm" action="">
 								<div class="input-group">
 									<input class="form-control" type="text"
-										placeholder="Send a message..." id="message" /> <span
+										placeholder="Send a message..." id="internalmessage" /> <span
 										class="input-group-btn">
 										<button class="btn btn-success" type="submit"
 											style="width: 50px;">
@@ -201,7 +201,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
 	</section>
 

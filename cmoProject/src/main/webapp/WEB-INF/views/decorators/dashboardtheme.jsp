@@ -106,7 +106,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="${pageContext.request.contextPath}/pages/ef"><i class="fa fa-angle-double-right"></i> Orders Inbox</a></li>
                                 <li><a href="${pageContext.request.contextPath}/pages/create_order"><i class="fa fa-angle-double-right"></i> Create Order</a></li>
-                                <li><a href="${pageContext.request.contextPath}/pages/test"><i class="fa fa-angle-double-right"></i> TEST</a></li>
+                              <!--<li><a href="${pageContext.request.contextPath}/pages/test"><i class="fa fa-angle-double-right"></i> TEST</a></li>  -->  
                             </ul>
                         </li>
                         <li class="treeview">
