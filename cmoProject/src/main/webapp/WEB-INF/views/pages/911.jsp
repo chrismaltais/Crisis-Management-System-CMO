@@ -33,6 +33,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry" type="text/javascript"></script>
+<script src="/resources/js/map.js" type="text/javascript"></script>
+<style>
+	#map{
+		height: 400px;
+		width: 100%;
+	}
+</style>
 </head>
 <body>
 
@@ -309,9 +317,18 @@
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xs btn-primary pull-right">View on
+						<button class="btn btn-xs btn-primary pull-right" onclick="putToMap()">View on
 							Map</button>
 					</div>
+					<script type="text/javascript">
+						function putToMap(){
+							var marker = {
+								coords	: coordParse(document.getElementById("affectedArea").innerHTML),
+								content	: document.getElementById("callReportID").innerHTML
+							};
+							addMarker(marker);
+						}
+					</script>
 				</div>
 				<!-- /.box -->
 			</div>
@@ -325,11 +342,6 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 
-						<div>
-							<object type="text/html"
-								data="${pageContext.request.contextPath}/map" width="100%"
-								height="400px"></object>
-						</div>
 					</div>
 				</div>
 			</div>
