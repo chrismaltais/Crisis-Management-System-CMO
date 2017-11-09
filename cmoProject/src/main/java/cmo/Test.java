@@ -89,21 +89,20 @@ public class Test implements CommandLineRunner {
 		callReport.setName("caller 1");
 		callReport.setPositionIn911("caller");
 		callReport.setCrisisType("Android Invasion");
-		callReport.setAffectedArea("Orchard/1.303233/103.809763");
+		callReport.setAffectedArea("Boat Quay/1.2859963/103.85016080000003");
 		callReport.setCrisisDate("15/5/2017");
 		callReport.setEstimatedStartTime("2.25 PM");
 		callReport.setCrisisDetails("Mass Panic");
-		
 		callRepo.save(callReport);
 		
 		CallReport call2 = new CallReport();
 		call2.setCrisisID(1);
-		call2.setAffectedArea("abc/1.290276/103.846070");
+		call2.setAffectedArea("Orchard Road/1.3017996/103.83779709999999");
 		callRepo.save(call2);
 		
 		CallReport call3 = new CallReport();
 		call3.setCrisisID(2);
-		call3.setAffectedArea("cde/1.311814/103.857142");
+		call3.setAffectedArea("Sentosa Siloso Beach/1.2545582/103.81477870000003");
 		callRepo.save(call3);
 		
 		// Populate FeedbackReport
