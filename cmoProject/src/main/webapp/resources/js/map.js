@@ -27,25 +27,25 @@ function initMap() {// for initialization of map
 	map = new google.maps.Map(document.getElementById('map'), options);
 
 	// this array specify the default markers loaded when map starts
-	var initialMarkers = [ {// 1
-		coords : coordParse("Orchard/1.303233/103.809763"),
-		content : '<h3>Coordinate 1</h3>'
-	}, {// 2
-		coords : coordParse("abc/1.290276/103.846070"),
-		content : '<h3>Coordinate 2</h3>'
-	}, {// 3
-		coords : coordParse("cde/1.311814/103.857142"),
-		content : '<h3>Coordinate 3</h3>'
-	} ]; // this array of markers sets the default locations, can be stored
-			// in
-	// a DB
-	// can create a form to pass in the marker parameters from the database
-	// param: coords, iconImage, content
-	// loop through markers
-	for (var i = 0; i < initialMarkers.length; i++) {
-		// add markers
-		addMarker(initialMarkers[i]);
-	}
+//	var initialMarkers = [ {// 1
+//		coords : coordParse("Orchard/1.303233/103.809763"),
+//		content : '<h3>Coordinate 1</h3>'
+//	}, {// 2
+//		coords : coordParse("abc/1.290276/103.846070"),
+//		content : '<h3>Coordinate 2</h3>'
+//	}, {// 3
+//		coords : coordParse("cde/1.311814/103.857142"),
+//		content : '<h3>Coordinate 3</h3>'
+//	} ]; // this array of markers sets the default locations, can be stored
+//			// in
+//	// a DB
+//	// can create a form to pass in the marker parameters from the database
+//	// param: coords, iconImage, content
+//	// loop through markers
+//	for (var i = 0; i < initialMarkers.length; i++) {
+//		// add markers
+//		addMarker(initialMarkers[i]);
+//	}
 
 	// Global default marker listener
 	// add a listener to listen for click events on map

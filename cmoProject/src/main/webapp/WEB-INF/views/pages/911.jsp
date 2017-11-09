@@ -276,7 +276,7 @@
 							</tr>
 							<tr>
 								<td>Affected Areas:</td>
-								<td id="affectedArea"></td>
+								<td id="affectedArea">Orchard/1.303233/103.809763</td>
 							</tr>
 							<tr>
 								<td>Crisis Date</td>
@@ -353,7 +353,7 @@
 					<script type="text/javascript">
 						function putToMap(){
 							var marker = {
-								coords	: coordParse("Orchard/1.303233/103.809763"),
+								coords	: coordParse(document.getElementById("affectedArea").innerHTML),
 								content	: "testing 1"
 							};
 							addMarker(marker);
