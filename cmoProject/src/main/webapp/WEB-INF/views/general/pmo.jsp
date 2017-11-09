@@ -177,7 +177,7 @@
 				<div class="card mb-3 " style="height: 500px;">
 					<div class="card-header">
 						<i class="fa fa-bell-o"></i>
-						<p class="same-line">CMO Live Feed</p>
+						<p class="same-line">PMO Live Feed</p>
 						<div id="online-status" class="online-status"></div>
 						<p id="online-status-text" class="same-line text-success small">Online</p>
 
