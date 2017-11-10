@@ -81,10 +81,15 @@ public class CMOEFClient {
 		RestTemplate restTemplate = new RestTemplate();
 		// EFOrder order = new EFOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10",
 		// "Detail10", "Action10");
-		ResponseEntity<EFOrder> response = restTemplate.postForEntity(REST_SERVICE_URI + "/order/", order, EFOrder.class);
+		boolean success;
+		try {
+			success = restTemplate.postForEntity(REST_SERVICE_URI + "/order/", order, EFOrder.class).getStatusCode().is2xxSuccessful();
+		} catch (Exception e) {
+			success = false;
+		}
 //		System.out.println("Location : " + uri.toASCIIString());
 		
-		return response.getStatusCode().is2xxSuccessful();
+		return success;
 	}
 
 	public static void main(String args[]) {

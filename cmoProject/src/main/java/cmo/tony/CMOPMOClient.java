@@ -6,6 +6,7 @@ package cmo.tony;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -87,10 +88,15 @@ public class CMOPMOClient {
 		RestTemplate restTemplate = new RestTemplate();
 //		Proposal proposal = new Proposal(10, "Test10", "General", 4, "Type10", "Area10", 10000, "Duration10",
 //				"Detail10", "Action10", "Consequence10", "CleanUp10");
-		ResponseEntity<Proposal> response = restTemplate.postForEntity(REST_SERVICE_URI + "/proposal/", proposal, Proposal.class);
+		boolean success;
+		try {
+			success = restTemplate.postForEntity(REST_SERVICE_URI + "/proposal/", proposal, Proposal.class).getStatusCode().is2xxSuccessful();
+		} catch (Exception e) {
+			success = false;
+		}
 //		System.out.println("Location : " + uri.toASCIIString());
 		
-		return response.getStatusCode().is2xxSuccessful();
+		return success;
 	}
 
 	public static void main(String args[]) {
