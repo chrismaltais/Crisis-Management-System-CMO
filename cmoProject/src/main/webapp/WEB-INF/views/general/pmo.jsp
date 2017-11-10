@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>AdminLTE | Mailbox</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <!-- bootstrap 3.0.2 -->
-        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <!-- font Awesome -->
-        <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Ionicons -->
-        <link href="${pageContext.request.contextPath}/resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- bootstrap wysihtml5 - text editor -->
-        <link href="${pageContext.request.contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
-        <!-- iCheck for checkboxes and radio inputs -->
-        <link href="${pageContext.request.contextPath}/resources/css/iCheck/minimal/blue.css" rel="stylesheet" type="text/css" />
-        <!-- Theme style -->
-        <link href="${pageContext.request.contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-        <link href="${pageContext.request.contextPath}/resources/css/chat/main.css"rel="stylesheet" type="text/css" />
+<head>
+<meta charset="UTF-8">
+<title>AdminLTE | Mailbox</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+<!-- bootstrap 3.0.2 -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- font Awesome -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- bootstrap wysihtml5 - text editor -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- iCheck for checkboxes and radio inputs -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/iCheck/minimal/blue.css"
+	rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/chat/main.css"
+	rel="stylesheet" type="text/css" />
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
+</head>
+<body>
 
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -54,125 +73,136 @@
 									<h3 class="box-title">INBOX</h3>
 								</div>
 							</div>
-									<div class="col-xs-4 col-md-3 pull-right search-form">
-										<form action="#" class="text-right">
-											<div class="input-group">
-												<input type="text" class="form-control input-sm"
-													placeholder="Search">
-												<div class="input-group-btn">
-													<button type="submit" name="q"
-														class="btn btn-sm btn-primary">
-														<i class="fa fa-search"></i>
-													</button>
-												</div>
-											</div>
-										</form>
+							<div class="col-xs-4 col-md-3 pull-right search-form">
+								<form action="#" class="text-right">
+									<div class="input-group">
+										<input type="text" class="form-control input-sm"
+											placeholder="Search">
+										<div class="input-group-btn">
+											<button type="submit" name="q" class="btn btn-sm btn-primary">
+												<i class="fa fa-search"></i>
+											</button>
+										</div>
 									</div>
-								</div>
-								<!-- /.row -->
-
-								<div class="table-responsive">
-									<!-- THE MESSAGES -->
-									<table class="table table-mailbox">
-										<thead>
-											<tr>
-											<th>#</th>
-											<th>ID</th>
-											<th>Subject</th>
-											<th>Status</th>
-											<th>Reason</th>
-											<th>Time</th>
-											</tr>
-										</thead>
-											<tr class="unread">
-												<td class="small-col">1</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">2</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">3</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">4</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">5</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">6</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">7</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">8</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">9</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-											<tr class="unread">
-												<td class="small-col">10</td>
-												<td class="name"><a href="#">John</a></td>
-												<td class="subject"><a href="#">Urgent! Please read</a></td>
-												<td class="status">Pending</td>
-												<td class="reason">No idea</td>
-												<td class="time">12:30 PM</td>
-											</tr>
-										</table>
-									</div>
-								<!-- /.table-responsive -->
+								</form>
 							</div>
-							<!-- /.col (RIGHT) -->
 						</div>
 						<!-- /.row -->
+
+						<div class="table-responsive">
+							<!-- THE MESSAGES -->
+							<table class="table table-mailbox">
+								<thead>
+									<tr>
+										<th class="small-col">#</th>
+										<th class="name">ID</th>
+										<th class="subject">Subject</th>
+										<th class="time">Time</th>
+									</tr>
+								</thead>
+								<tbody id="mailboxContent">
+									<c:forEach items="${messageList}" var="item" varStatus="stat">
+										<tr ${item.read ? '' : 'class="unread"'}
+											style="cursor: pointer;"
+											onclick="loadDoc('/ajax/fromPMO/${item.crisisID}')">
+											<td class="small-col">${stat.index + 1}</td>
+											<td class="name">${item.crisisID}</td>
+											<td class="name">Approval Report</td>
+											<td class="time"><fmt:formatDate
+													value="${item.messageReceivedTime}"
+													pattern="dd/MM/yyyy HH:mm" /></td>
+										</tr>
+									</c:forEach>
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">1</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">2</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">3</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">4</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">5</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">6</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">7</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">8</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">9</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+									<!-- 									<tr class="unread"> -->
+									<!-- 										<td class="small-col">10</td> -->
+									<!-- 										<td class="name"><a href="#">John</a></td> -->
+									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+									<!-- 										<td class="status">Pending</td> -->
+									<!-- 										<td class="reason">No idea</td> -->
+									<!-- 										<td class="time">12:30 PM</td> -->
+									<!-- 									</tr> -->
+								</tbody>
+							</table>
+						</div>
+						<!-- /.table-responsive -->
 					</div>
-					<!-- CHAT BOX -->
+					<!-- /.col (RIGHT) -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- CHAT BOX -->
 			<div class="col-md-4">
 				<div class="card mb-3 " style="height: 500px;">
 					<div class="card-header">
@@ -205,7 +235,7 @@
 
 						<!--CHAT INPUT FORM -->
 						<div class="box-footer">
-						<form id="messageForm" name="messageForm" action="">
+							<form id="messageForm" name="messageForm" action="">
 								<div class="input-group">
 									<input class="form-control" type="text"
 										placeholder="Send a message..." id="message" /> <span
@@ -223,138 +253,144 @@
 			</div>
 			<!-- MAILBOX END -->
 		</div>
-				<div class="col-md-6">
-					<div class="box box-primary">
-						<div class="box-header">
-							<h4 class="box-title">Crisis Data</h4>
-						</div>
-						<div class="box-body">
-							<!-- the events -->
-							<table class="table table-condensed">
-						    <tbody>
-						      <tr>
-						        <td>Crisis ID:</td>
-						        <td>1</td>
-						      </tr>
-						      <tr>
-						        <td>Name:</td>
-						        <td>Gabriel</td>
-						      </tr>
-						      <tr>
-						        <td>Position in 911:</td>
-						        <td>Janitor</td>
-						      </tr>
-						      <tr>
-						      	<td>Crisis type:</td>
-						      	<td>Robot Invasion</td>
-						      <tr>
-						      <tr>
-						      	<td>Crisis Details:</td>
-						      	<td>Robot shooting and killing students</td>
-						      <tr>
-						      <tr>
-						      	<td>Crisis Date:</td>
-						      	<td>20 September 2017</td>
-						      <tr>
-						      <tr>
-						      	<td>Estimated start time of crisis:</td>
-						      	<td>1500</td>
-						      <tr>
-						  	  <tr>
-						      	<td>Estimated crisis duration:</td>
-						      	<td>60 minutes</td>
-						      <tr>
-						      <tr>
-						      	<td>Affected location:</td>
-						      	<td>Orchard (1.301800, 103.837797)</td>
-						      <tr>
-						      <tr>
-						      	<td>Suggested strategy:</td>
-						      	<td>Surround robots at predicted area</td>
-						      <tr>
-						      <tr>
-						      	<td>Consequences of suggested strategy:</td>
-						      	<td>10% of human population will be wiped out</td>
-						      <tr>
-						      <tr>
-						      	<td>Estimated Casualties:</td>
-						      	<td>100,000</td>
-						      <tr>
-						      <tr>
-						      	<td>Clean up action:</td>
-						      	<td>SCDF to help the injured</td>
-						      <tr>
-						    </tbody>
-						  </table>
-						</div>
-						<div class="box-footer">
-							<button class="btn btn-info">
-								<i class="fa fa-globe"></i> Generate Map
-							</button>
-							<button class ="btn btn-info pull-right">
-								<i class="fa fa-users"></i>Send to Analyst
-							</button>
-						</div>
+		<div class="col-md-6">
+			<div class="box box-primary">
+				<div class="box-header">
+					<h4 class="box-title">Crisis Data</h4>
+				</div>
+				<div class="box-body">
+					<!-- the events -->
+					<table class="table table-condensed">
+						<tbody>
+							<tr>
+								<td class="col-md-7">Crisis ID:</td>
+								<td id="crisisID"></td>
+							</tr>
+							<tr>
+								<td class="col-md-7">Received Time:</td>
+								<td id="messageReceivedTime"></td>
+							</tr>
+							<tr>
+								<td class="col-md-7">PDF:</td>
+								<td><a id="pdf" target="_blank" href="#"></a></td>
+							</tr>
+						</tbody>
+						<script>
+							function loadDoc(link) {
+								var xhttp = new XMLHttpRequest();
+
+								document.getElementById("crisisID").innerHTML = "";
+								document.getElementById("messageReceivedTime").innerHTML = "";
+								document.getElementById("pdf").innerHTML = "";
+								document.getElementById("pdf").setAttribute(
+										"href", "#");
+
+								xhttp.onreadystatechange = function() {
+									if (this.readyState == 4
+											&& this.status == 200) {
+										var jsonObj = JSON.parse(this.response);
+
+										document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
+										document
+												.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime).format("DD/MM/YYYY HH:mm");
+										document.getElementById("pdf").innerHTML = "Click here	";
+										document
+												.getElementById("pdf")
+												.setAttribute("href",
+														"/" + jsonObj.reportURI);
+
+									}
+								};
+								xhttp.open("GET", link, true);
+								xhttp.send();
+							}
+						</script>
+					</table>
+				</div>
+				<div class="box-footer">
+					<button class="btn btn-info">
+						<i class="fa fa-globe"></i> Generate Map
+					</button>
+					<button class="btn btn-info pull-right">
+						<i class="fa fa-users"></i>Send to Analyst
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">Map</h3>
+				</div>
+				<div class="box-body">
+					<object type="text/html"
+						data="${pageContext.request.contextPath}/map" width="100%"
+						height="800px"></object>
+					<div class="box-tools pull-right">
+						<button class="btn btn-danger btn-sm" data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button>
+						<button class="btn btn-danger btn-sm" data-widget="remove">
+							<i class="fa fa-times"></i>
+						</button>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="box box-primary">
-						<div class="box-header">
-							<h3 class="box-title">Map</h3>
-						</div>
-						<div class="box-body">
-							<object type="text/html" data="${pageContext.request.contextPath}/map"  width= "100%" height="800px" ></object>
-						<div class="box-tools pull-right">
-							<button class="btn btn-danger btn-sm" data-widget="collapse">
-								<i class="fa fa-minus"></i>
-							</button>
-							<button class="btn btn-danger btn-sm" data-widget="remove">
-								<i class="fa fa-times"></i>
-							</button>
-						</div>
-					</div>
 				<!--  
 					<div class="overlay"></div>
 					<div class="loading-img"></div>
-					-->	
-				</div>
+					-->
 			</div>
-<!--/.content -->	
+		</div>
+		<!--/.content -->
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js" type="text/javascript"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="${pageContext.request.contextPath}/resources/js/AdminLTE/demo.js" type="text/javascript"></script>        
-        <!-- Bootstrap WYSIHTML5 -->
-        <script src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-  
-        <!-- Page script -->
-        <script type="text/javascript">
-        
-            $(function() {
-                "use strict";
-                //Initialize WYSIHTML5 - text editor
-                $("#email_message").wysihtml5();
-            });
-        </script>
-        
-    		<!-- Inbox Reactive Script -->
+		<!-- jQuery 2.0.2 -->
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script
+			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
+			type="text/javascript"></script>
+		<!-- AdminLTE App -->
+		<script
+			src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
+			type="text/javascript"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script
+			src="${pageContext.request.contextPath}/resources/js/AdminLTE/demo.js"
+			type="text/javascript"></script>
+		<!-- Bootstrap WYSIHTML5 -->
+		<script
+			src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
+			type="text/javascript"></script>
+
+		<!-- Page script -->
+		<script type="text/javascript">
+			$(function() {
+				"use strict";
+				//Initialize WYSIHTML5 - text editor
+				$("#email_message").wysihtml5();
+			});
+		</script>
+
+		<!-- Inbox Reactive Script -->
 		<script>
-		$(document).ready(function(){
-		    $(".table tr").click(function(){
-		        $(this).toggleClass("unread");
-		    });
-		});
+			$(document).ready(function() {
+				$("#mailboxContent tr").click(function() {
+					$(this).removeClass("unread");
+				});
+			});
 		</script>
 		<!-- End Inbox Reactive Script -->
-        
-        <!-- chat script -->
-			<script src="${pageContext.request.contextPath}/resources/js/chat/maingeneral.js" type="text/javascript"></script>
-			<script src="${pageContext.request.contextPath}/resources/js/chat/sockjs.mingeneral.js" type="text/javascript"></script>
-			<script src="${pageContext.request.contextPath}/resources/js/chat/stomp.mingeneral.js" type="text/javascript"></script>
-    </body>
+
+		<!-- chat script -->
+		<script
+			src="${pageContext.request.contextPath}/resources/js/chat/maingeneral.js"
+			type="text/javascript"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/chat/sockjs.mingeneral.js"
+			type="text/javascript"></script>
+		<script
+			src="${pageContext.request.contextPath}/resources/js/chat/stomp.mingeneral.js"
+			type="text/javascript"></script>
+</body>
 </html>

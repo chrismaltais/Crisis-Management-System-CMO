@@ -98,86 +98,89 @@
 								<div class="table-responsive">
 									<!-- THE MESSAGES -->
 									<table class="table table-mailbox">
-										<tr>
-											<th class="small-col">#</th>
-											<th class="name">ID</th>
-											<th class="subject">Subject</th>
-											<th class="time">Time</th>
-										</tr>
-
-										<c:forEach items="${messageList}" var="item" varStatus="stat">
-											<tr ${item.read ? '' : 'class="unread"'}
-												style="cursor: pointer;"
-												onclick="loadDoc('/ajax/general/${item.crisisID}')">
-												<td class="small-col">${stat.index + 1}</td>
-												<td class="name">${item.crisisID}</td>
-												<td class="name">Approval Report</td>
-												<td class="time"><fmt:formatDate
-														value="${item.messageReceivedTime}"
-														pattern="dd/MM/yyyy HH:mm" /></td>
+										<thead>
+											<tr>
+												<th class="small-col">#</th>
+												<th class="name">ID</th>
+												<th class="subject">Subject</th>
+												<th class="time">Time</th>
 											</tr>
-										</c:forEach>
+										</thead>
+										<tbody id="mailboxContent">
+											<c:forEach items="${messageList}" var="item" varStatus="stat">
+												<tr ${item.read ? '' : 'class="unread"'}
+													style="cursor: pointer;"
+													onclick="loadDoc('/ajax/general/${item.crisisID}')">
+													<td class="small-col">${stat.index + 1}</td>
+													<td class="name">${item.crisisID}</td>
+													<td class="name">Approval Report</td>
+													<td class="time"><fmt:formatDate
+															value="${item.messageReceivedTime}"
+															pattern="dd/MM/yyyy HH:mm" /></td>
+												</tr>
+											</c:forEach>
 
-										<!-- 										<tr class="unread"> -->
-										<!-- 											<td class="small-col">1</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">2</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">3</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr class="unread"> -->
-										<!-- 											<td class="small-col">4</td> -->
-										<!-- 											<td class="name">John Doe</a></td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">5</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">6</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">7</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr> -->
-										<!-- 											<td class="small-col">8</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr class="unread"> -->
-										<!-- 											<td class="small-col">9</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
-										<!-- 										<tr class="unread"> -->
-										<!-- 											<td class="small-col">10</td> -->
-										<!-- 											<td class="name">John Doe</td> -->
-										<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-										<!-- 											<td class="time">12:30 PM</td> -->
-										<!-- 										</tr> -->
+											<!-- 										<tr class="unread"> -->
+											<!-- 											<td class="small-col">1</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">2</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">3</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr class="unread"> -->
+											<!-- 											<td class="small-col">4</td> -->
+											<!-- 											<td class="name">John Doe</a></td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">5</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">6</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">7</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr> -->
+											<!-- 											<td class="small-col">8</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr class="unread"> -->
+											<!-- 											<td class="small-col">9</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+											<!-- 										<tr class="unread"> -->
+											<!-- 											<td class="small-col">10</td> -->
+											<!-- 											<td class="name">John Doe</td> -->
+											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
+											<!-- 											<td class="time">12:30 PM</td> -->
+											<!-- 										</tr> -->
+										</tbody>
 									</table>
 								</div>
 								<!-- /.table-responsive -->
@@ -216,7 +219,7 @@
 							</tr>
 							<tr>
 								<td class="col-md-7">PDF:</td>
-								<td><a id="pdf" href="#"></a></td>
+								<td><a id="pdf" target="_blank" href="#"></a></td>
 							</tr>
 						</table>
 					</div>
@@ -227,16 +230,20 @@
 							document.getElementById("crisisID").innerHTML = "";
 							document.getElementById("messageReceivedTime").innerHTML = "";
 							document.getElementById("pdf").innerHTML = "";
-							document.getElementById("pdf").setAttribute("href", "#");
+							document.getElementById("pdf").setAttribute("href",
+									"#");
 
 							xhttp.onreadystatechange = function() {
 								if (this.readyState == 4 && this.status == 200) {
 									var jsonObj = JSON.parse(this.response);
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
-									document.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime);
+									document
+											.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime);
 									document.getElementById("pdf").innerHTML = "Click here	";
-									document.getElementById("pdf").setAttribute("href", "/" + jsonObj.reportURI);
+									document.getElementById("pdf")
+											.setAttribute("href",
+													"/" + jsonObj.reportURI);
 
 								}
 							};
@@ -293,14 +300,14 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript"></script>
-		
+
 	<!-- Inbox Reactive Script -->
 	<script>
-	$(document).ready(function(){
-	    $(".table tr").click(function(){
-	        $(this).toggleClass("unread");
-	    });
-	});
+		$(document).ready(function() {
+			$("#mailboxContent tr").click(function() {
+				$(this).removeClass("unread");
+			});
+		});
 	</script>
 	<!-- End Inbox Reactive Script -->
 

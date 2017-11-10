@@ -114,7 +114,7 @@
 
 											</tr>
 										</thead>
-										<tbody>
+										<tbody id="mailboxContent">
 											<c:forEach items="${messageList}" var="item" varStatus="stat">
 												<tr ${item.read ? '' : 'class="unread"'}
 													style="cursor: pointer;"
@@ -374,7 +374,7 @@
 	<!-- Inbox Reactive Script -->
 	<script>
 		$(document).ready(function() {
-			$("tbody tr").click(function() {
+			$("#mailboxContent tr").click(function() {
 				$(this).removeClass("unread");
 			});
 		});

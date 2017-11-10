@@ -39,6 +39,7 @@
         <![endif]-->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -97,18 +98,20 @@
 										<th>DateTime</th>
 									</tr>
 								</thead>
-								<c:forEach items="${messageList}" var="item" varStatus="stat">
-									<tr ${item.read ? '' : 'class="unread"'}
-										style="cursor: pointer;"
-										onclick="loadDoc('/ajax/proposalFromAnalyst/${item.proposalID}')">
-										<td class="small-col">${stat.index + 1}</td>
-										<td class="name">${item.crisisID}</td>
-										<td class="subject">${item.threatLevel}</td>
-										<td class="subject">${item.affectedArea}</td>
-										<td class="time"><fmt:formatDate
-												value="${item.createdTime}" pattern="dd/MM/yyyy HH:mm" /></td>
-									</tr>
-								</c:forEach>
+								<tbody id="mailboxContent">
+									<c:forEach items="${messageList}" var="item" varStatus="stat">
+										<tr ${item.read ? '' : 'class="unread"'}
+											style="cursor: pointer;"
+											onclick="loadDoc('/ajax/proposalFromAnalyst/${item.proposalID}')">
+											<td class="small-col">${stat.index + 1}</td>
+											<td class="name">${item.crisisID}</td>
+											<td class="subject">${item.threatLevel}</td>
+											<td class="subject">${item.affectedArea}</td>
+											<td class="time"><fmt:formatDate
+													value="${item.createdTime}" pattern="dd/MM/yyyy HH:mm" /></td>
+										</tr>
+									</c:forEach>
+								</tbody>
 
 								<!-- 								<tr class="unread"> -->
 								<!-- 									<td class="small-col">1</td> -->
@@ -307,9 +310,24 @@
 				<button class="btn btn-info">
 					<i class="fa fa-globe"></i> Generate Map
 				</button>
-				<button class="btn btn-info pull-right">
+				<button class="btn btn-info pull-right" onclick="sendProposal()">
 					<i class="fa fa-user"></i>Send to PMO
 				</button>
+				<script>
+					function sendProposal(){
+						var xhttp = new XMLHttpRequest();
+						xhttp.onreadystatechange = function(){
+							console.log(this.readystate == 4);
+							if (this.readystate == 4 && this.status == 200){
+								alert(this.responseBody);
+								console.log(this.response);
+								document.getElementById("createdTime").innerHTML = this.response;
+							}
+						};
+						xhttp.open("GET", "${pageContext.request.contextPath}/sendProposal/" + document.getElementById("proposalID").innerHTML, true);
+						xhttp.send();
+					}
+				</script>
 			</div>
 		</div>
 	</div>
@@ -361,17 +379,17 @@
 			$("#email_message").wysihtml5();
 		});
 	</script>
-	
+
 	<!-- Inbox Reactive Script -->
 	<script>
-	$(document).ready(function(){
-	    $(".table tr").click(function(){
-	        $(this).toggleClass("unread");
-	    });
-	});
+		$(document).ready(function() {
+			$("#mailboxContent tr").click(function() {
+				$(this).removeClass("unread");
+			});
+		});
 	</script>
 	<!-- End Inbox Reactive Script -->
-		
+
 
 </body>
 </html>
