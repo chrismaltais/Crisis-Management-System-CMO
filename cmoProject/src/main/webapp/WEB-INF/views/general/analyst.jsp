@@ -94,8 +94,8 @@
 										<th>#</th>
 										<th>CrisisID</th>
 										<th>Threat Level</th>
-										<th>AffectedAreas</th>
-										<th>DateTime</th>
+										<th>Affected Areas</th>
+										<th>Date & Time</th>
 									</tr>
 								</thead>
 								<tbody id="mailboxContent">

@@ -6,18 +6,22 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
+	
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
@@ -30,9 +34,14 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!-- What is moment for?? -->
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
+
+<!-- Google Maps -->
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry"
 	type="text/javascript"></script>
@@ -43,6 +52,8 @@
 	width: 100%;
 }
 </style>
+<!-- End Google Maps -->
+
 </head>
 <body>
 
@@ -59,13 +70,6 @@
 
 	<!-- Main content -->
 	<section class="content">
-
-		<!-- top row -->
-		<!--  <div class="911-row">
-			<div class="col-xs-12"></div>-->
-		<!-- /.col -->
-		<!-- </div>-->
-		<!-- /.row -->
 
 		<!-- main row -->
 		<div class="mailbox row">
@@ -109,8 +113,8 @@
 											<tr>
 												<td class="small-col"><b>#</b></td>
 												<td class="name"><b>Crisis ID</b></td>
-												<td class="subject"><b>AffectedAreas</b></td>
-												<td class="time"><b>DateTime</b></td>
+												<td class="subject"><b>Affected Areas</b></td>
+												<td class="time"><b>Date & Time</b></td>
 
 											</tr>
 										</thead>
@@ -173,15 +177,7 @@
 					</div>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<div class="pull-right">
-							<small>Showing 1-10/1,240</small>
-							<button class="btn btn-xs btn-primary">
-								<i class="fa fa-caret-left"></i>
-							</button>
-							<button class="btn btn-xs btn-primary">
-								<i class="fa fa-caret-right"></i>
-							</button>
-						</div>
+						
 					</div>
 					<!-- box-footer -->
 				</div>
@@ -200,38 +196,6 @@
 					<div class="box-body">
 						<!-- <table class="table table-bordered"> -->
 						<table id="messageContent" class="table table-condensed">
-							<!-- <tr>
-								<th style="width: 10px">#</th>
-								<th style="width: 100px">Key</th>
-								<th>Value</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>crisis ID</td>
-								<td><p>911_01</p></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>content</td>
-								<td><p>this module is in crisis, #nojoke</p></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>json key</td>
-								<td><p>why the elearning SOO WORDY!?</p></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Map</td>
-								<td><p>*insert coordinate*</p></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Remarks</td>
-								<td><p>I got a headache looking at HTML codes all day<p></td>
-							</tr> -->
-
-
 							<tr>
 								<td>Call Report ID:</td>
 								<td id="callReportID"></td>
@@ -265,18 +229,16 @@
 								<td id="estimatedStartTime"></td>
 							</tr>
 							<tr>
-								<td>crisis Details</td>
+								<td>Crisis Details</td>
 								<td id="crisisDetails"></td>
 							</tr>
 							<tr>
-								<td>Message received time:</td>
+								<td>Message Received At:</td>
 								<td id="messageReceivedTime"></td>
 							</tr>
-
-
-
 						</table>
-
+						
+						<!--  Ajax Script to display selected crisis data -->
 						<script>
 							function loadDoc(link) {
 								var xhttp = new XMLHttpRequest();
@@ -324,6 +286,8 @@
 
 					</div>
 					<!-- /.box-body -->
+					
+					<!-- Button/Function to Load Map -->
 					<div class="box-footer clearfix">
 						<button class="btn btn-xs btn-primary pull-right"
 							onclick="putToMap()">View on Map</button>
@@ -361,15 +325,20 @@
 
 	<!-- jQuery 2.0.2 -->
 	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+	</script>
+		
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+	</script>
+	
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+	</script>
 
 	<!-- Inbox Reactive Script -->
 	<script>
