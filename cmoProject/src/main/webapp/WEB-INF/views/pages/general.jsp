@@ -6,23 +6,26 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
+	
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
 	rel="stylesheet" type="text/css" />
-
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,9 +34,27 @@
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
+<!-- Javascript Tag Libraries (JSTL) -->
+<!-- FMT works similar to Moment, but on the server side instead of client side -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!-- Moment used for JavaScript formatting of datetime -->
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
+
+<!-- Google Maps -->
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry"
+	type="text/javascript"></script>
+<script src="/resources/js/map.js" type="text/javascript"></script>
+<style>
+#map {
+	height: 400px;
+	width: 100%;
+}
+</style>
+<!-- End Google Maps -->
+
 </head>
 <body>
 
@@ -51,13 +72,6 @@
 
 	<!-- Main content -->
 	<section class="content">
-
-		<!-- top row -->
-		<!--  <div class="911-row">
-			<div class="col-xs-12"></div>-->
-		<!-- /.col -->
-		<!-- </div>-->
-		<!-- /.row -->
 
 		<!-- main row -->
 		<div class="mailbox row">
@@ -194,10 +208,7 @@
 					<!-- box-footer -->
 				</div>
 				<!-- /.box -->
-
 			</section>
-
-
 		</div>
 
 		<div class="row">
@@ -253,8 +264,8 @@
 					</script>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xs btn-primary pull-right">View on
-							Map</button>
+						<button class="btn btn-xs btn-primary pull-right" 
+							onclick="putToMap()">View on Map</button>
 					</div>
 				</div>
 				<!-- /.box -->
@@ -270,36 +281,31 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<div>
-							<object type="text/html"
-								data="${pageContext.request.contextPath}/map" width="100%"
-								height="400px"></object>
-
+						<div id="map">
 						</div>
 					</div>
 				</div>
-				<!-- Loading (remove the following to stop the loading)
-					<div class="overlay"></div>
-					<div class="loading-img"></div>
-					<!-- end loading -->
 			</div>
-		</div>
-
 		</div>
 	</section>
 	<!-- /.content -->
 
 	<!-- jQuery 2.0.2 -->
 	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+	</script>
+	
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+	</script>
+	
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
-		type="text/javascript"></script>
+		type="text/javascript">
+	</script>
 
 	<!-- Inbox Reactive Script -->
 	<script>
