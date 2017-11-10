@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cmo.entities.ApprovalReport;
@@ -17,6 +18,7 @@ import cmo.frontend.dao.CallReportFEDAO;
 import cmo.frontend.dao.FeedbackReportFEDAO;
 import cmo.frontend.dao.ProposalFEDAO;
 import cmo.pdf.PDFConverter;
+import cmo.tony.CMOPMOClient;
 
 @RestController
 public class MailboxController {
@@ -32,6 +34,12 @@ public class MailboxController {
 
 	@Resource(name = "approvalPDF")
 	private PDFConverter<ApprovalReport> pdfConverter;
+	
+	@GetMapping("/sendProposal/{proposalId}") @ResponseBody
+	private ResponseEntity<?> sendProposal(@PathVariable("proposalId") long proposalId){
+		boolean success = CMOPMOClient.createProposal(proposalDAO.getByProposalId(proposalId));
+		return new ResponseEntity<String>((success ? "Proposal sent" : "Fail to send"), HttpStatus.OK);
+	}
 
 	@GetMapping("/ajax/proposalFromAnalyst/{proposalId}")
 	public ResponseEntity<?> analyst(@PathVariable("proposalId") long proposalId, ModelMap model) {
@@ -48,7 +56,7 @@ public class MailboxController {
 		return new ResponseEntity<Object>(callreportDAO.getReport(callReportId), HttpStatus.OK);
 	}
 
-	@GetMapping("/ajax/general/{crisisId}")
+	@GetMapping({"/ajax/general/{crisisId}", "/ajax/fromPMO/{crisisId}"})
 	public ResponseEntity<?> approvalReport(@PathVariable("crisisId") long crisisId, ModelMap model) {
 		ApprovalReport report = approvalDAO.getReportByCrisisId(crisisId);
 		String reportURI = pdfConverter.convertToPdf(report);
