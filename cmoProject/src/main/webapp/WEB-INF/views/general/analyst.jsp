@@ -317,11 +317,9 @@
 					function sendProposal(){
 						var xhttp = new XMLHttpRequest();
 						xhttp.onreadystatechange = function(){
-							console.log(this.readystate == 4);
-							if (this.readystate == 4 && this.status == 200){
-								alert(this.responseBody);
-								console.log(this.response);
-								document.getElementById("createdTime").innerHTML = this.response;
+							console.log(this.status == 200);
+							if (this.readyState == 4 && this.status == 200){
+								alert(this.response);
 							}
 						};
 						xhttp.open("GET", "${pageContext.request.contextPath}/sendProposal/" + document.getElementById("proposalID").innerHTML, true);
