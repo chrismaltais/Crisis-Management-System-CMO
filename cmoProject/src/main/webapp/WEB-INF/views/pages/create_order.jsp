@@ -96,8 +96,8 @@
 									placeholder="Crisis Details">
 							</div>
 							<div class="form-group">
-								<label for="couseofAction">Course of Action</label> <input
-									type="text" id="couseofAction" name="couseofAction" class="form-control"
+								<label for="courseofAction">Course of Action</label> <input
+									type="text" id="courseofAction" name="courseofAction" class="form-control"
 									placeholder="Course of Action">
 							</div>
 							<!-- 							<div class="form-group"> -->

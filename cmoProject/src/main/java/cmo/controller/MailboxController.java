@@ -113,7 +113,7 @@ public class MailboxController {
 	}
 
 	private void generalListForAnalyst(Model model) {
-		model.addAttribute("messageList", approvalDAO.getAllAnalysisReadableReports());
+		model.addAttribute("messageList", approvalDAO.getAllReports());
 	}
 
 	private void nineoneoneList(Model model) {
