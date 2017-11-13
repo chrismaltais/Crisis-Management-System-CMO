@@ -10,19 +10,11 @@
     <body class="wysihtml5-supported  vsc-initialized pace-done fixed skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="${pageContext.request.contextPath}/pages/911" class="logo">
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                SSP2 CMO
-            </a>
+            <a class="logo"  href="${pageContext.request.contextPath}/pages/911">
+    			SSP2 CMO</a>
+            			
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
@@ -40,19 +32,6 @@
                                         <small>Analyst since Aug. 2017</small>
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
-                                <!-- <li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </li>-->
-                                <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <!--<div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
