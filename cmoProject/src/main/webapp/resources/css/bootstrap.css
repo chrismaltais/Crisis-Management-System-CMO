@@ -776,6 +776,8 @@ pre code {
   border-radius: 0;
 }
 
+.top-buffer { margin-top:40px; }
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;

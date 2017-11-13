@@ -5,7 +5,7 @@
         <title>AdminLTE | Log in</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
         <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
@@ -19,7 +19,8 @@
         <![endif]-->
     </head>
     <body class="bg-black">
-
+		
+		<div class="container">
         <div class="form-box" id="login-box">
             <div class="header bg-light-blue">CMO Sign In</div>
             <font color="red">${errorMessage}</font>
@@ -44,7 +45,15 @@
                     <button type="submit" class="btn bg-light-blue btn-block" value="Submit">Sign me in</button>  
                 </div>
             	</form>
-        </div>
+            	</div>
+            	<div class="row top-buffer">
+           		<div class="col-md-offset-4">
+           			<div class="h1">
+           				<span class="type"></span>
+           			</div>
+           		</div>
+           	</div>
+            	</div>
 
 
         <!-- jQuery 2.0.2 -->
@@ -75,8 +84,27 @@
         		    $(form).ajaxSubmit();
         		  }
         		});</script>
+        	
         <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>        
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>   
+        
+        <!-- jQuery -->
+       <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+        <!--  Typed.js (1 file) -->
+		<script src="${pageContext.request.contextPath}/resources/js/typed.js" type="text/javascript"></script> 
+		
+		<script>
+        	var typed = new Typed(".type", {
+        		  strings: ['Turning Crisis into Care', 'Turning Crisis into Comfort', 'Turning Crisis into Clarity.'], 
+        		  smartBackspace: true,
+        		  typeSpeed: 70,
+        		  backSpeed: 70,
+        		  backDelay: 400,
+        		  startDelay: 1000
+        		});
+        	</script>
+        	<!-- End Typed.js -->
 		
     </body>
 </html>
