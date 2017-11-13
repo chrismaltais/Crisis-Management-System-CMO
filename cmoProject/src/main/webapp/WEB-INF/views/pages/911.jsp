@@ -38,7 +38,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- What is moment for?? -->
+<!-- Easy Javascript formatting for Date/Time -->
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
 
 <!-- Google Maps -->

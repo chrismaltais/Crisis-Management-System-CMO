@@ -6,33 +6,44 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
+	
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
-<!-- bootstrap wysihtml5 - text editor -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
-	rel="stylesheet" type="text/css" />
-<!-- iCheck for checkboxes and radio inputs -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/iCheck/minimal/blue.css"
-	rel="stylesheet" type="text/css" />
+	
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
 	rel="stylesheet" type="text/css" />
+
+<!--  Chatbox style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/chat/main.css"
 	rel="stylesheet" type="text/css" />
+
+<!-- Google Maps -->
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry"
+	type="text/javascript"></script>
+<script src="/resources/js/map.js" type="text/javascript"></script>
+<style>
+#map {
+	height: 400px;
+	width: 100%;
+}
+</style>
+<!-- End Google Maps -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,9 +51,15 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.${pageContext.request.contextPath}/resources/js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+<!-- JavaServer Pages Standard Tag Library (JSTL) is a collection of useful JSP tags -->
+<!-- which encapsulate the core functionality common to many JSP applications. -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!-- Easy Javascript formatting of Date/Time -->
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -113,86 +130,6 @@
 													pattern="dd/MM/yyyy HH:mm" /></td>
 										</tr>
 									</c:forEach>
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">1</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">2</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">3</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">4</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">5</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">6</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">7</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">8</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">9</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
-									<!-- 									<tr class="unread"> -->
-									<!-- 										<td class="small-col">10</td> -->
-									<!-- 										<td class="name"><a href="#">John</a></td> -->
-									<!-- 										<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-									<!-- 										<td class="status">Pending</td> -->
-									<!-- 										<td class="reason">No idea</td> -->
-									<!-- 										<td class="time">12:30 PM</td> -->
-									<!-- 									</tr> -->
 								</tbody>
 							</table>
 						</div>
@@ -222,8 +159,6 @@
 						<button type="submit" onclick="reconnect()"
 							class="accent username-submit btn btn-success">Reconnect</button>
 					</div>
-
-
 
 					<!--CHAT MESSAGE CONTAINER-->
 
@@ -320,47 +255,29 @@
 		<div class="col-md-6">
 			<div class="box box-primary">
 				<div class="box-header">
+					<i class="fa fa-globe"></i>
 					<h3 class="box-title">Map</h3>
 				</div>
 				<div class="box-body">
-					<object type="text/html"
-						data="${pageContext.request.contextPath}/map" width="100%"
-						height="800px"></object>
-					<div class="box-tools pull-right">
-						<button class="btn btn-danger btn-sm" data-widget="collapse">
-							<i class="fa fa-minus"></i>
-						</button>
-						<button class="btn btn-danger btn-sm" data-widget="remove">
-							<i class="fa fa-times"></i>
-						</button>
-					</div>
+					<div id="map"></div>
 				</div>
-				<!--  
-					<div class="overlay"></div>
-					<div class="loading-img"></div>
-					-->
 			</div>
 		</div>
+		</section>
 		<!--/.content -->
 
 		<!-- jQuery 2.0.2 -->
 		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+			
 		<!-- Bootstrap -->
 		<script
 			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 			type="text/javascript"></script>
+			
 		<!-- AdminLTE App -->
 		<script
 			src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
-			type="text/javascript"></script>
-		<!-- AdminLTE for demo purposes -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/AdminLTE/demo.js"
-			type="text/javascript"></script>
-		<!-- Bootstrap WYSIHTML5 -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
 			type="text/javascript"></script>
 
 		<!-- Page script -->

@@ -243,7 +243,6 @@
 								document.getElementById("createdTime").innerHTML = moment(
 										jsonObj.createdTime).format(
 										"DD/MM/YYYY HH:mm");
-
 							}
 						};
 						xhttp.open("GET", link, true);
@@ -306,31 +305,16 @@
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript"></script>
+		
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script
-		src="${pageContext.request.contextPath}/resources/js/AdminLTE/demo.js"
-		type="text/javascript"></script>
-	<!-- Bootstrap WYSIHTML5 -->
-	<script
-		src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
-		type="text/javascript"></script>
-	<script type="text/javascript">
-		$(function() {
-
-			"use strict";
-
-			//Initialize WYSIHTML5 - text editor
-			$("#email_message").wysihtml5();
-		});
-	</script>
 
 	<!-- Inbox Reactive Script -->
 	<script>
@@ -341,7 +325,6 @@
 		});
 	</script>
 	<!-- End Inbox Reactive Script -->
-
 
 </body>
 </html>
