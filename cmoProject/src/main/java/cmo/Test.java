@@ -105,6 +105,17 @@ public class Test implements CommandLineRunner {
 		call3.setAffectedArea("Sentosa Siloso Beach/1.2545582/103.81477870000003");
 		callRepo.save(call3);
 		
+		CallReport callReport4 = new CallReport();
+		callReport.setCrisisID(1);
+		callReport.setName("Jason Redric");
+		callReport.setPositionIn911("911 LO");
+		callReport.setCrisisType("Stabbing");
+		callReport.setAffectedArea("NTU/1.3483/103.6831");
+		callReport.setCrisisDate("04/11/2017");
+		callReport.setEstimatedStartTime("11:00 PM");
+		callReport.setCrisisDetails("Lockdown School");
+		callRepo.save(callReport4);
+		
 		// Populate FeedbackReport
 		
 		FeedbackReport feedbackReport = new FeedbackReport();
@@ -115,8 +126,37 @@ public class Test implements CommandLineRunner {
 		feedbackReport.setCasualtiesRescued(123);
 		feedbackReport.setDeploymentStatus("ongoing");
 		feedbackReport.setSituationStatus("Multiple Casualties");
-		
 		feedbackRepo.save(feedbackReport);
+		
+		FeedbackReport feedbackReport2 = new FeedbackReport();
+		feedbackReport.setCrisisID(1);
+		feedbackReport.setName("Leena Jones");
+		feedbackReport.setPositionInEF("Operator");
+		feedbackReport.setThreatLevel(4);
+		feedbackReport.setCasualtiesRescued(15);
+		feedbackReport.setDeploymentStatus("Closed");
+		feedbackReport.setSituationStatus("Crisis Cleaned Up");
+		feedbackRepo.save(feedbackReport2);
+		
+		FeedbackReport feedbackReport3 = new FeedbackReport();
+		feedbackReport.setCrisisID(1);
+		feedbackReport.setName("Justin Xing");
+		feedbackReport.setPositionInEF("Operator");
+		feedbackReport.setThreatLevel(2);
+		feedbackReport.setCasualtiesRescued(2);
+		feedbackReport.setDeploymentStatus("Closed");
+		feedbackReport.setSituationStatus("Bomb squad neutralized suitcase");
+		feedbackRepo.save(feedbackReport3);
+		
+		FeedbackReport feedbackReport4 = new FeedbackReport();
+		feedbackReport.setCrisisID(1);
+		feedbackReport.setName("Ashley Doe");
+		feedbackReport.setPositionInEF("Operator");
+		feedbackReport.setThreatLevel(3);
+		feedbackReport.setCasualtiesRescued(10);
+		feedbackReport.setDeploymentStatus("Closed");
+		feedbackReport.setSituationStatus("Armed robber seized");
+		feedbackRepo.save(feedbackReport4);
 		
 		// Populate Order
 		
@@ -129,8 +169,40 @@ public class Test implements CommandLineRunner {
 		order.setAffectedArea("Orchard Road");
 		order.setCrisisDetails("Mass Panic");
 		order.setCouseofAction("Sending troops");
-		
 		orderRepo.save(order);
+		
+		EFOrder order2 = new EFOrder();
+		order.setCrisisID(1);
+		order.setName("Gab Wong");
+		order.setPositionInCMO("General");
+		order.setThreatLevel(3);
+		order.setCrisisType("Multiple Stabbings");
+		order.setAffectedArea("NTU");
+		order.setCrisisDetails("Lockdown School");
+		order.setCouseofAction("Sending troops, secure area");
+		orderRepo.save(order2);
+		
+		EFOrder order3 = new EFOrder();
+		order.setCrisisID(1);
+		order.setName("Tristan Smith");
+		order.setPositionInCMO("Analyst");
+		order.setThreatLevel(2);
+		order.setCrisisType("Armed Robbery");
+		order.setAffectedArea("Jurong West");
+		order.setCrisisDetails("Surround Mall");
+		order.setCouseofAction("Ensure nobody leaves suspiciously");
+		orderRepo.save(order3);
+		
+		EFOrder order4 = new EFOrder();
+		order.setCrisisID(1);
+		order.setName("Tony Strawy");
+		order.setPositionInCMO("Analyst");
+		order.setThreatLevel(4);
+		order.setCrisisType("Terrorist Threat");
+		order.setAffectedArea("Changi Airport");
+		order.setCrisisDetails("Suspiscious Luggage at Terminal 1");
+		order.setCouseofAction("Send in bob squad, secure the luggage");
+		orderRepo.save(order4);
 		
 		// Populate Proposal
 		
@@ -145,8 +217,33 @@ public class Test implements CommandLineRunner {
 		proposal.setCourseOfAction("Sending troops");
 		proposal.setConsequencesOfAction("TBC");
 		proposal.setCleanUpAction("TBC");
-		
 		proposalRepo.save(proposal);
+		
+		Proposal proposal2 = new Proposal();
+		proposal.setCrisisID(154);
+		proposal.setName("Septua");
+		proposal.setPositionInCMO("Operator");
+		proposal.setThreatLevel(4);
+		proposal.setAffectedArea("Orchard Road");
+		proposal.setEstimatedCasualties(1542);
+		proposal.setCrisisDetails("Mass Panic");
+		proposal.setCourseOfAction("Sending troops");
+		proposal.setConsequencesOfAction("TBC");
+		proposal.setCleanUpAction("TBC");
+		proposalRepo.save(proposal2);
+		
+		Proposal proposal3 = new Proposal();
+		proposal.setCrisisID(154);
+		proposal.setName("Septua");
+		proposal.setPositionInCMO("Operator");
+		proposal.setThreatLevel(4);
+		proposal.setAffectedArea("Orchard Road");
+		proposal.setEstimatedCasualties(1542);
+		proposal.setCrisisDetails("Mass Panic");
+		proposal.setCourseOfAction("Sending troops");
+		proposal.setConsequencesOfAction("TBC");
+		proposal.setCleanUpAction("TBC");
+		proposalRepo.save(proposal3);
 		
 		// Populate Report
 		
