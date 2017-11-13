@@ -250,7 +250,7 @@
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
 									document
-											.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime);
+											.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime).format("DD/MM/YYYY HH:mm");
 									document.getElementById("pdf").innerHTML = "Click here	";
 									document.getElementById("pdf")
 											.setAttribute("href",
