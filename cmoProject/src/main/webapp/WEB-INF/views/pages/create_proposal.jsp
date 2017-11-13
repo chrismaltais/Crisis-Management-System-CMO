@@ -110,9 +110,9 @@
 									class="form-control" placeholder="Crisis Details">
 							</div>
 							<div class="form-group">
-								<label for="courseOfAction">Course of Action</label> <input
+								<label for="courseOfAction">Course of Action</label> <textarea
 									type="text" id="courseOfAction" name="courseOfAction"
-									class="form-control" placeholder="Course of Action">
+									class="form-control" placeholder="Course of Action"></textarea>
 							</div>
 							<div class="form-group">
 								<label for="consequencesOfAction">Consequences of Action</label> <input
