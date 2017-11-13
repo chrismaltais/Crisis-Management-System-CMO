@@ -6,26 +6,22 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
+	
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
+	
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
-<!-- bootstrap wysihtml5 - text editor -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
-	rel="stylesheet" type="text/css" />
-<!-- iCheck for checkboxes and radio inputs -->
-<link
-	href="${pageContext.request.contextPath}/resources/css/iCheck/minimal/blue.css"
-	rel="stylesheet" type="text/css" />
+
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
@@ -40,9 +36,22 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/webjars/momentjs/2.19.1/moment.js" type="text/javascript"></script>
-</head>
-<body>
 
+<!-- Google Maps -->
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDiT4KVHOVMfzURpGA_hfEbN2NF7D_3v0&libraries=geometry"
+	type="text/javascript"></script>
+<script src="/resources/js/map.js" type="text/javascript"></script>
+<style>
+#map {
+	height: 400px;
+	width: 100%;
+}
+</style>
+<!-- End Google Maps -->
+</head>
+
+<body>
 	<!-- Content Header (Page header) -->
 	<section class="content-header ">
 		<h1>
@@ -112,69 +121,6 @@
 										</tr>
 									</c:forEach>
 								</tbody>
-
-								<!-- 								<tr class="unread"> -->
-								<!-- 									<td class="small-col">1</td> -->
-								<!-- 									<td class="name" style="cursor: pointer;" -->
-								<!-- 										onclick="loadDoc('/ajax/analyst/1')">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">2</td> -->
-								<!-- 									<td class="name" style="cursor: pointer;" -->
-								<!-- 										onclick="loadDoc('/ajax/analyst/2')">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr class="unread"> -->
-								<!-- 									<td class="small-col">3</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">4</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">5</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">6</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">7</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr class="unread"> -->
-								<!-- 									<td class="small-col">8</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr class="unread"> -->
-								<!-- 									<td class="small-col">9</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
-								<!-- 								<tr> -->
-								<!-- 									<td class="small-col">10</td> -->
-								<!-- 									<td class="name"><a href="#">John</a></td> -->
-								<!-- 									<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-								<!-- 									<td class="time">12:30 PM</td> -->
-								<!-- 								</tr> -->
 							</table>
 						</div>
 						<!-- /.table-responsive -->
@@ -306,47 +252,55 @@
 				</script>
 			</div>
 
-			<div class="box-footer">
-				<button class="btn btn-info">
-					<i class="fa fa-globe"></i> Generate Map
-				</button>
-				<button class="btn btn-info pull-right" onclick="sendProposal()">
-					<i class="fa fa-user"></i>Send to PMO
-				</button>
-				<script>
-					function sendProposal(){
-						var xhttp = new XMLHttpRequest();
-						xhttp.onreadystatechange = function(){
-							console.log(this.status == 200);
-							if (this.readyState == 4 && this.status == 200){
-								alert(this.response);
-							}
-						};
-						xhttp.open("GET", "${pageContext.request.contextPath}/sendProposal/" + document.getElementById("proposalID").innerHTML, true);
-						xhttp.send();
-					}
-				</script>
-			</div>
+				<!-- Button/Function to Load Map -->
+	<div class="box-footer clearfix">
+		<button class="btn btn-xs btn-primary pull-left"
+				onclick="putToMap()">View on Map</button>
+		<script type="text/javascript">
+		function putToMap() {
+			var marker = {
+			coords : coordParse(document
+			.getElementById("affectedArea").innerHTML),
+			content : document
+			.getElementById("callReportID").innerHTML
+			};
+			addMarker(marker);
+		}
+		</script>
+		<button class="btn btn-info pull-right" onclick="sendProposal()">
+			<i class="fa fa-user"></i>Send to PMO
+		</button>
+		</div>
+		<script>
+		function sendProposal(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function(){
+			console.log(this.status == 200);
+				if (this.readyState == 4 && this.status == 200){
+					alert(this.response);
+				}
+			};
+			xhttp.open("GET", "${pageContext.request.contextPath}/sendProposal/" + document.getElementById("proposalID").innerHTML, true);
+			xhttp.send();
+		}
+		</script>
 		</div>
 	</div>
+	
 	<div class="col-md-6">
-		<div class="box box-primary">
+		<div class="box">
 			<div class="box-header">
+				<i class="fa fa-globe"></i>
 				<h3 class="box-title">Map</h3>
 			</div>
 
 			<div class="box-body">
-
-				<h2 class="text-center">Scroll down to view more</h2>
-				<div>
-					<object type="text/html"
-						data="${pageContext.request.contextPath}/map" width="100%"
-						height="800px"></object>
-
+				<div id="map">
 				</div>
 			</div>
 		</div>
 	</div>
+	</section>
 	<!-- /.content -->
 
 	<!-- jQuery 2.0.2 -->

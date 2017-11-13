@@ -208,12 +208,12 @@ public class Test implements CommandLineRunner {
 		
 		Proposal proposal = new Proposal();
 		proposal.setCrisisID(154);
-		proposal.setName("Septua");
-		proposal.setPositionInCMO("Operator");
-		proposal.setThreatLevel(4);
-		proposal.setAffectedArea("Orchard Road");
-		proposal.setEstimatedCasualties(1542);
-		proposal.setCrisisDetails("Mass Panic");
+		proposal.setName("Hock Leng");
+		proposal.setPositionInCMO("Analyst");
+		proposal.setThreatLevel(3);
+		proposal.setAffectedArea("Haji Lane");
+		proposal.setEstimatedCasualties(13);
+		proposal.setCrisisDetails("Terrorist Attack");
 		proposal.setCourseOfAction("Sending troops");
 		proposal.setConsequencesOfAction("TBC");
 		proposal.setCleanUpAction("TBC");
@@ -221,28 +221,28 @@ public class Test implements CommandLineRunner {
 		
 		Proposal proposal2 = new Proposal();
 		proposal2.setCrisisID(156);
-		proposal2.setName("Septua");
-		proposal2.setPositionInCMO("Operator");
+		proposal2.setName("Chris Maltais");
+		proposal2.setPositionInCMO("Environmental Analyst");
 		proposal2.setThreatLevel(4);
 		proposal2.setAffectedArea("Orchard Road");
 		proposal2.setEstimatedCasualties(1542);
-		proposal2.setCrisisDetails("Mass Panic");
-		proposal2.setCourseOfAction("Sending troops");
+		proposal2.setCrisisDetails("Earthquake");
+		proposal2.setCourseOfAction("Sending firfighters/ambulances");
 		proposal2.setConsequencesOfAction("TBC");
-		proposal2.setCleanUpAction("TBC");
+		proposal2.setCleanUpAction("Redirect traffic to safer area");
 		proposalRepo.save(proposal2);
 		
 		Proposal proposal3 = new Proposal();
 		proposal3.setCrisisID(157);
-		proposal3.setName("Septua");
-		proposal3.setPositionInCMO("Operator");
+		proposal3.setName("Mairead Matthews");
+		proposal3.setPositionInCMO("Analyst");
 		proposal3.setThreatLevel(4);
-		proposal3.setAffectedArea("Orchard Road");
+		proposal3.setAffectedArea("NTU");
 		proposal3.setEstimatedCasualties(1542);
-		proposal3.setCrisisDetails("Mass Panic");
-		proposal3.setCourseOfAction("Sending troops");
-		proposal3.setConsequencesOfAction("TBC");
-		proposal3.setCleanUpAction("TBC");
+		proposal3.setCrisisDetails("Cannibalism at North Spine");
+		proposal3.setCourseOfAction("Military being dispatched");
+		proposal3.setConsequencesOfAction("Many students eaten if not aided");
+		proposal3.setCleanUpAction("Ambulances to surround aread");
 		proposalRepo.save(proposal3);
 		
 		// Populate Report

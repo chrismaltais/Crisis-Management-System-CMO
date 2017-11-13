@@ -131,41 +131,6 @@
 															pattern="dd/MM/yyyy HH:mm" /></td>
 												</tr>
 											</c:forEach>
-
-<!-- 											<tr class="unread"> -->
-<!-- 												<td class="small-col">1</td> -->
-<!-- 												<td class="name">Jacob Spritzer</td> -->
-<!-- 												<td class="subject"><a href="#">Urgent! Banned Cell -->
-<!-- 														Numbers</a></td> -->
-<!-- 												<td class="time">11:30 AM</td> -->
-
-<!-- 											</tr> -->
-<!-- 											<tr class="unread"> -->
-<!-- 												<td class="small-col">2</td> -->
-<!-- 												<td class="name">John Doe</td> -->
-<!-- 												<td class="subject"><a href="#">RE: Transition from -->
-<!-- 														4G to 5G</a></td> -->
-<!-- 												<td class="time">11:17 AM</td> -->
-<!-- 											</tr> -->
-<!-- 											<tr class="unread"> -->
-<!-- 												<td class="small-col">3</td> -->
-<!-- 												<td class="name">Tristan Wells</td> -->
-<!-- 												<td class="subject"><a href="#">Status Update #33</a></td> -->
-<!-- 												<td class="time">11:03 AM</td> -->
-<!-- 											</tr> -->
-<!-- 											<tr class="unread"> -->
-<!-- 												<td class="small-col">4</td> -->
-<!-- 												<td class="name">Mary Johnson</td> -->
-<!-- 												<td class="subject"><a href="#">RE: Working on -->
-<!-- 														Holidays</a></td> -->
-<!-- 												<td class="time">10:23 AM</td> -->
-<!-- 											</tr> -->
-<!-- 											<tr class="unread"> -->
-<!-- 												<td class="small-col">5</td> -->
-<!-- 												<td class="name">Hock Leng</td> -->
-<!-- 												<td class="subject"><a href="#">Call Log #12</a></td> -->
-<!-- 												<td class="time">9:30 AM</td> -->
-<!-- 											</tr> -->
 										</tbody>
 									</table>
 								</div>
@@ -175,14 +140,9 @@
 						</div>
 						<!-- /.row -->
 					</div>
-					<!-- /.box-body -->
-					<div class="box-footer clearfix">
-						
-					</div>
 					<!-- box-footer -->
 				</div>
 				<!-- /.box -->
-
 			</section>
 		</div>
 
