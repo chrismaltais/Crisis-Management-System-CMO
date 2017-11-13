@@ -27,7 +27,7 @@
             <form action="${pageContext.request.contextPath}/authenticator" id="loginForm" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="User ID" required/>
+                        <input type="text" name="username" class="form-control" placeholder="User ID" autofocus="autofocus" required/>
                     </div>
                     
 					<div class="form-group">
