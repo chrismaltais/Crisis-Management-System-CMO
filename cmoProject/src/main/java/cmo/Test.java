@@ -168,7 +168,7 @@ public class Test implements CommandLineRunner {
 		order.setCrisisType("Android Invasion");
 		order.setAffectedArea("Orchard Road");
 		order.setCrisisDetails("Mass Panic");
-		order.setCouseofAction("Sending troops");
+		order.setCourseofAction("Sending troops");
 		orderRepo.save(order);
 		
 		EFOrder order2 = new EFOrder();
@@ -179,7 +179,7 @@ public class Test implements CommandLineRunner {
 		order.setCrisisType("Multiple Stabbings");
 		order.setAffectedArea("NTU");
 		order.setCrisisDetails("Lockdown School");
-		order.setCouseofAction("Sending troops, secure area");
+		order.setCourseofAction("Sending troops, secure area");
 		orderRepo.save(order2);
 		
 		EFOrder order3 = new EFOrder();
@@ -190,7 +190,7 @@ public class Test implements CommandLineRunner {
 		order.setCrisisType("Armed Robbery");
 		order.setAffectedArea("Jurong West");
 		order.setCrisisDetails("Surround Mall");
-		order.setCouseofAction("Ensure nobody leaves suspiciously");
+		order.setCourseofAction("Ensure nobody leaves suspiciously");
 		orderRepo.save(order3);
 		
 		EFOrder order4 = new EFOrder();
@@ -201,7 +201,7 @@ public class Test implements CommandLineRunner {
 		order.setCrisisType("Terrorist Threat");
 		order.setAffectedArea("Changi Airport");
 		order.setCrisisDetails("Suspiscious Luggage at Terminal 1");
-		order.setCouseofAction("Send in bob squad, secure the luggage");
+		order.setCourseofAction("Send in bob squad, secure the luggage");
 		orderRepo.save(order4);
 		
 		// Populate Proposal
