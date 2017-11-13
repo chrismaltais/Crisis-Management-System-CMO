@@ -1,7 +1,7 @@
 //Client side
 //Specify their URI
 //Create a method like createReport() to POST to their service
-package cmo.tony;
+package cmo.myapi;
 
 import java.util.LinkedHashMap;
 import java.util.List;
