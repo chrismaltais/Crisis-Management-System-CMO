@@ -8,19 +8,17 @@ import cmo.entities.Proposal;
 
 /**
  * Repository for Proposal entity
- * 
- * @author Ong Hock Leng
  *
  */
 public interface ProposalRepository extends CrudRepository<Proposal, Long> {
 
 	public Proposal findByProposalID(long proposalId);
-	
+
 	public List<Proposal> findAll();
-	
+
 	public List<Proposal> findByCrisisIDOrderByCrisisIDDesc(long crisisId);
-	
+
 	public Proposal findTop1ByOrderByProposalIDDesc();
-	
+
 	public List<Proposal> findAllByOrderByCrisisIDDesc();
 }

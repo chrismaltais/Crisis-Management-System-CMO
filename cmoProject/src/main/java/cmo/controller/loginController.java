@@ -27,11 +27,11 @@ public class loginController {
 		if (logindao.authenticate(username, password, domain)) {
 			if (username.equals("analyst")) {
 				return "redirect:/pages/911";
-			} else 
-				return "redirect:/general/analyst";		
+			} else
+				return "redirect:/general/analyst";
 		} else {
 			model.put("errorMessage", "Invalid Credentials");
 			return "redirect:/";
-		}	
+		}
 	}
 }

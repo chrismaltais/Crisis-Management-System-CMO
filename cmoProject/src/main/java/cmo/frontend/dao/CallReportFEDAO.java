@@ -8,10 +8,10 @@ public interface CallReportFEDAO {
 
 	// get specific call report by id
 	public CallReport getReport(long callReportId);
-	
+
 	// get list of call reports starting with the latest
 	public List<CallReport> getAll();
-	
+
 	// get list of call reports for crisisID starting from the latest
 	public List<CallReport> getAllByCrisisId(long crisisId);
 }

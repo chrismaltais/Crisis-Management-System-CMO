@@ -12,7 +12,7 @@ import cmo.entities.EFOrder;
 
 public class CMOEFClient {
 
-	public static final String REST_SERVICE_URI = "http://10.27.226.216:8080/CMOtoEF";
+	public static final String REST_SERVICE_URI = "http://10.0.0.3:8080/CMOtoEF";
 
 	// GET
 	@SuppressWarnings({ "unchecked" })
@@ -78,16 +78,14 @@ public class CMOEFClient {
 		System.out.println("Testing create Order API----------");
 
 		RestTemplate restTemplate = new RestTemplate();
-		// EFOrder order = new EFOrder(10, "Test10", "Analyst" , 4, "Type10", "Area10",
-		// "Detail10", "Action10");
 		boolean success;
 		try {
-			success = restTemplate.postForEntity(REST_SERVICE_URI + "/order/", order, EFOrder.class).getStatusCode().is2xxSuccessful();
+			success = restTemplate.postForEntity(REST_SERVICE_URI + "/order/", order, EFOrder.class).getStatusCode()
+					.is2xxSuccessful();
 		} catch (Exception e) {
 			success = false;
 		}
-//		System.out.println("Location : " + uri.toASCIIString());
-		
+
 		return success;
 	}
 

@@ -12,7 +12,7 @@ import cmo.entities.Proposal;
 
 public class CMOPMOClient {
 
-	 public static final String REST_SERVICE_URI = "http://10.27.199.49:8080/CMOtoPMO";
+	public static final String REST_SERVICE_URI = "http://10.0.0.2:8080/CMOtoPMO";
 
 	// GET
 	@SuppressWarnings({ "unchecked" })
@@ -84,9 +84,6 @@ public class CMOPMOClient {
 		System.out.println("Testing create Proposal API----------");
 
 		RestTemplate restTemplate = new RestTemplate();
-		// Proposal proposal = new Proposal(10, "Test10", "General", 4, "Type10",
-		// "Area10", 10000, "Duration10",
-		// "Detail10", "Action10", "Consequence10", "CleanUp10");
 		boolean success;
 		try {
 			success = restTemplate.postForEntity(REST_SERVICE_URI + "/proposal/", proposal, Proposal.class)
@@ -94,8 +91,7 @@ public class CMOPMOClient {
 		} catch (Exception e) {
 			success = false;
 		}
-		// System.out.println("Location : " + uri.toASCIIString());
-		
+
 		System.out.println("Sending to " + REST_SERVICE_URI);
 
 		return success;

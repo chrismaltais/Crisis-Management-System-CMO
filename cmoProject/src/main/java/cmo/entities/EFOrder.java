@@ -11,9 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 /**
  * To EF
- * 
- * @author HawksSeptua
- *
  */
 @Entity
 public class EFOrder {
@@ -53,7 +50,7 @@ public class EFOrder {
 		this.read = read;
 	}
 
-	// for use by cmo.tony.CMOEFClient
+	// for use by cmo.myapi.CMOEFClient
 	public EFOrder(long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
 			String affectedArea, String crisisDetails, String courseofAction) {
 		this.crisisID = crisisID;

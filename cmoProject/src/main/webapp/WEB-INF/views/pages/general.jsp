@@ -6,22 +6,22 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-	
+
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
@@ -133,67 +133,6 @@
 															pattern="dd/MM/yyyy HH:mm" /></td>
 												</tr>
 											</c:forEach>
-
-											<!-- 										<tr class="unread"> -->
-											<!-- 											<td class="small-col">1</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">2</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">3</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr class="unread"> -->
-											<!-- 											<td class="small-col">4</td> -->
-											<!-- 											<td class="name">John Doe</a></td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">5</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">6</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">7</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr> -->
-											<!-- 											<td class="small-col">8</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr class="unread"> -->
-											<!-- 											<td class="small-col">9</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
-											<!-- 										<tr class="unread"> -->
-											<!-- 											<td class="small-col">10</td> -->
-											<!-- 											<td class="name">John Doe</td> -->
-											<!-- 											<td class="subject"><a href="#">Urgent! Please read</a></td> -->
-											<!-- 											<td class="time">12:30 PM</td> -->
-											<!-- 										</tr> -->
 										</tbody>
 									</table>
 								</div>
@@ -250,7 +189,9 @@
 
 									document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
 									document
-											.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime).format("DD/MM/YYYY HH:mm");
+											.getElementById("messageReceivedTime").innerHTML = moment(
+											jsonObj.messageReceivedTime)
+											.format("DD/MM/YYYY HH:mm");
 									document.getElementById("pdf").innerHTML = "Click here	";
 									document.getElementById("pdf")
 											.setAttribute("href",
@@ -264,7 +205,7 @@
 					</script>
 					<!-- /.box-body -->
 					<div class="box-footer clearfix">
-						<button class="btn btn-xs btn-primary pull-right" 
+						<button class="btn btn-xs btn-primary pull-right"
 							onclick="putToMap()">View on Map</button>
 					</div>
 				</div>
@@ -281,8 +222,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<div id="map">
-						</div>
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
@@ -293,18 +233,21 @@
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+		
 	</script>
-	
+
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript">
+		
 	</script>
-	
+
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript">
+		
 	</script>
 
 	<!-- Inbox Reactive Script -->

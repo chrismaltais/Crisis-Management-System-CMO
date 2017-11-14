@@ -18,74 +18,73 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		return "redirect:/login";
 	}
-	
-	//apps/pages/forms/general.html
-	
-	
+
 	@RequestMapping(value = "/pages/{type}/{page}", method = RequestMethod.GET)
-	public String pagesOfTypes(Locale locale, Model model,@PathVariable(value="type") String type,@PathVariable(value="page") String page) {
+	public String pagesOfTypes(Locale locale, Model model, @PathVariable(value = "type") String type,
+			@PathVariable(value = "page") String page) {
 		logger.info("Welcome page! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "pages/"+type+"/"+page;
+
+		model.addAttribute("serverTime", formattedDate);
+
+		return "pages/" + type + "/" + page;
 	}
-	
-	@Autowired MailboxController mail;
-	
+
+	@Autowired
+	MailboxController mail;
+
 	@RequestMapping(value = "/pages/{page}", method = RequestMethod.GET)
-	public String pages(Locale locale, Model model,@PathVariable(value="page") String page) {
+	public String pages(Locale locale, Model model, @PathVariable(value = "page") String page) {
 		logger.info("Welcome page! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		mail.messageList(model, page);
-		
-		return "pages/"+page;
+
+		return "pages/" + page;
 	}
-	
+
 	@RequestMapping(value = "/general/{page}", method = RequestMethod.GET)
-	public String general(Locale locale, Model model,@PathVariable(value="page") String generalPage) {
+	public String general(Locale locale, Model model, @PathVariable(value = "page") String generalPage) {
 		logger.info("Welcome page! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		mail.messageList(model, generalPage);
-		
-		return "general/"+ generalPage;
+
+		return "general/" + generalPage;
 	}
 }

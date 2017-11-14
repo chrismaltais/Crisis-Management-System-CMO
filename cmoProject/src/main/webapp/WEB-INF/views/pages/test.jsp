@@ -197,7 +197,8 @@
 						<i class="fa fa-bell-o"></i>
 						<p class="same-line">CMO Live Feed</p>
 						<div id="internal-online-status" class="online-status"></div>
-						<p id="internal-online-status-text" class="same-line text-success small">Online</p>
+						<p id="internal-online-status-text"
+							class="same-line text-success small">Online</p>
 
 					</div>
 
@@ -223,7 +224,7 @@
 
 						<!--CHAT INPUT FORM -->
 						<div class="box-footer">
-						<form id="internalmessageForm" name="messageForm" action="">
+							<form id="internalmessageForm" name="messageForm" action="">
 								<div class="input-group">
 									<input class="form-control" type="text"
 										placeholder="Send a message..." id="internalmessage" /> <span
@@ -327,13 +328,9 @@
 			<div class="box-body">
 				Box class:
 				<code>.box.box-danger</code>
-				<p>piece of shit pieces of shit.piece of shit pieces of shit.
-					piece of shit pieces of shit.piece of shit pieces of shit. piece of
-					shit pieces of shit.piece of shit pieces of shit. piece of shit
-					pieces of shit.piece of shit pieces of shit. piece of shit pieces
-					of shit.piece of shit pieces of shit. piece of shit pieces of
-					shit.piece of shit pieces of shit. piece of shit pieces of
-					shit.piece of shit pieces of shit.</p>
+				<p>test test test test test test test test test test test test
+					test test test test test test test test test test test test test
+					test test</p>
 			</div>
 			<div class="overlay"></div>
 			<div class="loading-img"></div>
@@ -346,49 +343,57 @@
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+		
 	</script>
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript">
-		</script>
+		
+	</script>
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript">
-		</script>
+		
+	</script>
 	<!-- Bootstrap WYSIHTML5 -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
 		type="text/javascript">
-		</script>
+		
+	</script>
 	<!-- iCheck -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/plugins//iCheck/icheck.min.js"
 		type="text/javascript">
+		
 	</script>
 	<!-- Chat Scripts -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/main.js"
 		type="text/javascript">
+		
 	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/sockjs.min.js"
 		type="text/javascript">
+		
 	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/stomp.min.js"
 		type="text/javascript">
+		
 	</script>
 	<!-- Page script -->
 	<script type="text/javascript">
-	$(function() {
+		$(function() {
 
-		"use strict";
+			"use strict";
 
-		//Initialize WYSIHTML5 - text editor
-		$("#email_message").wysihtml5();
-	});
+			//Initialize WYSIHTML5 - text editor
+			$("#email_message").wysihtml5();
+		});
 	</script>
 
 </body>

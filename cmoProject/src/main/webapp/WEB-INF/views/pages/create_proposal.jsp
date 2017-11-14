@@ -96,8 +96,10 @@
 									class="form-control" placeholder="Affected Area">
 							</div>
 							<div class="form-group">
-								<label for="estimatedCasualties">Estimated Casualties</label>
-								<input type="number" id="estimatedCasualties" name="estimatedCasualties" class="form-control" placeholder="Estimated Casulaties">
+								<label for="estimatedCasualties">Estimated Casualties</label> <input
+									type="number" id="estimatedCasualties"
+									name="estimatedCasualties" class="form-control"
+									placeholder="Estimated Casulaties">
 							</div>
 							<div class="form-group">
 								<label for="crisisDuration">Crisis Duration</label> <input
@@ -110,14 +112,15 @@
 									class="form-control" placeholder="Crisis Details">
 							</div>
 							<div class="form-group">
-								<label for="courseOfAction">Course of Action</label> <textarea
-									type="text" id="courseOfAction" name="courseOfAction"
+								<label for="courseOfAction">Course of Action</label>
+								<textarea type="text" id="courseOfAction" name="courseOfAction"
 									class="form-control" placeholder="Course of Action"></textarea>
 							</div>
 							<div class="form-group">
-								<label for="consequencesOfAction">Consequences of Action</label> <input
-									type="text" id="consequencesOfAction" name="consequencesOfAction"
-									class="form-control" placeholder="Consequences of Action">
+								<label for="consequencesOfAction">Consequences of Action</label>
+								<input type="text" id="consequencesOfAction"
+									name="consequencesOfAction" class="form-control"
+									placeholder="Consequences of Action">
 							</div>
 							<div class="form-group">
 								<label for="cleanUpAction">Clean Up Action</label> <input

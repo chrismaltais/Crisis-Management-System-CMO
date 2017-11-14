@@ -6,22 +6,22 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-	
+
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Theme style -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/AdminLTE.css"
@@ -227,7 +227,9 @@
 
 										document.getElementById("crisisID").innerHTML = jsonObj.crisisID;
 										document
-												.getElementById("messageReceivedTime").innerHTML = moment(jsonObj.messageReceivedTime).format("DD/MM/YYYY HH:mm");
+												.getElementById("messageReceivedTime").innerHTML = moment(
+												jsonObj.messageReceivedTime)
+												.format("DD/MM/YYYY HH:mm");
 										document.getElementById("pdf").innerHTML = "Click here	";
 										document
 												.getElementById("pdf")
@@ -263,51 +265,51 @@
 				</div>
 			</div>
 		</div>
-		</section>
-		<!--/.content -->
+	</section>
+	<!--/.content -->
 
-		<!-- jQuery 2.0.2 -->
-		<script
-			src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-			
-		<!-- Bootstrap -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
-			type="text/javascript"></script>
-			
-		<!-- AdminLTE App -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
-			type="text/javascript"></script>
+	<!-- jQuery 2.0.2 -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
-		<!-- Page script -->
-		<script type="text/javascript">
-			$(function() {
-				"use strict";
-				//Initialize WYSIHTML5 - text editor
-				$("#email_message").wysihtml5();
+	<!-- Bootstrap -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
+		type="text/javascript"></script>
+
+	<!-- AdminLTE App -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
+		type="text/javascript"></script>
+
+	<!-- Page script -->
+	<script type="text/javascript">
+		$(function() {
+			"use strict";
+			//Initialize WYSIHTML5 - text editor
+			$("#email_message").wysihtml5();
+		});
+	</script>
+
+	<!-- Inbox Reactive Script -->
+	<script>
+		$(document).ready(function() {
+			$("#mailboxContent tr").click(function() {
+				$(this).removeClass("unread");
 			});
-		</script>
+		});
+	</script>
+	<!-- End Inbox Reactive Script -->
 
-		<!-- Inbox Reactive Script -->
-		<script>
-			$(document).ready(function() {
-				$("#mailboxContent tr").click(function() {
-					$(this).removeClass("unread");
-				});
-			});
-		</script>
-		<!-- End Inbox Reactive Script -->
-
-		<!-- chat script -->
-		<script
-			src="${pageContext.request.contextPath}/resources/js/chat/maingeneral.js"
-			type="text/javascript"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/chat/sockjs.mingeneral.js"
-			type="text/javascript"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/js/chat/stomp.mingeneral.js"
-			type="text/javascript"></script>
+	<!-- chat script -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/maingeneral.js"
+		type="text/javascript"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/sockjs.mingeneral.js"
+		type="text/javascript"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/chat/stomp.mingeneral.js"
+		type="text/javascript"></script>
 </body>
 </html>

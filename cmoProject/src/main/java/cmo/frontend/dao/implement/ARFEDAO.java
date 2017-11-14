@@ -27,16 +27,16 @@ public class ARFEDAO implements ApprovalReportFEDAO {
 	public List<ApprovalReport> getAllReports() {
 		return repo.findAll();
 	}
-	
+
 	@Override
 	public void setAnalysisReadable(long crisisID, boolean readable) {
 		ApprovalReport report = repo.findByCrisisID(crisisID);
 		report.setAnalysisReadable(readable);
 		repo.save(report);
 	}
-	
+
 	@Override
-	public List<ApprovalReport> getAllAnalysisReadableReports(){
+	public List<ApprovalReport> getAllAnalysisReadableReports() {
 		return repo.findByAnalysisReadableOrderByCrisisIDDesc(true);
 	}
 

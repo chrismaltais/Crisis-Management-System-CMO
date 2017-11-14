@@ -1,6 +1,5 @@
 package cmo;
 
-import java.net.URI;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -38,7 +37,7 @@ public class Test implements CommandLineRunner {
 	
 	@GetMapping("/testPMO")
 	public String sendToPMO() {
-		String URI = "http://10.27.199.49:8080/CMOtoPMO/proposal/";
+		String URI = "http://10.0.0.2:8080/CMOtoPMO/proposal/";
 		RestTemplate rest = new RestTemplate();
 		Proposal proposal = proposalDAO.getByProposalId(1);
 //		Proposal o = new Proposal();

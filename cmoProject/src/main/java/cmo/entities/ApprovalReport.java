@@ -11,8 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 /**
  * Approval Report from PMO
- * 
- * @author Ong Hock Leng
  *
  */
 

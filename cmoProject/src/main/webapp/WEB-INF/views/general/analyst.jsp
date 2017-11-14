@@ -6,17 +6,17 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-	
+
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
@@ -251,41 +251,46 @@
 				</script>
 			</div>
 
-				<!-- Button/Function to Load Map -->
-	<div class="box-footer clearfix">
-		<button class="btn btn-xs btn-primary pull-left"
-				onclick="putToMap()">View on Map</button>
-		<script type="text/javascript">
-		function putToMap() {
-			var marker = {
-			coords : coordParse(document
-			.getElementById("affectedArea").innerHTML),
-			content : document
-			.getElementById("callReportID").innerHTML
-			};
-			addMarker(marker);
-		}
-		</script>
-		<button class="btn btn-info pull-right" onclick="sendProposal()">
-			<i class="fa fa-user"></i>Send to PMO
-		</button>
-		</div>
-		<script>
-		function sendProposal(){
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function(){
-			console.log(this.status == 200);
-				if (this.readyState == 4 && this.status == 200){
-					alert(this.response);
+			<!-- Button/Function to Load Map -->
+			<div class="box-footer clearfix">
+				<button class="btn btn-xs btn-primary pull-left"
+					onclick="putToMap()">View on Map</button>
+				<script type="text/javascript">
+					function putToMap() {
+						var marker = {
+							coords : coordParse(document
+									.getElementById("affectedArea").innerHTML),
+							content : document.getElementById("callReportID").innerHTML
+						};
+						addMarker(marker);
+					}
+				</script>
+				<button class="btn btn-info pull-right" onclick="sendProposal()">
+					<i class="fa fa-user"></i>Send to PMO
+				</button>
+			</div>
+			<script>
+				function sendProposal() {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						console.log(this.status == 200);
+						if (this.readyState == 4 && this.status == 200) {
+							alert(this.response);
+						}
+					};
+					xhttp
+							.open(
+									"GET",
+									"${pageContext.request.contextPath}/sendProposal/"
+											+ document
+													.getElementById("proposalID").innerHTML,
+									true);
+					xhttp.send();
 				}
-			};
-			xhttp.open("GET", "${pageContext.request.contextPath}/sendProposal/" + document.getElementById("proposalID").innerHTML, true);
-			xhttp.send();
-		}
-		</script>
+			</script>
 		</div>
 	</div>
-	
+
 	<div class="col-md-6">
 		<div class="box">
 			<div class="box-header">
@@ -294,8 +299,7 @@
 			</div>
 
 			<div class="box-body">
-				<div id="map">
-				</div>
+				<div id="map"></div>
 			</div>
 		</div>
 	</div>
@@ -305,12 +309,12 @@
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		
+
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript"></script>
-		
+
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"

@@ -11,10 +11,10 @@ import cmo.repository.ProposalRepository;
 
 @Service
 public class PFEDAO implements ProposalFEDAO {
-	
+
 	@Autowired
 	private ProposalRepository repo;
-	
+
 	@Override
 	public Proposal saveNewProposal(Proposal proposal) {
 		repo.save(proposal);

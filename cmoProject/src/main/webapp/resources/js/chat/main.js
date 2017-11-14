@@ -22,7 +22,7 @@ function connect(event) {
 	username = "Analyst";
 
     //if(username) {
-        var socket = new SockJS('http://10.27.220.206:8080/ws');
+        var socket = new SockJS('http://10.0.0.3:8080/ws');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);

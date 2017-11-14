@@ -16,14 +16,14 @@ public class PDFConverterApprovalReport implements PDFConverter<ApprovalReport> 
 	@Override
 	public String convertToPdf(ApprovalReport report) {
 		String FILENAME = "Approval-" + report.getCrisisID() + ".pdf";
-		
+
 		try {
 			Files.write(Paths.get(BASEPATH + FILENAME), Base64.getDecoder().decode(report.getPdfBase64()));
 		} catch (Exception e) {
 			FILENAME = "";
 			e.printStackTrace();
 		}
-		
+
 		return FILENAME;
 	}
 
@@ -35,7 +35,7 @@ public class PDFConverterApprovalReport implements PDFConverter<ApprovalReport> 
 			report = null;
 			e.printStackTrace();
 		}
-		
+
 		return report;
 	}
 

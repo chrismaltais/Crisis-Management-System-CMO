@@ -11,7 +11,7 @@ import cmo.repository.FeedbackReportRepository;
 
 @Service
 public class FRFEDAO implements FeedbackReportFEDAO {
-	
+
 	@Autowired
 	private FeedbackReportRepository repo;
 

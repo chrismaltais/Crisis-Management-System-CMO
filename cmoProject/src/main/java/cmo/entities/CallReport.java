@@ -9,15 +9,15 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-/**Call Report from 911
- * 
- * @author Ong Hock Leng
+/**
+ * Call Report from 911
  *
  */
 @Entity
 public class CallReport {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long callReportID;
 	private long crisisID;
 	private String name;

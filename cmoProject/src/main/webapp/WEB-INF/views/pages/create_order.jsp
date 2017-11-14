@@ -56,20 +56,23 @@
 						<h3 class='box-title'>Create EF Orders</h3>
 					</div>
 					<!-- /.box-header -->
-					<form role="form" action="${pageContext.request.contextPath}/formSubmission/efOrders" method="post">
+					<form role="form"
+						action="${pageContext.request.contextPath}/formSubmission/efOrders"
+						method="post">
 						<div class="box-body">
 							<div class="form-group">
 								<label for="crisisID">Crisis ID</label> <input type="text"
-									id="crisisID" name="crisisID" class="form-control" placeholder="Crisis ID">
+									id="crisisID" name="crisisID" class="form-control"
+									placeholder="Crisis ID">
 							</div>
 							<div class="form-group">
-								<label for="name">Name</label> <input type="text" id="name" name="name"
-									class="form-control" placeholder="Name">
+								<label for="name">Name</label> <input type="text" id="name"
+									name="name" class="form-control" placeholder="Name">
 							</div>
 							<div class="form-group">
 								<label for="positionInCMO">Position in CMO</label> <input
-									type="text" id="positionInCMO" name="positionInCMO" class="form-control"
-									placeholder="Position in CMO">
+									type="text" id="positionInCMO" name="positionInCMO"
+									class="form-control" placeholder="Position in CMO">
 							</div>
 							<div class="form-group">
 								<label for="threatLevel">Threat Level</label><br> <select
@@ -83,22 +86,23 @@
 							</div>
 							<div class="form-group">
 								<label for="crisisType">Crisis Type</label> <input type="text"
-									id="crisisType" name="crisisType" class="form-control" placeholder="Crisis Type">
+									id="crisisType" name="crisisType" class="form-control"
+									placeholder="Crisis Type">
 							</div>
 							<div class="form-group">
 								<label for="affectedArea">Affected Area</label> <input
-									type="text" id="affectedArea" name="affectedArea" class="form-control"
-									placeholder="Affected Area">
+									type="text" id="affectedArea" name="affectedArea"
+									class="form-control" placeholder="Affected Area">
 							</div>
 							<div class="form-group">
 								<label for="crisisDetails">Crisis Details</label> <input
-									type="text" id="crisisDetails" name="crisisDetails" class="form-control"
-									placeholder="Crisis Details">
+									type="text" id="crisisDetails" name="crisisDetails"
+									class="form-control" placeholder="Crisis Details">
 							</div>
 							<div class="form-group">
-								<label for="courseofAction">Course of Action</label> <textarea
-									type="text" id="courseofAction" name="courseofAction" class="form-control"
-									placeholder="Course of Action"></textarea>
+								<label for="courseofAction">Course of Action</label>
+								<textarea type="text" id="courseofAction" name="courseofAction"
+									class="form-control" placeholder="Course of Action"></textarea>
 							</div>
 						</div>
 						<!-- /.box-body -->

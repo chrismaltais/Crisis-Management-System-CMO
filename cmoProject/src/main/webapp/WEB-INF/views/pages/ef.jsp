@@ -6,17 +6,17 @@
 <meta
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
-	
+
 <!-- bootstrap 3.0.2 -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- font Awesome -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-	
+
 <!-- Ionicons -->
 <link
 	href="${pageContext.request.contextPath}/resources/css/ionicons.min.css"
@@ -111,41 +111,41 @@
 							</div>
 						</div>
 						<!-- /.row -->
-							<div class="table-responsive">
-								<!-- THE MESSAGES -->
+						<div class="table-responsive">
+							<!-- THE MESSAGES -->
 
-								<table class="table table-mailbox">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>CrisisID</th>
-											<th>Threat Level</th>
-											<th>Deployment Status</th>
-											<th>Date & Time</th>
+							<table class="table table-mailbox">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>CrisisID</th>
+										<th>Threat Level</th>
+										<th>Deployment Status</th>
+										<th>Date & Time</th>
+									</tr>
+								</thead>
+								<tbody id="mailboxContent">
+									<c:forEach items="${messageList}" var="item" varStatus="stat">
+										<tr ${item.read ? '' : 'class="unread"'}
+											style="cursor: pointer;"
+											onclick="loadDoc('/ajax/ef/from/${item.feedbackReportID}')">
+											<td class="small-col">${stat.index + 1}</td>
+											<td class="name">${item.crisisID}</td>
+											<td class="subject">${item.threatLevel}</td>
+											<td class="subject">${item.deploymentStatus}</td>
+											<td class="time"><fmt:formatDate
+													value="${item.messageReceivedTime}"
+													pattern="dd/MM/yyyy HH:mm" /></td>
 										</tr>
-									</thead>
-									<tbody id="mailboxContent">
-										<c:forEach items="${messageList}" var="item" varStatus="stat">
-											<tr ${item.read ? '' : 'class="unread"'}
-												style="cursor: pointer;"
-												onclick="loadDoc('/ajax/ef/from/${item.feedbackReportID}')">
-												<td class="small-col">${stat.index + 1}</td>
-												<td class="name">${item.crisisID}</td>
-												<td class="subject">${item.threatLevel}</td>
-												<td class="subject">${item.deploymentStatus}</td>
-												<td class="time"><fmt:formatDate
-														value="${item.messageReceivedTime}"
-														pattern="dd/MM/yyyy HH:mm" /></td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
-							</div>
-							<!-- /.table-responsive -->
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
+						<!-- /.table-responsive -->
 					</div>
 				</div>
-			
+			</div>
+
 			<!-- CHAT BOX -->
 			<div class="col-md-4">
 				<div class="card mb-3 " style="height: 500px;">
@@ -196,66 +196,66 @@
 					</div>
 				</div>
 			</div>
-	</div>
-	<!--  2nd row -->
-	<div class="row">
-		<div class="col-md-6">
-			<div class="box">
-				<div class="box-header">
-					<h4 class="box-title">Crisis Data</h4>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body">
-					<table id="messageContent" class="table table-condensed">
-						<tbody>
-							<tr>
-								<td>Report ID:</td>
-								<td id="feedbackReportID"></td>
-							</tr>
-							<tr>
-								<td>Crisis ID:</td>
-								<td id="crisisID"></td>
-							</tr>
-							<tr>
-								<td>Name:</td>
-								<td id="name"></td>
-							</tr>
-							<tr>
-								<td>Position in EF:</td>
-								<td id="positionInEF"></td>
-							</tr>
-							<tr>
-								<td>Threat Level:</td>
-								<td id="threatLevel"></td>
-							</tr>
-							<tr>
-								<td>Casualties Rescued:</td>
-								<td id="casualtiesRescued"></td>
-							</tr>
-							<tr>
-								<td>Deployment Status</td>
-								<td id="deploymentStatus"></td>
-							</tr>
-							<tr>
-								<td>Situation Status:</td>
-								<td id="situationStatus"></td>
-							</tr>
-							<tr>
-								<td>Timestamp:</td>
-								<td id="timestamp"></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<!-- /.box-body -->
-				
-				<!-- Button/Function to Load Map -->
-				<div class="box-footer clearfix">
-					<button class="btn btn-xl btn-primary pull-right" 
-						onclick="putToMap()">View on Map</button>
-				</div>
-				<script type="text/javascript">
-				function putToMap() {
+		</div>
+		<!--  2nd row -->
+		<div class="row">
+			<div class="col-md-6">
+				<div class="box">
+					<div class="box-header">
+						<h4 class="box-title">Crisis Data</h4>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<table id="messageContent" class="table table-condensed">
+							<tbody>
+								<tr>
+									<td>Report ID:</td>
+									<td id="feedbackReportID"></td>
+								</tr>
+								<tr>
+									<td>Crisis ID:</td>
+									<td id="crisisID"></td>
+								</tr>
+								<tr>
+									<td>Name:</td>
+									<td id="name"></td>
+								</tr>
+								<tr>
+									<td>Position in EF:</td>
+									<td id="positionInEF"></td>
+								</tr>
+								<tr>
+									<td>Threat Level:</td>
+									<td id="threatLevel"></td>
+								</tr>
+								<tr>
+									<td>Casualties Rescued:</td>
+									<td id="casualtiesRescued"></td>
+								</tr>
+								<tr>
+									<td>Deployment Status</td>
+									<td id="deploymentStatus"></td>
+								</tr>
+								<tr>
+									<td>Situation Status:</td>
+									<td id="situationStatus"></td>
+								</tr>
+								<tr>
+									<td>Timestamp:</td>
+									<td id="timestamp"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.box-body -->
+
+					<!-- Button/Function to Load Map -->
+					<div class="box-footer clearfix">
+						<button class="btn btn-xl btn-primary pull-right"
+							onclick="putToMap()">View on Map</button>
+					</div>
+					<script type="text/javascript">
+						function putToMap() {
 							var marker = {
 								coords : coordParse(document
 										.getElementById("affectedArea").innerHTML),
@@ -264,30 +264,29 @@
 							};
 							addMarker(marker);
 						}
-				</script>
-				
-			</div>
-			<!-- /.box -->
-		</div>
-		<!-- /.col -->
+					</script>
 
-		<div class="col-md-6">
-			<div class="box">
-				<div class="box-header">
-					<i class="fa fa-globe"></i>
-					<h3 class="box-title">Map</h3>
 				</div>
-				<!-- /.box-header -->
-				<div class="box-body">
-					<div id= "map">
+				<!-- /.box -->
+			</div>
+			<!-- /.col -->
+
+			<div class="col-md-6">
+				<div class="box">
+					<div class="box-header">
+						<i class="fa fa-globe"></i>
+						<h3 class="box-title">Map</h3>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</section>
 	<!-- /.content -->
-	
+
 	<!-- Ajax script -->
 	<script>
 		function loadDoc(link) {
@@ -323,36 +322,42 @@
 			xhttp.send();
 		}
 	</script>
-	
+
 	<!-- jQuery 2.0.2 -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+		
 	</script>
-	
+
 	<!-- Bootstrap -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript">
+		
 	</script>
-	
+
 	<!-- AdminLTE App -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/AdminLTE/app.js"
 		type="text/javascript">
+		
 	</script>
-	
+
 	<!-- Chat Scripts -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/main.js"
 		type="text/javascript">
+		
 	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/sockjs.min.js"
 		type="text/javascript">
+		
 	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/chat/stomp.min.js"
 		type="text/javascript">
+		
 	</script>
 
 	<!-- Inbox Reactive Script -->

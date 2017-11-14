@@ -2,10 +2,7 @@ package cmo.frontend.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
 import cmo.entities.ApprovalReport;
-import cmo.entities.FeedbackReport;
 
 public interface ApprovalReportFEDAO {
 

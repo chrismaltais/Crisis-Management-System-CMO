@@ -9,10 +9,8 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-/**To PMO
- * 
- * @author HawksSeptua
- *
+/**
+ * To PMO
  */
 
 @Entity
@@ -62,7 +60,7 @@ public class Proposal {
 		this.read = read;
 	}
 
-	// for use by cmo.tony.CMOPMOClient
+	// for use by cmo.myapi.CMOPMOClient
 	public Proposal(long crisisID, String name, String positionInCMO, int threatLevel, String crisisType,
 			String affectedArea, int estimatedCasualties, String crisisDuration, String crisisDetails,
 			String courseOfAction, String consequencesOfAction, String cleanUpAction) {
