@@ -7,6 +7,14 @@ This project is done as one of the four subsystems in a simulated job scope.
 
 Project Completion Date: 14 Nov 2017
 
+![Screenshot](https://github.com/chrismaltais/Crisis-Management-System-CMO/blob/master/screenshots/Analyst%20%232.png?raw=true)
+
+## Access
+
+**Username & Password**: analyst
+
+**Username & Password**: general
+
 ## Table of Contents
 0. [Team](#team)
 1. [Development Environment](#development-environment)
