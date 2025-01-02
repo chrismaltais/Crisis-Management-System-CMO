@@ -23,18 +23,6 @@ Project Completion Date: 14 Nov 2017
 4. [Java Packages](#java-packages)
 5. [Project Properties](#project-properties)
 6. [Features to Implement](#features-to-implement)
----------------------------
-## Team 
-Team: SSP2 CMO (AY17/18)(Semester 1)
-
-Members:
-* Marathe Ajinkya Avinash
-* Ong Hock Leng
-* Chris Maltais
-* Lim Dong Li, Tony
-* Rohaizad Bin Noordin
-* Tham Jue Dong Gabriel
-* Tan Han Jenn Zacharias
 -----------------------------
 ## Development Environment
 **IDE**: Eclipse Java EE IDE for Web Developers (Version: Oxygen.1a Release (4.7.1a))
